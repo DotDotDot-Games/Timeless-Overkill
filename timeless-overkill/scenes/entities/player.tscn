@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bc161ne8nak3l"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0qees"]
+load_path = "res://.godot/imported/shooter up Teams.png-d2a7afa69397c637a49fdf616cb9603d.ctex"
+
+[node name="player" type="CharacterBody2D" unique_id=610688041]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=843150470]
+texture = SubResource("CompressedTexture2D_0qees")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2016361329]
