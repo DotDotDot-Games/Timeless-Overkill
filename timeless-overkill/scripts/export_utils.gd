@@ -1,0 +1,4 @@
+@abstract
+class_name ExportUtils
+
+const VISIBLE_READ_ONLY := PROPERTY_USAGE_DEFAULT | PROPERTY_USAGE_READ_ONLY
