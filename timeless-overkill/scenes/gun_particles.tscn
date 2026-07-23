@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cv81efajjoaoj"]
+
+[ext_resource type="Texture2D" uid="uid://cx3hgjj08jl42" path="res://assets/particles/circle_sprite32.png" id="1_v0bwg"]
+
+[sub_resource type="Curve" id="Curve_3381y"]
+_data = [Vector2(0, 0.115151525), 0.0, 0.081594914, 0, 0, Vector2(0.39178085, 0.29090917), 1.0792434, 1.0792434, 0, 0, Vector2(1, 0), 7.9472513, 0.0, 0, 0]
+point_count = 3
+
+[node name="gun_particles" type="CPUParticles2D" unique_id=922829184]
+emitting = false
+amount = 1
+texture = ExtResource("1_v0bwg")
+lifetime = 0.4
+one_shot = true
+gravity = Vector2(0, 0)
+scale_amount_curve = SubResource("Curve_3381y")

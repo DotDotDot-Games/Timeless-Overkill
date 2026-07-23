@@ -6,6 +6,7 @@ var direction : Vector2 = Vector2(0,0)
 var bounces : int
 var pierce : int
 @onready var timer: Timer = $Timer
+var hit_particles = preload("res://scenes/gun_particles.tscn")
 
 func _ready():
 	velocity = direction * bullet_data.bullet_speed
@@ -21,11 +22,20 @@ func _physics_process(delta: float) -> void:
 		if collider.is_in_group("Enemies"):
 			damage(collider)
 			collider.hit()
+			spawn_particle()
 		if bounces >= 1:
 			velocity = velocity.bounce(collision.get_normal())
 			bounces -= 1
 		else:
+			spawn_particle()
 			queue_free()
+func spawn_particle():
+	var particles = hit_particles.instantiate()
+	particles.global_position = global_position
+	get_parent().add_child(particles)
+	particles.modulate = bullet_data.color
+	particles.emitting = true
+	
 func damage(collider):
 	collider.health -= bullet_data.damage
 	#

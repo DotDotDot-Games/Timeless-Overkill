@@ -354,3 +354,5 @@ show_percentage = false
 [node name="zombie" parent="Enemies" unique_id=773458434 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
 player = NodePath("../../player")
 stats = ExtResource("5_iywne")
+
+[node name="Particles" type="Node" parent="." unique_id=446993355]

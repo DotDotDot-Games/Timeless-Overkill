@@ -6,3 +6,5 @@ class_name EnemyStats
 @export var damage : float
 @export var range : float
 @export var weapon : GunType
+@export var color: Color
+# color for death aprticle

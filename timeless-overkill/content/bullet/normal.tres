@@ -10,4 +10,5 @@ damage = 20.0
 lifetime = 5.0
 pierce = 1
 scene = ExtResource("1_u0u22")
+color = Color(0.93359375, 0.86151147, 0.094818115, 1)
 metadata/_custom_type_script = "uid://jretxvfat8ih"

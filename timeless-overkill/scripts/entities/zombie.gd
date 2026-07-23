@@ -6,11 +6,14 @@ extends CharacterBody2D
 @export var stats: EnemyStats
 @onready var damage_timer : Timer = $DamageTimer
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
+@onready var particle_node : Node = $"../../Particles"
+
+var death_particles = preload("res://scenes/death_particles.tscn")
 var health_bar = preload("res://scenes/healthbar.tscn")
 
 var health : float
 var max_health : float
-
+var color : Color
 
 var can_damage = true
 func _ready():
@@ -22,6 +25,7 @@ func _ready():
 func set_up_variables():
 	health = stats.health
 	max_health = stats.health
+	color = stats.color
 	
 func _physics_process(delta: float) -> void:
 	if health <= 0:
@@ -43,8 +47,14 @@ func damage(collider):
 		damage_timer.start()
 		can_damage = false
 func hit():
+	
 	animation_player.play("hit_flash")
 func kill():
+	var particles = death_particles.instantiate()
+	particles.global_position = global_position
+	particle_node.add_child(particles)
+	particles.modulate = color
+	particles.emitting = true
 	queue_free()
 func make_path():
 	nav_agent.target_position = player.global_position

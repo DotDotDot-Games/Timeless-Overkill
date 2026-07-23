@@ -7,3 +7,4 @@ class_name BulletType
 @export var lifetime : float
 @export var pierce : int
 @export var scene : PackedScene
+@export var color : Color
