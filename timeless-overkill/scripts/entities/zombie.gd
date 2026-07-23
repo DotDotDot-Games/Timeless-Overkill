@@ -5,13 +5,23 @@ extends CharacterBody2D
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
 @export var stats: EnemyStats
 @onready var damage_timer : Timer = $DamageTimer
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
+var health_bar = preload("res://scenes/healthbar.tscn")
 
-var health := 100
+var health : float
+var max_health : float
+
 
 var can_damage = true
 func _ready():
-	health = stats.health
 	add_to_group("Enemies")
+	set_up_variables()
+	var health_bar_a = health_bar.instantiate()
+	add_child(health_bar_a)
+	
+func set_up_variables():
+	health = stats.health
+	max_health = stats.health
 	
 func _physics_process(delta: float) -> void:
 	if health <= 0:
@@ -32,7 +42,8 @@ func damage(collider):
 		collider.health -= stats.damage
 		damage_timer.start()
 		can_damage = false
-	
+func hit():
+	animation_player.play("hit_flash")
 func kill():
 	queue_free()
 func make_path():

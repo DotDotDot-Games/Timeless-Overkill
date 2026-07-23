@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider()
 		if collider.is_in_group("Enemies"):
 			damage(collider)
+			collider.hit()
 		if bounces >= 1:
 			velocity = velocity.bounce(collision.get_normal())
 			bounces -= 1
