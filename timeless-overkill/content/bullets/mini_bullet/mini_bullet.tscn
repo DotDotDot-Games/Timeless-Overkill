@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dg06f3dj78knq"]
+
+[ext_resource type="PackedScene" uid="uid://b6qam0hoxbarb" path="res://content/bullets/bullet.tscn" id="1_jjliv"]
+[ext_resource type="Resource" uid="uid://dqrgiqanwp7o0" path="res://content/bullets/mini_bullet/mini_bullet.tres" id="2_ncu6r"]
+[ext_resource type="Texture2D" uid="uid://buxiyoksyx856" path="res://assets/ball.png" id="4_mbu11"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ic5ld"]
+radius = 8.0
+
+[node name="MiniBullet" unique_id=1132919546 instance=ExtResource("1_jjliv")]
+stats = ExtResource("2_ncu6r")
+
+[node name="Sprite2D" parent="." index="0" unique_id=99382734]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_mbu11")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=913342262]
+shape = SubResource("CircleShape2D_ic5ld")

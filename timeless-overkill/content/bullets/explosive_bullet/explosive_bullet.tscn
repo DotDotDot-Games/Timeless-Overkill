@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://6ohrrdhxscnq"]
+
+[ext_resource type="PackedScene" uid="uid://b6qam0hoxbarb" path="res://content/bullets/bullet.tscn" id="1_3hg3e"]
+[ext_resource type="Script" uid="uid://cxolhuj7slvus" path="res://content/bullets/explosive_bullet/explosive_bullet.gd" id="2_eribl"]
+[ext_resource type="Resource" uid="uid://djmkibiocy85a" path="res://content/bullets/explosive_bullet/explosive_bullet.tres" id="3_iblvo"]
+[ext_resource type="Texture2D" uid="uid://dttg47cpt6ulq" path="res://content/bullets/explosive_bullet/explosive_bullet.png" id="4_5s7lp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aye2o"]
+radius = 12.649111
+
+[node name="ExplosiveBullet" unique_id=1132919546 instance=ExtResource("1_3hg3e")]
+script = ExtResource("2_eribl")
+stats = ExtResource("3_iblvo")
+
+[node name="Sprite2D" parent="." index="0" unique_id=99382734]
+position = Vector2(0, -4)
+texture = ExtResource("4_5s7lp")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=913342262]
+position = Vector2(0, -0.5)
+shape = SubResource("CircleShape2D_aye2o")

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="BulletStats" format=3 uid="uid://b0fyw47chn7rn"]
+
+[ext_resource type="Script" uid="uid://6q5kx66wrigb" path="res://components/resources/limited_value.gd" id="1_0usyi"]
+[ext_resource type="Script" uid="uid://dv34np0gi74dy" path="res://resources/bullets/bullet_stats.gd" id="1_siege"]
+[ext_resource type="Texture2D" uid="uid://cmd5xsy572pbk" path="res://content/bullets/ricocheting_bullet/ricochet_bullet.png" id="3_epwa5"]
+
+[sub_resource type="Resource" id="Resource_15t4j"]
+script = ExtResource("1_0usyi")
+_current_value = 5.0
+_max_value = 5.0
+metadata/_custom_type_script = "uid://6q5kx66wrigb"
+
+[resource]
+script = ExtResource("1_siege")
+_id = "ricocheting_bullet"
+name = "Ricocheting Bullet"
+speed = 500.0
+bounces = SubResource("Resource_15t4j")
+damage = 20.0
+texture = ExtResource("3_epwa5")
+scene = "uid://c0gsgwlgqp7x3"
+metadata/_custom_type_script = "uid://dv34np0gi74dy"

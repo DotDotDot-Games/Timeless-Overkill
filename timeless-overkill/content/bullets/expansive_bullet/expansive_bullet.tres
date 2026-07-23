@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="BulletStats" format=3 uid="uid://d1wc54h58kk5r"]
+
+[ext_resource type="Script" uid="uid://6q5kx66wrigb" path="res://components/resources/limited_value.gd" id="1_fn57x"]
+[ext_resource type="Script" uid="uid://dv34np0gi74dy" path="res://resources/bullets/bullet_stats.gd" id="1_ksfus"]
+[ext_resource type="Texture2D" uid="uid://c4u7cplns077f" path="res://content/bullets/expansive_bullet/expansive_bullet.png" id="3_57uxr"]
+
+[sub_resource type="Resource" id="Resource_d8yxn"]
+script = ExtResource("1_fn57x")
+_current_value = 1.0
+_max_value = 1.0
+metadata/_custom_type_script = "uid://6q5kx66wrigb"
+
+[resource]
+script = ExtResource("1_ksfus")
+speed = 200.0
+damage = 20.0
+texture = ExtResource("3_57uxr")
+bounces = SubResource("Resource_d8yxn")
+scene = "uid://hknfdqyi3i6t"
+_id = "expansive_bullet"
+name = "Expansive Bullet"
+metadata/_custom_type_script = "uid://dv34np0gi74dy"

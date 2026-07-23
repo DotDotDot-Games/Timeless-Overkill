@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://1ks8qojlsf20"]
+
+[ext_resource type="Script" uid="uid://emi8bbnrilm2" path="res://scripts/items/item_pickable_node.gd" id="1_yhvea"]
+
+[node name="ItemPickableNode" type="Sprite2D" unique_id=1815118643 groups=["item"]]
+script = ExtResource("1_yhvea")
+
+[node name="Area" type="Area2D" parent="." unique_id=8501530]
+
+[node name="Pickbox" type="CollisionShape2D" parent="Area" unique_id=75641511]
+
+[connection signal="body_entered" from="Area" to="." method="_on_player_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_player_exited"]
