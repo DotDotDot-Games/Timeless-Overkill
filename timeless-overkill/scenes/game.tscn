@@ -363,4 +363,6 @@ stats = ExtResource("5_iywne")
 
 [node name="Particles" type="Node" parent="." unique_id=446993355]
 
+[node name="Clones" type="Node" parent="." unique_id=1439863846]
+
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

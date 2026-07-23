@@ -20,7 +20,8 @@ var saved_direction : Vector2
 @onready var health_bar : ProgressBar = $"../CanvasLayer/UI/HealthBar"
 @onready var bullet_timer : Timer = $BulletCooldown
 @onready var dash_timer : Timer = $DashTime
-
+@onready var clone_node : Node = $"../Clones"
+var clone_scene = preload("res://scenes/clone.tscn")
 #stats
 var health := 100
 var max_health := health
@@ -85,6 +86,10 @@ func _physics_process(_delta: float) -> void:
 		
 	if dashing:
 		velocity = saved_direction.normalized() * dash_speed
+		var clone = clone_scene.instantiate()
+		clone.global_position = global_position
+		clone.sprite = sprite
+		clone_node.add_child(clone)
 		
 	move_and_slide()
 	
