@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BulletType" format=3 uid="uid://cnr8r2wiq5c6w"]
+
+[ext_resource type="Script" uid="uid://jretxvfat8ih" path="res://resources/bullet.gd" id="1_sxbnd"]
+[ext_resource type="PackedScene" uid="uid://c3g5a63w66ggu" path="res://scenes/bullets/normal.tscn" id="1_u0u22"]
+
+[resource]
+script = ExtResource("1_sxbnd")
+bullet_speed = 30.0
+damage = 20.0
+lifetime = 5.0
+pierce = 1
+scene = ExtResource("1_u0u22")
+color = Color(0.93359375, 0.86151147, 0.094818115, 1)
+metadata/_custom_type_script = "uid://jretxvfat8ih"
