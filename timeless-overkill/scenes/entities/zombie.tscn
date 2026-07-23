@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://b5kwk5nuwwweq"]
+
+[ext_resource type="Script" uid="uid://di6vgvfew0gmt" path="res://scripts/entities/zombie.gd" id="1_frpv3"]
+[ext_resource type="Texture2D" uid="uid://brxh3uu70t63a" path="res://assets/entities/zombie.png" id="1_ihn6k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frpv3"]
+atlas = ExtResource("1_ihn6k")
+region = Rect2(0, 0, 48, 47)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3381y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frpv3")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_frpv3"]
+radius = 13.416408
+
+[node name="zombie" type="CharacterBody2D" unique_id=773458434 groups=["Enemies"]]
+collision_layer = 8
+collision_mask = 7
+motion_mode = 1
+wall_min_slide_angle = 0.0
+script = ExtResource("1_frpv3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1546809729]
+sprite_frames = SubResource("SpriteFrames_3381y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1709521790]
+position = Vector2(4, 0)
+shape = SubResource("CircleShape2D_frpv3")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2089546364]
+debug_enabled = true
+
+[node name="NavTimer" type="Timer" parent="." unique_id=85727604]
+wait_time = 0.3
+autostart = true
+
+[node name="DamageTimer" type="Timer" parent="." unique_id=1576550261]
+
+[connection signal="timeout" from="NavTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

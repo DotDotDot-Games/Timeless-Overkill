@@ -14,15 +14,20 @@ func _ready():
 	timer.start()
 	
 func _physics_process(delta: float) -> void:
+	
 	var collision = move_and_collide(velocity)
-	if not collision:
-		return
-	if bounces >= 1:
-		velocity = velocity.bounce(collision.get_normal())
-		bounces -= 1
-	else:
-		queue_free()
-		
+	if collision:
+		var collider = collision.get_collider()
+		if collider.is_in_group("Enemies"):
+			damage(collider)
+		if bounces >= 1:
+			velocity = velocity.bounce(collision.get_normal())
+			bounces -= 1
+		else:
+			queue_free()
+func damage(collider):
+	collider.health -= bullet_data.damage
+	#
 func set_up_variables():
 	bounces = bullet_data.bounces
 	pierce = bullet_data.pierce

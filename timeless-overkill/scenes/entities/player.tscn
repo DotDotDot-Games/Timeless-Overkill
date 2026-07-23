@@ -44,7 +44,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="player" type="CharacterBody2D" unique_id=610688041]
+[node name="player" type="CharacterBody2D" unique_id=610688041 groups=["Players"]]
 collision_mask = 12
 motion_mode = 1
 script = ExtResource("1_08t41")
@@ -61,8 +61,10 @@ sprite_frames = SubResource("SpriteFrames_3381y")
 position = Vector2(10, 0)
 
 [node name="BulletCooldown" type="Timer" parent="." unique_id=1966882034]
+one_shot = true
 
 [node name="DashTime" type="Timer" parent="." unique_id=890019868]
+one_shot = true
 
 [connection signal="timeout" from="BulletCooldown" to="." method="_on_bullet_cooldown_timeout"]
 [connection signal="timeout" from="DashTime" to="." method="_on_dash_cooldown_timeout"]

@@ -32,8 +32,8 @@ var can_fire := true
 #dash
 var can_dash := true
 var dashing := false
-var dash_cooldown = 0.8
-var dash_time = 0.3
+var dash_cooldown = 1
+var dash_time = 0.15
 
 
 func _ready():
@@ -45,6 +45,7 @@ func _ready():
 	bullet_timer.wait_time = gun.fire_rate
 	bullet_timer.start()
 	dash_timer.wait_time = dash_time
+	add_to_group("Players")
 
 
 
@@ -54,6 +55,8 @@ func _physics_process(_delta: float) -> void:
 	camera.global_position = global_position
 	health_bar.value = health
 	
+	if health <= 0:
+		kill()
 	
 	#facing direction
 	direction =   Input.get_vector("LEFT", "RIGHT", "UP", "DOWN")
