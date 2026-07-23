@@ -1,11 +1,70 @@
 [gd_scene format=3 uid="uid://bc161ne8nak3l"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0qees"]
-load_path = "res://.godot/imported/shooter up Teams.png-d2a7afa69397c637a49fdf616cb9603d.ctex"
+[ext_resource type="Script" uid="uid://dcbqil4pk2qal" path="res://scripts/entities/player.gd" id="1_08t41"]
+[ext_resource type="Texture2D" uid="uid://c7ysnjmu40oxs" path="res://assets/entities/shooter up.png" id="1_ucweq"]
+[ext_resource type="Resource" uid="uid://cfk2qnitdvskd" path="res://content/guns/pistol.tres" id="2_1ie0h"]
 
-[node name="player" type="CharacterBody2D" unique_id=610688041]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d4qa6"]
+radius = 7.0
+height = 22.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=843150470]
-texture = SubResource("CompressedTexture2D_0qees")
+[sub_resource type="AtlasTexture" id="AtlasTexture_08t41"]
+atlas = ExtResource("1_ucweq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ie0h"]
+atlas = ExtResource("1_ucweq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42nxq"]
+atlas = ExtResource("1_ucweq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u6hq"]
+atlas = ExtResource("1_ucweq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3381y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08t41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ie0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42nxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5u6hq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="player" type="CharacterBody2D" unique_id=610688041 groups=["Players"]]
+collision_mask = 12
+motion_mode = 1
+script = ExtResource("1_08t41")
+gun = ExtResource("2_1ie0h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2016361329]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_d4qa6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1486394656]
+sprite_frames = SubResource("SpriteFrames_3381y")
+
+[node name="GunSpawn" type="Node2D" parent="." unique_id=1179607334]
+position = Vector2(10, 0)
+
+[node name="BulletCooldown" type="Timer" parent="." unique_id=1966882034]
+one_shot = true
+
+[node name="DashTime" type="Timer" parent="." unique_id=890019868]
+one_shot = true
+
+[connection signal="timeout" from="BulletCooldown" to="." method="_on_bullet_cooldown_timeout"]
+[connection signal="timeout" from="DashTime" to="." method="_on_dash_cooldown_timeout"]

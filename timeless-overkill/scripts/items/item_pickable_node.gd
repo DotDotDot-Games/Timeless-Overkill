@@ -6,22 +6,11 @@ class_name ItemPickableNode
 ## Execute when the item is picked up
 signal on_picked(node_who_picked: Node)
 
-@export var info: ItemPickableData
-
 ## Define the time you need to stay still to grab the item
 @export var time_to_pickup := 1.0
 
 ## Store the player IDs within the timers and track the time they remain stationary.
 var timers: Dictionary[Node, float] = {}
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	
-	if not Engine.is_editor_hint():
-		return
-	
-	if info:
-		self.texture = info.texture
 
 # TODO: Implement pickup when the player is implemented.
 # Called every frame. 'delta' is the elapsed time since the previous frame.

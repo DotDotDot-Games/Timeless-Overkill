@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c3g5a63w66ggu"]
+
+[ext_resource type="Script" uid="uid://cutplfeviuo70" path="res://scripts/bullets/bullet.gd" id="1_g2o3w"]
+[ext_resource type="Texture2D" uid="uid://btfomyfo3s3ae" path="res://assets/bullets/All_Fire_Bullet_Pixel_16x16_00.png" id="2_k0bia"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6pv2d"]
+radius = 3.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f1na"]
+atlas = ExtResource("2_k0bia")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2o3w"]
+atlas = ExtResource("2_k0bia")
+region = Rect2(176, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3381y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f1na")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2o3w")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="normal" type="CharacterBody2D" unique_id=1242267847]
+collision_layer = 2
+collision_mask = 12
+motion_mode = 1
+script = ExtResource("1_g2o3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=187722909]
+shape = SubResource("CircleShape2D_6pv2d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=771570897]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_3381y")
+
+[node name="Timer" type="Timer" parent="." unique_id=104195055]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

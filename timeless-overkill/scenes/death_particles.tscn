@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bhh8mveluedfj"]
+
+[ext_resource type="Texture2D" uid="uid://cx3hgjj08jl42" path="res://assets/particles/circle_sprite32.png" id="1_j5v76"]
+
+[sub_resource type="Curve" id="Curve_3381y"]
+_data = [Vector2(0, 0.4522472), 0.0, 0.0, 0, 0, Vector2(0.49315065, 0.16292137), 0.0, 0.0, 0, 0, Vector2(1, 0.3567416), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="DeathParticles" type="CPUParticles2D" unique_id=1536975903]
+emitting = false
+amount = 9
+texture = ExtResource("1_j5v76")
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.75
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 233.34
+initial_velocity_max = 233.34
+linear_accel_min = -1000.0
+linear_accel_max = -100.0
+angle_max = 720.0
+scale_amount_curve = SubResource("Curve_3381y")

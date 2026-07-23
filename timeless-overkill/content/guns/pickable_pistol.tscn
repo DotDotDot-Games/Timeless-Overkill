@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://qgdj464hdb1m"]
+
+[ext_resource type="PackedScene" uid="uid://1ks8qojlsf20" path="res://scenes/items/item_pickable_node.tscn" id="1_yivfx"]
+
+[node name="PickablePistol" unique_id=1815118643 instance=ExtResource("1_yivfx")]

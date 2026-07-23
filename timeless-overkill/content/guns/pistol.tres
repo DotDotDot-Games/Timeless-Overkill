@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GunType" format=3 uid="uid://cfk2qnitdvskd"]
+
+[ext_resource type="Resource" uid="uid://cnr8r2wiq5c6w" path="res://content/bullet/normal.tres" id="1_p31oc"]
+[ext_resource type="Script" uid="uid://b75l5j03eddtv" path="res://resources/gun.gd" id="1_rsu2n"]
+[ext_resource type="PackedScene" uid="uid://ilhr2xj7dq0m" path="res://scenes/guns/pistol.tscn" id="2_vt6r4"]
+
+[resource]
+script = ExtResource("1_rsu2n")
+spread_angle = 5.0
+bullet_count = 4
+reload_time = 1.0
+fire_rate = 0.5
+bullet = ExtResource("1_p31oc")
+scene = ExtResource("2_vt6r4")
+_id = "pistol_2"
+name = "Pistol 2"
+metadata/_custom_type_script = "uid://b75l5j03eddtv"

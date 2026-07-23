@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://x1kx3ituljvu"]
+
+[ext_resource type="Script" uid="uid://dkwkhybwk01ng" path="res://scripts/clone.gd" id="1_ypstt"]
+
+[node name="Clone" type="Sprite2D" unique_id=1060769091]
+script = ExtResource("1_ypstt")

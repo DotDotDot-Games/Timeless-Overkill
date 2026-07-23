@@ -12,11 +12,11 @@ metadata/_custom_type_script = "uid://6q5kx66wrigb"
 
 [resource]
 script = ExtResource("1_03fkb")
-_id = "mini_bullet"
-name = "Mini Bullet"
 speed = 500.0
 damage = 10.0
 texture = ExtResource("3_uq02a")
 bounces = SubResource("Resource_2xk3g")
 scene = "uid://dg06f3dj78knq"
+_id = "mini_bullet"
+name = "Mini Bullet"
 metadata/_custom_type_script = "uid://dv34np0gi74dy"

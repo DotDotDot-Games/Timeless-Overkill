@@ -39,15 +39,16 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="Resource" id="Resource_mmrce"]
+[sub_resource type="Resource" id="Resource_0ckv5"]
 resource_local_to_scene = true
 script = ExtResource("2_qvgxs")
 texture = SubResource("SpriteFrames_8d8m2")
+only = Array[StringName]([&"pistol_2"])
 only_types = Array[int]([0])
 
 [node name="DefaultSpawner" unique_id=2032305051 instance=ExtResource("1_ryh7k")]
 z_index = -1
 sprite_frames = SubResource("SpriteFrames_8d8m2")
-info = SubResource("Resource_mmrce")
+info = SubResource("Resource_0ckv5")
 DATABASE_PATH = "uid://clj7al2sqjfcy"
 DATABASE = ExtResource("4_0ckv5")
