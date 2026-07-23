@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://de4umoo4h4lnm"]
 
+[ext_resource type="Script" uid="uid://dejn7mh30lvs2" path="res://scripts/spawner.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bc161ne8nak3l" path="res://scenes/entities/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://dhxnbgo32gucf" path="res://assets/background/walls.png" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://c7ysnjmu40oxs" path="res://assets/entities/shooter up.png" id="3_lnu2h"]
@@ -316,6 +317,11 @@ bg_color = Color(0, 0.72791904, 0.07708999, 1)
 [node name="game" type="Node2D" unique_id=905228880]
 
 [node name="Spawner" type="Node" parent="." unique_id=1357809302]
+script = ExtResource("1_p57ef")
+
+[node name="Timer" type="Timer" parent="Spawner" unique_id=1454062899]
+wait_time = 5.670000000000001
+autostart = true
 
 [node name="player" parent="." unique_id=610688041 instance=ExtResource("1_uwrxv")]
 z_index = 1
@@ -356,3 +362,5 @@ player = NodePath("../../player")
 stats = ExtResource("5_iywne")
 
 [node name="Particles" type="Node" parent="." unique_id=446993355]
+
+[connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]

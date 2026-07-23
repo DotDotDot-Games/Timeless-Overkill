@@ -65,16 +65,19 @@ func _physics_process(_delta: float) -> void:
 		moving = true
 	else:
 		moving = false
-	self.rotation = facing.angle()
+	
 	if moving:
 		velocity = direction.normalized() * speed
 	else:
 		velocity = Vector2.ZERO
+	var mouse_pos = get_global_mouse_position()
+	var to_mouse = (mouse_pos-global_position).normalized()
+	self.rotation = to_mouse.angle()
 	
 	#shooting
 
 	if Input.is_action_pressed("SHOOT"):
-		shoot()
+		shoot(to_mouse)
 		
 
 	if Input.is_action_just_pressed("DASH"):
@@ -87,9 +90,9 @@ func _physics_process(_delta: float) -> void:
 	
 
 
-func shoot():
+func shoot(angle):
 	if can_fire:
-		gun_scene.shoot(facing,bullets_node)
+		gun_scene.shoot(angle,bullets_node)
 		can_fire = false
 
 func dash():

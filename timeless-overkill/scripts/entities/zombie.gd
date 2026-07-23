@@ -33,7 +33,8 @@ func _physics_process(delta: float) -> void:
 	var dir = global_position.direction_to(nav_agent.get_next_path_position()).normalized()
 	velocity = dir * stats.speed
 	animated_sprite.rotation = dir.angle()
-	move_and_slide()
+	if global_position.distance_to(player.global_position) <= stats.range:
+		move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()

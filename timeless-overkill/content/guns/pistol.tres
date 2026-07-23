@@ -6,8 +6,8 @@
 
 [resource]
 script = ExtResource("1_rsu2n")
-spread_angle = 10.0
-bullet_count = 3
+spread_angle = 5.0
+bullet_count = 4
 reload_time = 1.0
 fire_rate = 0.5
 bullet = ExtResource("1_p31oc")
