@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b5kaoo7jpv2rl"]
+
+[ext_resource type="Texture2D" uid="uid://bix5efrat3vh2" path="res://assets/guns/Weapons.png" id="1_3x51s"]
+[ext_resource type="Script" uid="uid://d4ghdxybgmoj3" path="res://scripts/guns/gun_script.gd" id="1_m6jpx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6jpx"]
+atlas = ExtResource("1_3x51s")
+region = Rect2(1028, 408, 224, 393)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3381y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6jpx")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="machine gun" type="Node2D" unique_id=163250780]
+script = ExtResource("1_m6jpx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=614152788]
+position = Vector2(19, 1)
+rotation = -1.5707964
+scale = Vector2(0.125, 0.125)
+sprite_frames = SubResource("SpriteFrames_3381y")
+
+[node name="fire_hole" type="Node2D" parent="." unique_id=1272513293]
+position = Vector2(42, 0)

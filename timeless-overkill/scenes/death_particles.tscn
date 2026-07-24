@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bhh8mveluedfj"]
 
 [ext_resource type="Texture2D" uid="uid://cx3hgjj08jl42" path="res://assets/particles/circle_sprite32.png" id="1_j5v76"]
+[ext_resource type="Script" uid="uid://bf3j7cdyo4jr8" path="res://scripts/death_particles.gd" id="2_u27mo"]
 
 [sub_resource type="Curve" id="Curve_3381y"]
 _data = [Vector2(0, 0.4522472), 0.0, 0.0, 0, 0, Vector2(0.49315065, 0.16292137), 0.0, 0.0, 0, 0, Vector2(1, 0.3567416), 0.0, 0.0, 0, 0]
@@ -22,3 +23,6 @@ linear_accel_min = -1000.0
 linear_accel_max = -100.0
 angle_max = 720.0
 scale_amount_curve = SubResource("Curve_3381y")
+script = ExtResource("2_u27mo")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
