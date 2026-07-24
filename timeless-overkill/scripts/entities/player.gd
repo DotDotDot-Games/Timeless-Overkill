@@ -3,8 +3,18 @@ extends CharacterBody2D
 class_name PlayerNode
 
 signal health_changed(new_value: int)
+signal gun_changed
 
-@export var gun : GunType
+@export var gun : GunType:
+	set(value):
+		
+		if gun == value:
+			return
+		
+		gun = value
+		
+		if not Engine.is_editor_hint():
+			gun_changed.emit()
 
 #facing
 var can_move := true
@@ -33,8 +43,8 @@ var health := max_health:
 			health = value
 			health_changed.emit(health)
 
-var speed := 300
-var dash_speed := 1000
+var speed := 300.0
+var dash_speed := 1000.0
 var melee_damage := 0
 #gun
 var gun_scene
@@ -59,7 +69,7 @@ func _ready():
 
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	#setting up variables
 	#camera.global_position = global_position
 	
@@ -99,7 +109,17 @@ func _physics_process(_delta: float) -> void:
 		clone.sprite = sprite
 		clone.rotation = to_mouse.angle()
 		clone_node.add_child(clone)
+		var collide := move_and_collide(self.velocity * delta)
 		
+		if collide:
+			
+			var collider := collide.get_collider()
+			
+			if collider is EnemyNode or collider is PersonNode:
+				deal_damage(collide.get_collider())
+		
+		return
+	
 	move_and_slide()
 	
 
@@ -117,8 +137,11 @@ func dash():
 		saved_direction = facing
 		velocity = facing.normalized() * dash_speed
 		dash_timer.start()
-		
-func deal_damage(collider):
+
+## It is a [Variant], but it actually only receives [PersonNode] and [EnemyNode];
+## even though they are similar, they are distinct classes (in code),
+## so there is no way to type the variable.
+func deal_damage(collider: Variant) -> void:
 	if collider.damage(melee_damage):
 		collider.hit()
 			
@@ -128,18 +151,16 @@ func damage(value) -> bool:
 	health -= value
 	return true
 	
-func take_damage(value):
-	health -= value
-	
 func kill():
 	get_tree().quit()
 	queue_free()
+
 func hit():
 	animation_player.play("hit_flash")
+
 func _on_bullet_cooldown_timeout() -> void:
 	bullet_timer.start()
 	can_fire = true
-
 
 func _on_dash_cooldown_timeout() -> void:
 	dashing = false

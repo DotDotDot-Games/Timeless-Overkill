@@ -1,13 +1,12 @@
 @tool
 extends BaseStatsUpgradeData
 
-class_name MoreBulletsUpgradeData
+class_name DashDamageUpgradeData
 
 func _waited_type(obj: Object) -> bool:
 	return obj is PlayerNode
 
 func set_upgrade(obj: Object) -> void:
-	
 	var player := obj as PlayerNode
 	
-	player.gun.bullet_count = roundi(_calc_upgrade(player.gun.bullet_count))
+	player.melee_damage = roundi(_calc_upgrade(player.melee_damage))

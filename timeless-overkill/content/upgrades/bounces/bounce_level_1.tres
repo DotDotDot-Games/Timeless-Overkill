@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="BounceUpgradeData" format=3 uid="uid://77wns232qsp2"]
+
+[ext_resource type="Script" uid="uid://c5nfjc4rnytyd" path="res://resources/upgrades/bounce_upgrade_data.gd" id="1_0gqge"]
+[ext_resource type="Texture2D" uid="uid://buxiyoksyx856" path="res://assets/ball.png" id="2_ar8qf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_33igu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ar8qf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_0gqge")
+extra_value = 1.0
+texture = SubResource("SpriteFrames_33igu")
+type = 1
+metadata/_custom_type_script = "uid://c5nfjc4rnytyd"
