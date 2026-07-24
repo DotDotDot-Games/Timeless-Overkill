@@ -1,9 +1,8 @@
 extends Label
 
 const TEXT_UNFORMATTED := "Score: %d"
-var ola
 
-func _ready():
+func _ready() -> void:
 	
 	if not ScoreCounter.score_changed.is_connected(_on_change_score):
 		ScoreCounter.score_changed.connect(_on_change_score)
@@ -13,7 +12,7 @@ func _ready():
 func _on_change_score(new_score: int) -> void:
 	self.text = TEXT_UNFORMATTED % [new_score]
 
-func _input(event: InputEvent):
+func _input(event: InputEvent) -> void:
 	
 	if not OS.is_debug_build():
 		return
