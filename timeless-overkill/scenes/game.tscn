@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://de4umoo4h4lnm"]
 
 [ext_resource type="Script" uid="uid://dejn7mh30lvs2" path="res://scripts/spawner.gd" id="1_p57ef"]
+[ext_resource type="PackedScene" uid="uid://b377qai12v2e7" path="res://scenes/game_ui.tscn" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bc161ne8nak3l" path="res://scenes/entities/player.tscn" id="1_uwrxv"]
 [ext_resource type="Resource" uid="uid://bchofr06auu0f" path="res://content/guns/rifle.tres" id="3_gee14"]
 [ext_resource type="Script" uid="uid://bny3fqgbou4fi" path="res://scripts/camera_2d.gd" id="4_gee14"]
@@ -8,12 +9,11 @@
 [ext_resource type="Resource" uid="uid://ctyd0m7sb33uv" path="res://content/entities/zombie.tres" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://iif0yia85ikp" path="res://scenes/map.scn" id="5_u5sy4"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws2uu"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pv2d"]
-bg_color = Color(0, 0.72791904, 0.07708999, 1)
-
 [node name="game" type="Node2D" unique_id=905228880]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1240984807]
+
+[node name="UI" parent="CanvasLayer" unique_id=335880088 instance=ExtResource("1_u5sy4")]
 
 [node name="Spawner" type="Node" parent="." unique_id=1357809302]
 script = ExtResource("1_p57ef")
@@ -36,24 +36,6 @@ script = ExtResource("4_gee14")
 [node name="map" parent="Background" unique_id=885680849 instance=ExtResource("5_u5sy4")]
 
 [node name="Bullets" type="Node" parent="." unique_id=360192291]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1240984807]
-
-[node name="UI" type="Control" parent="CanvasLayer" unique_id=1719635270]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="HealthBarPlayer" type="ProgressBar" parent="CanvasLayer/UI" unique_id=1846051334]
-z_index = 1
-layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 10.0
-theme_override_styles/background = SubResource("StyleBoxFlat_ws2uu")
-theme_override_styles/fill = SubResource("StyleBoxFlat_6pv2d")
-value = 67.0
-show_percentage = false
 
 [node name="Enemies" type="Node" parent="." unique_id=1240360565]
 

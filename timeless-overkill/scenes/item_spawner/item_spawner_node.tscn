@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cgldot81dekh3"]
+
+[ext_resource type="Script" uid="uid://baq8bbpjmrark" path="res://scripts/items/item_spawner_node.gd" id="1_scqhs"]
+
+[node name="ItemSpawner" type="AnimatedSprite2D" unique_id=2032305051]
+script = ExtResource("1_scqhs")
+
+[node name="Timer" type="Timer" parent="." unique_id=514319413]
+one_shot = true
+
+[node name="GeneratedItems" type="Node" parent="." unique_id=1181106065]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

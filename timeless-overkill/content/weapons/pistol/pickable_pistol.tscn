@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c7777ocv6kcyj"]
+
+[ext_resource type="PackedScene" uid="uid://1ks8qojlsf20" path="res://scenes/items/item_pickable_node.tscn" id="1_mkth1"]
+[ext_resource type="Resource" uid="uid://0or6iu1rqa6v" path="res://content/weapons/pistol/pickable_pistol.tres" id="2_i8yo2"]
+[ext_resource type="Texture2D" uid="uid://c4gktqa0ut2y" path="res://content/weapons/pistol/pistol.png" id="2_lc3bn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mrcyi"]
+size = Vector2(69, 18)
+
+[node name="PickablePistol" unique_id=1815118643 instance=ExtResource("1_mkth1")]
+texture = ExtResource("2_lc3bn")
+info = ExtResource("2_i8yo2")
+
+[node name="Pickbox" parent="Area" parent_id_path=PackedInt32Array(8501530) index="0" unique_id=75641511]
+position = Vector2(2.5, 0)
+shape = SubResource("RectangleShape2D_mrcyi")

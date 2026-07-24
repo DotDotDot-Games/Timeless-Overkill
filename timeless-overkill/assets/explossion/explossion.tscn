@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dju32dwms1oqo"]
+
+[ext_resource type="Script" uid="uid://bxueyfr0kxq1c" path="res://assets/explossion/explossion.gd" id="1_i02c7"]
+[ext_resource type="Texture2D" uid="uid://flvv184ha6w1" path="res://assets/explossion/explossion.png" id="1_u64u8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_u64u8"]
+radius = 140.00357
+
+[node name="Explossion" type="Node2D" unique_id=371950773 groups=["explossion"]]
+script = ExtResource("1_i02c7")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=955764583]
+scale = Vector2(4, 4)
+texture = ExtResource("1_u64u8")
+
+[node name="Area" type="Area2D" parent="." unique_id=1402331833]
+
+[node name="Hurtbox" type="CollisionShape2D" parent="Area" unique_id=1498868983]
+position = Vector2(-3, 4)
+shape = SubResource("CircleShape2D_u64u8")
+
+[node name="Timer" type="Timer" parent="." unique_id=1562273590]
+wait_time = 0.25
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

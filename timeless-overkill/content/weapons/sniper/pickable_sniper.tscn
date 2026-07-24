@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ygu8txlq1oud"]
+
+[ext_resource type="PackedScene" uid="uid://1ks8qojlsf20" path="res://scenes/items/item_pickable_node.tscn" id="1_f87ji"]
+[ext_resource type="Resource" uid="uid://c5683oi652d60" path="res://content/weapons/sniper/pickable_sniper.tres" id="2_2voee"]
+[ext_resource type="Texture2D" uid="uid://dlu1buasqeolj" path="res://content/weapons/sniper/sniper.png" id="2_fl6pc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f87ji"]
+size = Vector2(56, 14)
+
+[node name="PickableSniper" unique_id=1815118643 instance=ExtResource("1_f87ji")]
+texture = ExtResource("2_fl6pc")
+info = ExtResource("2_2voee")
+
+[node name="Pickbox" parent="Area" parent_id_path=PackedInt32Array(8501530) index="0" unique_id=75641511]
+position = Vector2(3, 0)
+shape = SubResource("RectangleShape2D_f87ji")

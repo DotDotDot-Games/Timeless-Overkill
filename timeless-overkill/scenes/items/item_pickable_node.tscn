@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://1ks8qojlsf20"]
+
+[ext_resource type="Texture2D" uid="uid://b240ju00uvl2j" path="res://assets/guns/pistol.png" id="1_vip35"]
+[ext_resource type="Script" uid="uid://emi8bbnrilm2" path="res://scripts/items/item_pickable_node.gd" id="1_yhvea"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p31oc"]
+atlas = ExtResource("1_vip35")
+region = Rect2(0.8758621, 0, 13.823853, 12)
+
+[node name="ItemPickableNode" type="Sprite2D" unique_id=1815118643 groups=["item"]]
+texture = SubResource("AtlasTexture_p31oc")
+script = ExtResource("1_yhvea")
+
+[node name="Area" type="Area2D" parent="." unique_id=8501530]
+
+[node name="Pickbox" type="CollisionShape2D" parent="Area" unique_id=75641511]
+
+[connection signal="body_entered" from="Area" to="." method="_on_player_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_player_exited"]

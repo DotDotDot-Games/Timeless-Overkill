@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dr8ha6ebd27w1"]
+
+[ext_resource type="PackedScene" uid="uid://cgldot81dekh3" path="res://scenes/item_spawner/item_spawner_node.tscn" id="1_4xhg1"]
+[ext_resource type="Script" path="res://resources/item_spawner_data.gd" id="2_jcngq"]
+[ext_resource type="Texture2D" uid="uid://buxx78elq4ulc" path="res://assets/item_spawner/circle.png" id="3_rxko5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wq3r2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rxko5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_4xhg1"]
+script = ExtResource("2_jcngq")
+texture = SubResource("SpriteFrames_wq3r2")
+spawn_time = 3.0
+metadata/_custom_type_script = "uid://c8yemeqj0xdjs"
+
+[node name="TestSpawner" unique_id=1267481385 instance=ExtResource("1_4xhg1")]
+info = SubResource("Resource_4xhg1")

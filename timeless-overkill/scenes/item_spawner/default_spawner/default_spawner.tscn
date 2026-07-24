@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://b3llmy8gajktt"]
+
+[ext_resource type="PackedScene" uid="uid://cgldot81dekh3" path="res://scenes/item_spawner/item_spawner_node.tscn" id="1_ryh7k"]
+[ext_resource type="Script" uid="uid://b6nohljfvyts5" path="res://resources/items/item_spawner_data.gd" id="2_qvgxs"]
+[ext_resource type="Texture2D" uid="uid://b0clrjs1mkw4l" path="res://assets/item_spawner/default_spawner.png" id="3_kd4ow"]
+[ext_resource type="Resource" uid="uid://clj7al2sqjfcy" path="res://databases/world_item_data.tres" id="4_0ckv5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uper6"]
+atlas = ExtResource("3_kd4ow")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xk8ha"]
+atlas = ExtResource("3_kd4ow")
+region = Rect2(128, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h267j"]
+atlas = ExtResource("3_kd4ow")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8d8m2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uper6")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xk8ha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h267j")
+}],
+"loop": 1,
+"name": &"spawning",
+"speed": 2.0
+}]
+
+[sub_resource type="Resource" id="Resource_0ckv5"]
+resource_local_to_scene = true
+script = ExtResource("2_qvgxs")
+texture = SubResource("SpriteFrames_8d8m2")
+only = Array[StringName]([&"pistol_2"])
+only_types = Array[int]([0])
+
+[node name="DefaultSpawner" unique_id=2032305051 instance=ExtResource("1_ryh7k")]
+z_index = -1
+sprite_frames = SubResource("SpriteFrames_8d8m2")
+info = SubResource("Resource_0ckv5")
+DATABASE_PATH = "uid://clj7al2sqjfcy"
+DATABASE = ExtResource("4_0ckv5")
