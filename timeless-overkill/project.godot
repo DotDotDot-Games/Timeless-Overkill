@@ -29,6 +29,7 @@ gdscript/warnings/untyped_declaration=1
 window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+mouse_cursor/custom_image="uid://4y8ry75a68g0"
 
 [editor_plugins]
 
@@ -93,6 +94,7 @@ DEBUG_SCORE={
 2d_physics/layer_2="Bullets"
 2d_physics/layer_3="Walls"
 2d_physics/layer_4="Enemies"
+2d_physics/layer_5="Enemy_Bullets"
 
 [physics]
 
