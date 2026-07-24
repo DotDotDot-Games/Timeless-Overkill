@@ -6,6 +6,7 @@ var direction : Vector2 = Vector2(0,0)
 var bounces : int
 var pierce : int
 var speed
+var lifetime
 var color : Color
 var bullet_damage
 @onready var timer: Timer = $Timer
@@ -14,7 +15,7 @@ var hit_particles = preload("res://scenes/gun_particles.tscn")
 func _ready():
 	set_up_variables()
 	velocity = direction * speed
-	timer.wait_time = bullet_data.lifetime
+	timer.wait_time = lifetime
 	timer.start()
 	
 	
@@ -58,6 +59,8 @@ func set_up_variables():
 		bullet_damage = bullet_data.damage
 	if color == null:
 		modulate = bullet_data.color
+	if lifetime == null:
+		lifetime = bullet_data.lifetime
 
 func _on_timer_timeout() -> void:
 	queue_free() # Replace with function body.

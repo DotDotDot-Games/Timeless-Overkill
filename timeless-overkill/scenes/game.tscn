@@ -30,7 +30,6 @@ autostart = true
 
 [node name="player" parent="." unique_id=610688041 instance=ExtResource("1_uwrxv")]
 z_index = 1
-position = Vector2(550, 362)
 gun = ExtResource("3_gee14")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1319337568]
@@ -43,18 +42,19 @@ script = ExtResource("4_gee14")
 
 [node name="Bullets" type="Node" parent="." unique_id=360192291]
 
-<<<<<<< Updated upstream
-=======
-[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1248055693]
-
->>>>>>> Stashed changes
 [node name="Enemies" type="Node" parent="." unique_id=1240360565]
 
 [node name="zombie" parent="Enemies" unique_id=773458434 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
+position = Vector2(500, 300)
 player = NodePath("../../player")
 stats = ExtResource("5_iywne")
 
 [node name="EnemyBullets" type="Node" parent="Enemies" unique_id=65274206]
+
+[node name="zombie2" parent="Enemies" unique_id=21629336 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
+position = Vector2(-300, -500)
+player = NodePath("../../player")
+stats = ExtResource("5_iywne")
 
 [node name="Particles" type="Node" parent="." unique_id=446993355]
 

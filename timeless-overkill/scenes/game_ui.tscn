@@ -42,7 +42,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.52
 theme_override_styles/background = SubResource("StyleBoxFlat_ws2uu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6pv2d")
-value = 67.0
+value = 100.0
 show_percentage = false
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1699528588]

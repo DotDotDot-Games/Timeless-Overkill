@@ -122,14 +122,13 @@ func damage(value) -> bool:
 	health -= value
 	return true
 	
-func take_damage(value):
-	health -= value
 	
 func kill():
 	get_tree().quit()
-	queue_free()
+	
 func hit():
 	animation_player.play("hit_flash")
+	
 func _on_bullet_cooldown_timeout() -> void:
 	bullet_timer.start()
 	can_fire = true
