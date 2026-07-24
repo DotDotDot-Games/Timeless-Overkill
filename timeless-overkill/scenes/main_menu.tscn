@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c3yfdp56nuefy"]
 
-[ext_resource type="Script" uid="uid://bucfasndj2gux" path="res://test/main_menu.gd" id="1_jnqid"]
+[ext_resource type="Script" uid="uid://bucfasndj2gux" path="res://scripts/main_menu.gd" id="1_jnqid"]
 
 [sub_resource type="Gradient" id="Gradient_e4iba"]
 
