@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://c3yfdp56nuefy"]
+
+[ext_resource type="Script" uid="uid://bucfasndj2gux" path="res://test/main_menu.gd" id="1_jnqid"]
+
+[sub_resource type="Gradient" id="Gradient_e4iba"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_m31fn"]
+gradient = SubResource("Gradient_e4iba")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_adqv7"]
+texture = SubResource("GradientTexture2D_m31fn")
+
+[node name="main_menu" type="Control" unique_id=1584687651]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jnqid")
+
+[node name="main_bg" type="Panel" parent="." unique_id=1778932931]
+layout_mode = 0
+offset_left = -26.774963
+offset_top = 689.0
+offset_right = 1129.2251
+offset_bottom = 1942.7749
+rotation = 4.712389
+theme_override_styles/panel = SubResource("StyleBoxTexture_adqv7")
+
+[node name="main_title" type="Label" parent="." unique_id=1223164261]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.08698
+offset_top = -240.0
+offset_right = 350.08698
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0.4117647, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 64
+text = "Timeless Overkill"
+horizontal_alignment = 1
+
+[node name="buttons" type="Node" parent="." unique_id=1444022536]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="buttons" unique_id=1271974978]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.469
+anchor_right = 0.5
+anchor_bottom = 0.469
+offset_left = -75.0
+offset_top = 0.08798218
+offset_right = 91.0
+offset_bottom = 136.08798
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="buttons/VBoxContainer" unique_id=90444395]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "PLAY"
+
+[connection signal="pressed" from="buttons/VBoxContainer/Button" to="." method="_on_button_pressed"]
