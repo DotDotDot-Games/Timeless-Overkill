@@ -55,8 +55,8 @@ func damage(value):
 	health -= value
 	
 func hit():
-	
 	animation_player.play("hit_flash")
+	
 func kill():
 	var particles = death_particles.instantiate()
 	particles.global_position = global_position
@@ -64,6 +64,7 @@ func kill():
 	particles.modulate = color
 	particles.emitting = true
 	queue_free()
+	
 func make_path():
 	nav_agent.target_position = player.global_position
 	

@@ -15,6 +15,12 @@
 
 [node name="UI" parent="CanvasLayer" unique_id=335880088 instance=ExtResource("1_u5sy4")]
 
+[node name="UI2" type="Control" parent="CanvasLayer" unique_id=1719635270]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 66.0
+offset_bottom = 40.0
+
 [node name="Spawner" type="Node" parent="." unique_id=1357809302]
 script = ExtResource("1_p57ef")
 
@@ -37,6 +43,11 @@ script = ExtResource("4_gee14")
 
 [node name="Bullets" type="Node" parent="." unique_id=360192291]
 
+<<<<<<< Updated upstream
+=======
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=1248055693]
+
+>>>>>>> Stashed changes
 [node name="Enemies" type="Node" parent="." unique_id=1240360565]
 
 [node name="zombie" parent="Enemies" unique_id=773458434 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
