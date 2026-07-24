@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="MoreBulletsUpgradeData" format=3 uid="uid://dxiigkhinasau"]
 
-[ext_resource type="Script" uid="uid://duxmvj3yjbmfj" path="res://resources/upgrades/more_bullets_upgrade_data.gd" id="1_csppw"]
+[ext_resource type="Script" uid="uid://duxmvj3yjbmfj" path="res://resources/upgrades/types/more_bullets_upgrade_data.gd" id="1_csppw"]
 [ext_resource type="Texture2D" uid="uid://buxiyoksyx856" path="res://assets/ball.png" id="2_mtl77"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_csppw"]

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DamageUpgradeData" format=3 uid="uid://bhs4eni2w3aap"]
 
-[ext_resource type="Script" uid="uid://cgsci1dkremcg" path="res://resources/upgrades/damage_upgrade_data.gd" id="1_nnfbk"]
+[ext_resource type="Script" uid="uid://cgsci1dkremcg" path="res://resources/upgrades/types/damage_upgrade_data.gd" id="1_nnfbk"]
 
 [resource]
 script = ExtResource("1_nnfbk")

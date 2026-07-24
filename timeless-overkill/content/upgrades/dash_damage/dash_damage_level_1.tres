@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DashDamageUpgradeData" format=3 uid="uid://dxd462afet7rx"]
 
-[ext_resource type="Script" uid="uid://dupjrmnr7j0mo" path="res://resources/upgrades/dash_damage_upgrade_data.gd" id="1_ix1vo"]
+[ext_resource type="Script" uid="uid://dupjrmnr7j0mo" path="res://resources/upgrades/types/dash_damage_upgrade_data.gd" id="1_ix1vo"]
 [ext_resource type="Texture2D" uid="uid://buxiyoksyx856" path="res://assets/ball.png" id="2_nico0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tx0w8"]
