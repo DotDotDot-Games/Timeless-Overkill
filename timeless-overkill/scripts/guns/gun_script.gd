@@ -5,6 +5,7 @@ var gun_data: GunType
 
 var enemy_bullet_speed = 0.5
 var enemy_bullet_damage = 1
+var enemy_bullet_scale = 1.5
 
 func shoot(direction,bullet_node):
 	var angle = deg_to_rad(gun_data.spread_angle)
@@ -17,6 +18,7 @@ func fire(direction : Vector2, bullet_node : Node) -> void:
 	bullet.direction = direction
 	bullet.bullet_data = gun_data.bullet
 	bullet_node.add_child(bullet)
+	bullet.color = bullet.bullet_data.color
 	bullet.global_position = fire_hole.global_position
 	
 func enemy_shoot(direction,bullet_node):
@@ -33,7 +35,9 @@ func enemy_fire(direction : Vector2, bullet_node : Node) -> void:
 	bullet.set_collision_mask_value(1, true)
 	bullet.set_collision_mask_value(4, false)
 	bullet.bullet_data = gun_data.bullet
+	bullet.scale *= enemy_bullet_scale
 	bullet.speed = bullet.bullet_data.bullet_speed * enemy_bullet_speed
 	bullet.bullet_damage = bullet.bullet_data.damage * enemy_bullet_damage
 	bullet_node.add_child(bullet)
+	bullet.color = Color(1.0, 0.23, 0.23, 1.0)
 	bullet.global_position = fire_hole.global_position

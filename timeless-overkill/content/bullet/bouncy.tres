@@ -11,5 +11,5 @@ bounces = 3
 lifetime = 10.0
 pierce = 4
 scene = ExtResource("1_n4me3")
-color = Color(1, 0.6813278, 0.103515625, 1)
+color = Color(0, 0.94140625, 1, 1)
 metadata/_custom_type_script = "uid://jretxvfat8ih"
