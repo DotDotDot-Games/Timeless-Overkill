@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="GunType" format=3 uid="uid://cowed8kon8exs"]
 
 [ext_resource type="Script" uid="uid://b75l5j03eddtv" path="res://resources/gun.gd" id="1_1a4je"]
-[ext_resource type="Resource" uid="uid://cnr8r2wiq5c6w" path="res://content/bullet/normal.tres" id="1_5gbi6"]
+[ext_resource type="Resource" uid="uid://c6rqkwg8j4jei" path="res://content/bullet/strong.tres" id="1_5gbi6"]
 [ext_resource type="PackedScene" uid="uid://b5kaoo7jpv2rl" path="res://scenes/guns/machine_gun.tscn" id="2_0yqc6"]
 
 [resource]

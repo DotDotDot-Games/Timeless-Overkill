@@ -56,20 +56,25 @@ func _physics_process(_delta: float) -> void:
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		if collider.is_in_group("Players"):
-			damage(collider)
+			deal_damage(collider)
 	if gun != null:
-		shoot(player.global_position)
+		shoot(dir)
 	
 func shoot(angle):
 	if can_fire:
 		gun_scene.enemy_shoot(angle,bullets_node)
 		can_fire = false
 		
-func damage(collider):
+func deal_damage(collider):
 	if can_damage:
-		collider.health -= stats.damage
-		damage_timer.start()
-		can_damage = false
+		if collider.damage(stats.damage):
+			damage_timer.start()
+			can_damage = false
+			collider.hit()
+			
+func damage(value):
+	health -= value
+	
 func hit():
 	
 	animation_player.play("hit_flash")

@@ -41,15 +41,19 @@ func _physics_process(delta: float) -> void:
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		if collider.is_in_group("Players"):
-			damage(collider)
-			collider.hit()
+			deal_damage(collider)
 			
 		
-func damage(collider):
+func deal_damage(collider):
 	if can_damage:
-		collider.health -= stats.damage
-		damage_timer.start()
-		can_damage = false
+		if collider.damage(stats.damage):
+			damage_timer.start()
+			can_damage = false
+			collider.hit()
+			
+func damage(value):
+	health -= value
+	
 func hit():
 	
 	animation_player.play("hit_flash")

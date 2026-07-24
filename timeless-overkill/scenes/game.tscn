@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bc161ne8nak3l" path="res://scenes/entities/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://dhxnbgo32gucf" path="res://assets/background/walls.png" id="2_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://c7ysnjmu40oxs" path="res://assets/entities/shooter up.png" id="3_lnu2h"]
-[ext_resource type="Resource" uid="uid://woygxs8iuedg" path="res://content/guns/shotgun.tres" id="3_u5sy4"]
+[ext_resource type="Resource" uid="uid://cowed8kon8exs" path="res://content/guns/machine_gun.tres" id="3_u5sy4"]
 [ext_resource type="Script" uid="uid://bny3fqgbou4fi" path="res://scripts/camera_2d.gd" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://b5kwk5nuwwweq" path="res://scenes/entities/zombie.tscn" id="4_lbhrr"]
 [ext_resource type="Resource" uid="uid://ctyd0m7sb33uv" path="res://content/entities/zombie.tres" id="5_iywne"]

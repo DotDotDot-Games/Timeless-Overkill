@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://c07j2wo8te28f"]
 
 [ext_resource type="Script" uid="uid://66ykmawbiu6v" path="res://resources/enemies.gd" id="1_ybs43"]
-[ext_resource type="Resource" uid="uid://cowed8kon8exs" path="res://content/guns/machine_gun.tres" id="2_fj44a"]
+[ext_resource type="Resource" uid="uid://cfk2qnitdvskd" path="res://content/guns/pistol.tres" id="2_fj44a"]
 
 [resource]
 script = ExtResource("1_ybs43")

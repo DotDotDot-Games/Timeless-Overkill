@@ -8,6 +8,7 @@
 radius = 9.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1ie0h"]
+resource_local_to_scene = true
 shader = ExtResource("1_1ie0h")
 shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
 shader_parameter/hit_flash_on = false

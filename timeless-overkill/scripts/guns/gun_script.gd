@@ -3,7 +3,8 @@ extends Node2D
 @onready var fire_hole = $fire_hole
 var gun_data: GunType
 
-
+var enemy_bullet_speed = 0.5
+var enemy_bullet_damage = 1
 
 func shoot(direction,bullet_node):
 	var angle = deg_to_rad(gun_data.spread_angle)
@@ -32,5 +33,7 @@ func enemy_fire(direction : Vector2, bullet_node : Node) -> void:
 	bullet.set_collision_mask_value(1, true)
 	bullet.set_collision_mask_value(4, false)
 	bullet.bullet_data = gun_data.bullet
+	bullet.speed = bullet.bullet_data.bullet_speed * enemy_bullet_speed
+	bullet.bullet_damage = bullet.bullet_data.damage * enemy_bullet_damage
 	bullet_node.add_child(bullet)
 	bullet.global_position = fire_hole.global_position

@@ -23,10 +23,11 @@ var saved_direction : Vector2
 @onready var clone_node : Node = $"../Clones"
 var clone_scene = preload("res://scenes/clone.tscn")
 #stats
-var health := 100
+var health := 1000
 var max_health := health
 var speed := 300
 var dash_speed := 1000
+var melee_damage := 0
 #gun
 var gun_scene
 var can_fire := true
@@ -35,7 +36,7 @@ var can_dash := true
 var dashing := false
 var dash_cooldown = 1
 var dash_time = 0.15
-
+var invincible = false
 
 func _ready():
 	gun_scene = gun.scene.instantiate()
@@ -85,6 +86,7 @@ func _physics_process(_delta: float) -> void:
 		dash()
 		
 	if dashing:
+		invincible = true
 		velocity = saved_direction.normalized() * dash_speed
 		var clone = clone_scene.instantiate()
 		clone.global_position = global_position
@@ -102,16 +104,25 @@ func shoot(angle):
 
 func dash():
 	if can_dash:
+		invincible = true
 		can_dash = false
 		dashing = true
 		saved_direction = facing
 		velocity = facing.normalized() * dash_speed
 		dash_timer.start()
 		
-	
-func damage(value):
+func deal_damage(collider):
+	if collider.damage(melee_damage):
+		collider.hit()
+			
+func damage(value) -> bool:
+	if invincible:
+		return false
 	health -= value
-	#print(stats.health)
+	return true
+	
+func take_damage(value):
+	health -= value
 	
 func kill():
 	get_tree().quit()
@@ -125,5 +136,10 @@ func _on_bullet_cooldown_timeout() -> void:
 
 func _on_dash_cooldown_timeout() -> void:
 	dashing = false
-	await get_tree().create_timer(dash_cooldown).timeout
+	var invincible_time = 0.2
+	await get_tree().create_timer(invincible_time).timeout
+	
+	invincible = false
+	await get_tree().create_timer(dash_cooldown-invincible_time).timeout
+	#await get_tree().create_timer(dash_cooldown).timeout
 	can_dash = true

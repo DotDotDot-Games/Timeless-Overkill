@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b5kwk5nuwwweq"]
 
-[ext_resource type="Script" uid="uid://di6vgvfew0gmt" path="res://scripts/entities/zombie.gd" id="1_frpv3"]
+[ext_resource type="Script" uid="uid://di6vgvfew0gmt" path="res://scripts/entities/enemy.gd" id="1_frpv3"]
 [ext_resource type="Texture2D" uid="uid://brxh3uu70t63a" path="res://assets/entities/zombie.png" id="1_ihn6k"]
 [ext_resource type="Shader" uid="uid://d2so8p2u4r548" path="res://shaders/hitflash.gdshader" id="2_asks5"]
 
