@@ -10,6 +10,7 @@ extends CharacterBody2D
 
 var death_particles = preload("res://scenes/death_particles.tscn")
 var health_bar = preload("res://scenes/healthbar.tscn")
+var zombie_stats = preload("res://content/entities/zombie.tres")
 
 var health : float
 var max_health : float
@@ -17,6 +18,7 @@ var color : Color
 
 var can_damage = true
 func _ready():
+	stats = zombie_stats
 	add_to_group("Enemies")
 	set_up_variables()
 	var health_bar_a = health_bar.instantiate()
@@ -39,14 +41,19 @@ func _physics_process(delta: float) -> void:
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		if collider.is_in_group("Players"):
-			damage(collider)
+			deal_damage(collider)
 			
 		
-func damage(collider):
+func deal_damage(collider):
 	if can_damage:
-		collider.health -= stats.damage
-		damage_timer.start()
-		can_damage = false
+		if collider.damage(stats.damage):
+			damage_timer.start()
+			can_damage = false
+			collider.hit()
+			
+func damage(value):
+	health -= value
+	
 func hit():
 	
 	animation_player.play("hit_flash")
@@ -59,6 +66,8 @@ func kill():
 	queue_free()
 func make_path():
 	nav_agent.target_position = player.global_position
+	
+
 	
 func _on_timer_timeout() -> void:
 	make_path()

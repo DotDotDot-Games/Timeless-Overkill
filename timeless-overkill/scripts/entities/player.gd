@@ -16,7 +16,7 @@ var saved_direction : Vector2
 #scenes
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
-@onready var camera : Camera2D = $Camera2D
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var gun_spawn : Node2D = $GunSpawn
 @onready var bullets_node : Node = $"../Bullets"
 @onready var bullet_timer : Timer = $BulletCooldown
@@ -35,6 +35,7 @@ var health := max_health:
 
 var speed := 300
 var dash_speed := 1000
+var melee_damage := 0
 #gun
 var gun_scene
 var can_fire := true
@@ -43,7 +44,7 @@ var can_dash := true
 var dashing := false
 var dash_cooldown := 1.0
 var dash_time := 0.15
-
+var invincible = false
 
 func _ready():
 	gun_scene = gun.scene.instantiate()
@@ -60,7 +61,7 @@ func _ready():
 
 func _physics_process(_delta: float) -> void:
 	#setting up variables
-	camera.global_position = global_position
+	#camera.global_position = global_position
 	
 	if health <= 0:
 		kill()
@@ -91,10 +92,12 @@ func _physics_process(_delta: float) -> void:
 		dash()
 		
 	if dashing:
+		invincible = true
 		velocity = saved_direction.normalized() * dash_speed
 		var clone = clone_scene.instantiate()
 		clone.global_position = global_position
 		clone.sprite = sprite
+		clone.rotation = to_mouse.angle()
 		clone_node.add_child(clone)
 		
 	move_and_slide()
@@ -108,20 +111,31 @@ func shoot(angle):
 
 func dash():
 	if can_dash:
+		invincible = true
 		can_dash = false
 		dashing = true
 		saved_direction = facing
 		velocity = facing.normalized() * dash_speed
 		dash_timer.start()
 		
-	
-func damage(value):
+func deal_damage(collider):
+	if collider.damage(melee_damage):
+		collider.hit()
+			
+func damage(value) -> bool:
+	if invincible:
+		return false
 	health -= value
-	#print(stats.health)
+	return true
+	
+func take_damage(value):
+	health -= value
 	
 func kill():
+	get_tree().quit()
 	queue_free()
-
+func hit():
+	animation_player.play("hit_flash")
 func _on_bullet_cooldown_timeout() -> void:
 	bullet_timer.start()
 	can_fire = true
@@ -129,5 +143,10 @@ func _on_bullet_cooldown_timeout() -> void:
 
 func _on_dash_cooldown_timeout() -> void:
 	dashing = false
-	await get_tree().create_timer(dash_cooldown).timeout
+	var invincible_time = 0.2
+	await get_tree().create_timer(invincible_time).timeout
+	
+	invincible = false
+	await get_tree().create_timer(dash_cooldown-invincible_time).timeout
+	#await get_tree().create_timer(dash_cooldown).timeout
 	can_dash = true

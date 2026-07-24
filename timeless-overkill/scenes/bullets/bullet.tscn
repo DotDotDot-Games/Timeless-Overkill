@@ -1,27 +1,20 @@
 [gd_scene format=3 uid="uid://c3g5a63w66ggu"]
 
-[ext_resource type="Script" uid="uid://cutplfeviuo70" path="res://scripts/bullets/bullet.gd" id="1_g2o3w"]
-[ext_resource type="Texture2D" uid="uid://btfomyfo3s3ae" path="res://assets/bullets/All_Fire_Bullet_Pixel_16x16_00.png" id="2_k0bia"]
+[ext_resource type="Script" uid="uid://cutplfeviuo70" path="res://scripts/bullets/bullet_script.gd" id="1_g2o3w"]
+[ext_resource type="Texture2D" uid="uid://jmctj6uovr2j" path="res://assets/bullets/better_bullet.png" id="2_5f1na"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6pv2d"]
-radius = 3.0
+radius = 4.472136
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5f1na"]
-atlas = ExtResource("2_k0bia")
-region = Rect2(176, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g2o3w"]
-atlas = ExtResource("2_k0bia")
-region = Rect2(176, 16, 16, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_lj7gv"]
+atlas = ExtResource("2_5f1na")
+region = Rect2(9, 9, 9, 9)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3381y"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_5f1na")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g2o3w")
+"texture": SubResource("AtlasTexture_lj7gv")
 }],
 "loop": 1,
 "name": &"default",
@@ -38,7 +31,8 @@ script = ExtResource("1_g2o3w")
 shape = SubResource("CircleShape2D_6pv2d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=771570897]
-scale = Vector2(1.5, 1.5)
+position = Vector2(-3, -1)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_3381y")
 
 [node name="Timer" type="Timer" parent="." unique_id=104195055]
