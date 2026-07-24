@@ -3,9 +3,9 @@ extends Node2D
 @onready var fire_hole = $fire_hole
 var gun_data: GunType
 
-var enemy_bullet_speed = 0.5
+var enemy_bullet_speed = 0.25
 var enemy_bullet_damage = 1
-var enemy_bullet_scale = 1.5
+var enemy_bullet_scale = 1.3
 
 func shoot(direction,bullet_node):
 	var angle = deg_to_rad(gun_data.spread_angle)

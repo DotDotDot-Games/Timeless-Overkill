@@ -14,7 +14,12 @@ extends CharacterBody2D
 var gun_scene 
 var can_fire := true
 
-var person1_stats = preload("res://content/entities/person1.tres")
+var person1_stats = preload("res://content/entities/person_1.tres")
+var person2_stats = preload("res://content/entities/person_2.tres")
+var person3_stats = preload("res://content/entities/person_3.tres")
+var person4_stats = preload("res://content/entities/person_4.tres")
+
+
 var death_particles = preload("res://scenes/death_particles.tscn")
 var health_bar = preload("res://scenes/healthbar.tscn")
 
@@ -24,8 +29,8 @@ var color : Color
 
 var can_damage = true
 func _ready():
-	stats = person1_stats
-	gun = person1_stats.weapon
+	stats = [person1_stats,person2_stats,person3_stats,person4_stats].pick_random()
+	gun = stats.weapon
 	add_to_group("Enemies")
 	set_up_variables()
 	var health_bar_a = health_bar.instantiate()
@@ -35,7 +40,7 @@ func _ready():
 		add_child(gun_scene)
 		gun_scene.global_position = gun_spawn.global_position
 		gun_scene.gun_data = gun
-		shoot_timer.wait_time = gun.fire_rate * 2
+		shoot_timer.wait_time = gun.fire_rate * 3
 	
 func set_up_variables():
 	health = stats.health

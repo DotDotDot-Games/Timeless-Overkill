@@ -1,29 +1,29 @@
 [gd_scene format=3 uid="uid://ceo7cjddjsf55"]
 
-[ext_resource type="Script" uid="uid://ctkpn6rvht8gk" path="res://scripts/entities/person_1.gd" id="1_j072r"]
-[ext_resource type="Texture2D" uid="uid://s5yvmqxbxbpi" path="res://assets/entities/shooter up Teams.png" id="1_vt817"]
-[ext_resource type="Shader" uid="uid://d2so8p2u4r548" path="res://shaders/hitflash.gdshader" id="2_vgqy2"]
+[ext_resource type="Script" uid="uid://ctkpn6rvht8gk" path="res://scripts/entities/person.gd" id="1_jf287"]
+[ext_resource type="Shader" uid="uid://d2so8p2u4r548" path="res://shaders/hitflash.gdshader" id="2_h4n5y"]
+[ext_resource type="Texture2D" uid="uid://s5yvmqxbxbpi" path="res://assets/entities/shooter up Teams.png" id="3_8487m"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_asks5"]
 resource_local_to_scene = true
-shader = ExtResource("2_vgqy2")
+shader = ExtResource("2_h4n5y")
 shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
 shader_parameter/hit_flash_on = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j072r"]
-atlas = ExtResource("1_vt817")
+atlas = ExtResource("3_8487m")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vgqy2"]
-atlas = ExtResource("1_vt817")
+atlas = ExtResource("3_8487m")
 region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aqtek"]
-atlas = ExtResource("1_vt817")
+atlas = ExtResource("3_8487m")
 region = Rect2(320, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qrbob"]
-atlas = ExtResource("1_vt817")
+atlas = ExtResource("3_8487m")
 region = Rect2(448, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3381y"]
@@ -93,7 +93,7 @@ collision_layer = 8
 collision_mask = 7
 motion_mode = 1
 wall_min_slide_angle = 0.0
-script = ExtResource("1_j072r")
+script = ExtResource("1_jf287")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=332094503]
 material = SubResource("ShaderMaterial_asks5")

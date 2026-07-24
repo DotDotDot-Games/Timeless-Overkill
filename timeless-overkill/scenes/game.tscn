@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://de4umoo4h4lnm"]
 
-[ext_resource type="Script" path="res://scripts/other/spawner.gd" id="1_p57ef"]
+[ext_resource type="Script" uid="uid://dejn7mh30lvs2" path="res://scripts/spawner.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://bc161ne8nak3l" path="res://scenes/entities/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://dhxnbgo32gucf" path="res://assets/background/walls.png" id="2_yqjtg"]
 [ext_resource type="Resource" uid="uid://bchofr06auu0f" path="res://content/guns/rifle.tres" id="3_gee14"]
@@ -367,7 +367,7 @@ stats = ExtResource("5_iywne")
 [node name="Clones" type="Node" parent="." unique_id=1439863846]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1319337568]
-zoom = Vector2(0.8, 0.8)
+zoom = Vector2(0.3, 0.3)
 script = ExtResource("4_gee14")
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
