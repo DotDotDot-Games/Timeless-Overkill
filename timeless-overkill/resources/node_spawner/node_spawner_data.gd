@@ -3,7 +3,8 @@ extends ShareableResource
 
 class_name NodeSpawnerData
 
-@export var spawns_cantity := LimitedValue.new()
+## Defines the maximum number of nodes the spawn can invoke.
+@export var spawns_cantity: LimitedValue
 @export var cooldown := 1.0:
 	set(value):
 		
@@ -13,7 +14,15 @@ class_name NodeSpawnerData
 		cooldown = value
 		changed.emit()
 
-@export var max_node_at_a_time := 1
+## Defines the maximum number of nodes the spawn can invoke withouth stop the timer
+@export var max_node_at_a_time := 1:
+	set(value):
+		
+		if value < 1:
+			value = 1
+		
+		max_node_at_a_time = value
+
 @export var can_spawn := true:
 	set(value):
 		

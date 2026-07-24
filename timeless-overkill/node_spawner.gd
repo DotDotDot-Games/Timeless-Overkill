@@ -40,6 +40,9 @@ func _ready() -> void:
 	
 	if data.default_node_to_spawn:
 		container.add_child(data.default_node_to_spawn.instantiate())
+	
+	_can_spawn()
+	_start_spawning()
 
 func spawn() -> void:
 	
@@ -52,8 +55,11 @@ func spawn() -> void:
 	if new_node.has_method("_on_spawned"):
 		new_node.call("_on_spawned", self)
 	
+	new_node.tree_exited.connect(_on_node_exited)
 	container.add_child(new_node)
-	data.spawns_cantity.current_value += 1
+	
+	if data.spawns_cantity:
+		data.spawns_cantity.current_value += 1
 
 func _update_data() -> void:
 	
@@ -64,25 +70,38 @@ func _update_data() -> void:
 	timer.paused = !data.can_spawn
 
 func _start_spawning() -> void:
-	pass
+	
+	if data.can_spawn:
+		timer.start()
 
 func _on_end_timer() -> void:
 	
 	spawn()
 	_can_spawn()
-	
-	if data.can_spawn:
-		timer.start()
+	_start_spawning()
 
 func _can_spawn() -> void:
 	
 	if container.get_child_count() == data.max_node_at_a_time:
 		_toggle_spawn(false)
-	elif data.spawns_cantity.current_value == data.spawns_cantity.max_value:
-		_toggle_spawn(false)
-	else:
-		_toggle_spawn(true)
+		return
+	
+	if data.spawns_cantity:
+		
+		if data.spawns_cantity.current_value >= data.spawns_cantity.max_value:
+			_toggle_spawn(false)
+			return
+	
+	_toggle_spawn(true)
 
 func _toggle_spawn(value: bool) -> void:
 	data.can_spawn = value
-	timer.paused = not data.can_spawn
+	timer.paused = !data.can_spawn
+	print("Node Spawner: Can Spawn? ", data.can_spawn)
+
+func _on_node_exited() -> void:
+
+	_can_spawn()
+	
+	if timer.is_stopped():
+		_start_spawning()
