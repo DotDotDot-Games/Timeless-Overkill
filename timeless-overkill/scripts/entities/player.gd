@@ -34,7 +34,7 @@ var can_fire := true
 #dash
 var can_dash := true
 var dashing := false
-var dash_cooldown = 1
+var dash_cooldown := 1.0
 var dash_time = 0.15
 var invincible = false
 
