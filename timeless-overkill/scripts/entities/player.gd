@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name PlayerNode
 
+signal health_changed(new_value: int)
+
 @export var gun : GunType
 
 #facing
@@ -17,14 +19,20 @@ var saved_direction : Vector2
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var gun_spawn : Node2D = $GunSpawn
 @onready var bullets_node : Node = $"../Bullets"
-@onready var health_bar : ProgressBar = $"../CanvasLayer/UI/HealthBarPlayer"
 @onready var bullet_timer : Timer = $BulletCooldown
 @onready var dash_timer : Timer = $DashTime
 @onready var clone_node : Node = $"../Clones"
 var clone_scene = preload("res://scenes/clone.tscn")
+
 #stats
-var health := 1000
-var max_health := health
+var max_health := 100
+var health := max_health:
+	set(value):
+		
+		if health != value:
+			health = value
+			health_changed.emit(health)
+
 var speed := 300
 var dash_speed := 1000
 var melee_damage := 0
@@ -35,7 +43,7 @@ var can_fire := true
 var can_dash := true
 var dashing := false
 var dash_cooldown := 1.0
-var dash_time = 0.15
+var dash_time := 0.15
 var invincible = false
 
 func _ready():
@@ -43,7 +51,6 @@ func _ready():
 	add_child(gun_scene)
 	gun_scene.global_position = gun_spawn.global_position
 	gun_scene.gun_data = gun
-	health_bar.max_value = max_health
 	bullet_timer.wait_time = gun.fire_rate
 	bullet_timer.start()
 	dash_timer.wait_time = dash_time
@@ -55,7 +62,6 @@ func _ready():
 func _physics_process(_delta: float) -> void:
 	#setting up variables
 	#camera.global_position = global_position
-	health_bar.value = health
 	
 	if health <= 0:
 		kill()

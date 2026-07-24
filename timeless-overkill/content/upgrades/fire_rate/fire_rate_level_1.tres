@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="FireRateUpgradeData" format=3 uid="uid://c1nmgrqvtuwlb"]
+
+[ext_resource type="Script" uid="uid://dvumpxs062npx" path="res://resources/upgrades/fire_rate_upgrade_data.gd" id="1_rvc0e"]
+[ext_resource type="Texture2D" uid="uid://buxiyoksyx856" path="res://assets/ball.png" id="2_3xfbr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_txhom"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3xfbr")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_rvc0e")
+extra_multiplier = 0.85
+texture = SubResource("SpriteFrames_txhom")
+type = 1
+_id = "fire_rate_upgrade_i"
+name = "Fire Rate Upgrade I"
+metadata/_custom_type_script = "uid://dvumpxs062npx"
