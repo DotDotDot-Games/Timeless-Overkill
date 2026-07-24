@@ -43,8 +43,8 @@ var health := max_health:
 			health = value
 			health_changed.emit(health)
 
-var speed := 300
-var dash_speed := 1000
+var speed := 300.0
+var dash_speed := 1000.0
 var melee_damage := 0
 #gun
 var gun_scene
