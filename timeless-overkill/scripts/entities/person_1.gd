@@ -52,13 +52,14 @@ func _physics_process(_delta: float) -> void:
 	self.rotation = dir.angle()
 	if global_position.distance_to(player.global_position) <= stats.range:
 		move_and_slide()
+		if gun != null:
+			shoot(dir)
+		
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
 		if collider.is_in_group("Players"):
 			deal_damage(collider)
-	if gun != null:
-		shoot(dir)
 	
 func shoot(angle):
 	if can_fire:
