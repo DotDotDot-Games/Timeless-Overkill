@@ -13,22 +13,26 @@ func _ready():
 	set_up_variables()
 	timer.wait_time = bullet_data.lifetime
 	timer.start()
+	modulate = bullet_data.color
 	
 func _physics_process(delta: float) -> void:
 	
 	var collision = move_and_collide(velocity)
 	if collision:
+		pierce -= 1
 		var collider = collision.get_collider()
-		if collider.is_in_group("Enemies"):
+		if collider.is_in_group("Enemies") or collider.is_in_group("Players"):
 			damage(collider)
 			collider.hit()
-			spawn_particle()
+			if pierce <=0 :
+				spawn_particle()
 		if bounces >= 1:
 			velocity = velocity.bounce(collision.get_normal())
 			bounces -= 1
 		else:
-			spawn_particle()
-			queue_free()
+			if pierce <= 0:
+				spawn_particle()
+				queue_free()
 func spawn_particle():
 	var particles = hit_particles.instantiate()
 	particles.global_position = global_position

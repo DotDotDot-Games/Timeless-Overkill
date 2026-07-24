@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c3g5a63w66ggu"]
 
-[ext_resource type="Script" uid="uid://cutplfeviuo70" path="res://scripts/bullets/bullet.gd" id="1_g2o3w"]
+[ext_resource type="Script" uid="uid://cutplfeviuo70" path="res://scripts/bullets/bullet_script.gd" id="1_g2o3w"]
 [ext_resource type="Texture2D" uid="uid://btfomyfo3s3ae" path="res://assets/bullets/All_Fire_Bullet_Pixel_16x16_00.png" id="2_k0bia"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6pv2d"]

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="GunType" format=3 uid="uid://woygxs8iuedg"]
+
+[ext_resource type="Resource" uid="uid://pt0f6t45omdd" path="res://content/bullet/bouncy.tres" id="1_m5jy3"]
+[ext_resource type="Script" uid="uid://b75l5j03eddtv" path="res://resources/gun.gd" id="1_xcrfg"]
+[ext_resource type="PackedScene" uid="uid://qnyhmei8fncj" path="res://scenes/guns/shotgun.tscn" id="2_5qs56"]
+
+[resource]
+script = ExtResource("1_xcrfg")
+spread_angle = 10.0
+bullet_count = 4
+fire_rate = 0.8
+bullet = ExtResource("1_m5jy3")
+scene = ExtResource("2_5qs56")
+metadata/_custom_type_script = "uid://b75l5j03eddtv"

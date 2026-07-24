@@ -14,10 +14,10 @@ var saved_direction : Vector2
 #scenes
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
-@onready var camera : Camera2D = $Camera2D
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var gun_spawn : Node2D = $GunSpawn
 @onready var bullets_node : Node = $"../Bullets"
-@onready var health_bar : ProgressBar = $"../CanvasLayer/UI/HealthBar"
+@onready var health_bar : ProgressBar = $"../CanvasLayer/UI/HealthBarPlayer"
 @onready var bullet_timer : Timer = $BulletCooldown
 @onready var dash_timer : Timer = $DashTime
 @onready var clone_node : Node = $"../Clones"
@@ -53,7 +53,7 @@ func _ready():
 
 func _physics_process(_delta: float) -> void:
 	#setting up variables
-	camera.global_position = global_position
+	#camera.global_position = global_position
 	health_bar.value = health
 	
 	if health <= 0:
@@ -114,8 +114,10 @@ func damage(value):
 	#print(stats.health)
 	
 func kill():
+	get_tree().quit()
 	queue_free()
-
+func hit():
+	animation_player.play("hit_flash")
 func _on_bullet_cooldown_timeout() -> void:
 	bullet_timer.start()
 	can_fire = true
