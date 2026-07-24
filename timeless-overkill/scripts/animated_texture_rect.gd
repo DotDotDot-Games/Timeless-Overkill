@@ -23,7 +23,7 @@ var start_size: Vector2
 func _ready() -> void:
 	
 	start_size = atlas.region.size
-	print(atlas.region)
+	#print(atlas.region)
 
 func total_frames() -> int:
 	
