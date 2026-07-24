@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name EnemyNode
+
 @export var player : Node2D
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="BounceUpgradeData" format=3 uid="uid://77wns232qsp2"]
+
+[ext_resource type="Script" uid="uid://c5nfjc4rnytyd" path="res://resources/upgrades/bounce_upgrade_data.gd" id="1_0gqge"]
+
+[resource]
+script = ExtResource("1_0gqge")
+extra_value = 1.0
+type = 1
+metadata/_custom_type_script = "uid://c5nfjc4rnytyd"
