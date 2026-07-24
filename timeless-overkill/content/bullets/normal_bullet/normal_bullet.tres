@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="BulletStats" format=3 uid="uid://b4f4kfnqnmmwk"]
+
+[ext_resource type="Script" uid="uid://6q5kx66wrigb" path="res://components/resources/limited_value.gd" id="1_2rphj"]
+[ext_resource type="Script" uid="uid://dv34np0gi74dy" path="res://resources/bullets/bullet_stats.gd" id="1_cgi2f"]
+[ext_resource type="Texture2D" uid="uid://buxiyoksyx856" path="res://assets/ball.png" id="3_oud2n"]
+
+[sub_resource type="Resource" id="Resource_es7wc"]
+script = ExtResource("1_2rphj")
+_current_value = 2.0
+_max_value = 2.0
+metadata/_custom_type_script = "uid://6q5kx66wrigb"
+
+[resource]
+script = ExtResource("1_cgi2f")
+speed = 500.0
+damage = 20.0
+texture = ExtResource("3_oud2n")
+bounces = SubResource("Resource_es7wc")
+scene = "uid://dqunn5e5st4hu"
+_id = "normal_bullet"
+name = "Normal Bullet"
+metadata/_custom_type_script = "uid://dv34np0gi74dy"

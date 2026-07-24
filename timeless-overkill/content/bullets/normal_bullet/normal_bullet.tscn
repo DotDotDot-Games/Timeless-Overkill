@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dqunn5e5st4hu"]
+
+[ext_resource type="PackedScene" uid="uid://b6qam0hoxbarb" path="res://content/bullets/bullet.tscn" id="1_vxjgd"]
+[ext_resource type="Resource" uid="uid://b4f4kfnqnmmwk" path="res://content/bullets/normal_bullet/normal_bullet.tres" id="2_tfcxq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5oxhb"]
+radius = 16.0
+
+[node name="NormalBullet" unique_id=1132919546 instance=ExtResource("1_vxjgd")]
+stats = ExtResource("2_tfcxq")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=913342262]
+shape = SubResource("CircleShape2D_5oxhb")
