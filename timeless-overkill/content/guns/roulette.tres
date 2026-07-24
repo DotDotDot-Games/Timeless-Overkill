@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GunType" format=3 uid="uid://csk7n0yo65ua5"]
+
+[ext_resource type="Resource" uid="uid://cnr8r2wiq5c6w" path="res://content/bullet/normal.tres" id="1_c0a7x"]
+[ext_resource type="Script" uid="uid://b75l5j03eddtv" path="res://resources/gun.gd" id="1_s3sdf"]
+[ext_resource type="PackedScene" uid="uid://dtk87yddxc7g7" path="res://scenes/guns/roulette.tscn" id="2_c0a7x"]
+
+[resource]
+script = ExtResource("1_s3sdf")
+spread_angle = 180.0
+bullet_count = 16
+reload_time = 1.0
+fire_rate = 1.1
+bullet = ExtResource("1_c0a7x")
+scene = ExtResource("2_c0a7x")
+metadata/_custom_type_script = "uid://b75l5j03eddtv"

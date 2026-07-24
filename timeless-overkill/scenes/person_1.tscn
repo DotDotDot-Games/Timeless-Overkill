@@ -116,6 +116,7 @@ autostart = true
 libraries/ = SubResource("AnimationLibrary_vt817")
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=164953959]
+wait_time = 2.0
 autostart = true
 
 [node name="DamageTimer" type="Timer" parent="." unique_id=586607110]

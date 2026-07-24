@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_n70q8")
 bullet_speed = 40.0
-damage = 10.0
+damage = 20.0
 bounces = 3
 lifetime = 10.0
 pierce = 4

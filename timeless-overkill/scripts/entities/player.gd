@@ -91,6 +91,7 @@ func _physics_process(_delta: float) -> void:
 		var clone = clone_scene.instantiate()
 		clone.global_position = global_position
 		clone.sprite = sprite
+		clone.rotation = to_mouse.angle()
 		clone_node.add_child(clone)
 		
 	move_and_slide()

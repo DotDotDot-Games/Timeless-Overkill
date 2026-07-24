@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="GunType" format=3 uid="uid://woygxs8iuedg"]
 
-[ext_resource type="Resource" uid="uid://pt0f6t45omdd" path="res://content/bullet/bouncy.tres" id="1_m5jy3"]
+[ext_resource type="Resource" uid="uid://cnr8r2wiq5c6w" path="res://content/bullet/normal.tres" id="1_m5jy3"]
 [ext_resource type="Script" uid="uid://b75l5j03eddtv" path="res://resources/gun.gd" id="1_xcrfg"]
 [ext_resource type="PackedScene" uid="uid://qnyhmei8fncj" path="res://scenes/guns/shotgun.tscn" id="2_5qs56"]
 
