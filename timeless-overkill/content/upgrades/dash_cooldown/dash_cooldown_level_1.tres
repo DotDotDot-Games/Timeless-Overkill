@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="DashCooldownUpgradeData" format=3 uid="uid://crj5gurcp7r3q"]
+
+[ext_resource type="Script" uid="uid://b5v4dbytn35vo" path="res://resources/upgrades/dash_cooldown_upgrade.gd" id="1_vrdqp"]
+[ext_resource type="Texture2D" uid="uid://buxiyoksyx856" path="res://assets/ball.png" id="2_jjb3r"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nnfbk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jjb3r")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_vrdqp")
+extra_multiplier = 0.8
+texture = SubResource("SpriteFrames_nnfbk")
+type = 1
+_id = "dash_cooldown_upgrade_i"
+name = "Dash Cooldown Upgrade I"
+metadata/_custom_type_script = "uid://b5v4dbytn35vo"

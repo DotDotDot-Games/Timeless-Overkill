@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bi4srk1kst1nf" path="res://assets/clock_animated0010.png" id="1_rns2u"]
 [ext_resource type="Script" uid="uid://416j4dx50uig" path="res://scripts/score_label.gd" id="1_u001w"]
+[ext_resource type="Script" uid="uid://csh665jygxuv5" path="res://scripts/player_health_bar.gd" id="1_u2dgd"]
 [ext_resource type="Script" uid="uid://cikjnk4os05vr" path="res://scripts/time_limit_clock.gd" id="1_yubou"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws2uu"]
@@ -42,6 +43,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_ws2uu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6pv2d")
 value = 67.0
 show_percentage = false
+script = ExtResource("1_u2dgd")
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=667930091]
 layout_mode = 2
