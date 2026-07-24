@@ -1,6 +1,7 @@
 extends Label
 
 const TEXT_UNFORMATTED := "Score: %d"
+var ola
 
 func _ready():
 	
@@ -9,9 +10,8 @@ func _ready():
 	
 	_on_change_score(ScoreCounter.score)
 	
-func _on_change_score(new_score: int):
+func _on_change_score(new_score: int) -> void:
 	self.text = TEXT_UNFORMATTED % [new_score]
-
 
 func _input(event: InputEvent):
 	
