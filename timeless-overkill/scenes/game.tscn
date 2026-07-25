@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://de4umoo4h4lnm"]
+[gd_scene format=3 uid="uid://d1birapgk47uw"]
 
-[ext_resource type="Script" uid="uid://dejn7mh30lvs2" path="res://scripts/spawner.gd" id="1_p57ef"]
+[ext_resource type="Script" uid="uid://dejn7mh30lvs2" path="res://scripts/spawners/spawner.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b377qai12v2e7" path="res://scenes/game_ui.tscn" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bc161ne8nak3l" path="res://scenes/entities/player.tscn" id="1_uwrxv"]
 [ext_resource type="Resource" uid="uid://bchofr06auu0f" path="res://content/guns/rifle.tres" id="3_gee14"]
