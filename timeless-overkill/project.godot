@@ -18,12 +18,17 @@ config/icon="res://icon.svg"
 [autoload]
 
 LevelCountDown="*uid://g0eqk3oxnv34"
+ScoreCounter="*uid://bngkilbl3qbqx"
+
+[debug]
+
+gdscript/warnings/untyped_declaration=1
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+mouse_cursor/custom_image="uid://4y8ry75a68g0"
 
 [editor_plugins]
 
@@ -76,6 +81,16 @@ RELOAD={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":76,"key_label":0,"unicode":108,"location":0,"echo":false,"script":null)
 ]
 }
+DEBUG_SCORE={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"location":0,"echo":false,"script":null)
+]
+}
+DEBUG_INVICIBILITY={
+"deadzone": 0.2,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":73,"key_label":0,"unicode":105,"location":0,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 
@@ -83,6 +98,7 @@ RELOAD={
 2d_physics/layer_2="Bullets"
 2d_physics/layer_3="Walls"
 2d_physics/layer_4="Enemies"
+2d_physics/layer_5="Enemy_Bullets"
 
 [physics]
 

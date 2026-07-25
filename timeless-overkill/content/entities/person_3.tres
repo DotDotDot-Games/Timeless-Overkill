@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="EnemyStats" format=3 uid="uid://dggq1c7ak5g27"]
+
+[ext_resource type="Script" uid="uid://66ykmawbiu6v" path="res://resources/enemies.gd" id="1_26icr"]
+[ext_resource type="Resource" uid="uid://cowed8kon8exs" path="res://content/guns/machine_gun.tres" id="2_pvcuj"]
+
+[resource]
+script = ExtResource("1_26icr")
+health = 150.0
+speed = 50.0
+range = 800.0
+weapon = ExtResource("2_pvcuj")
+color = Color(1, 0.6392157, 0.047058824, 1)
+sprite = 2
+metadata/_custom_type_script = "uid://66ykmawbiu6v"

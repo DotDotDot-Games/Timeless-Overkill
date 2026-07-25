@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DamageUpgradeData" format=3 uid="uid://dnqtuakv8c4nv"]
+
+[ext_resource type="Script" uid="uid://cgsci1dkremcg" path="res://resources/upgrades/types/damage_upgrade_data.gd" id="1_nwird"]
+
+[resource]
+script = ExtResource("1_nwird")
+extra_multiplier = 1.5
+level = 2
+type = 1
+set_custom_id = true
+_id = "damage_level_2"
+name = "Damage Upgrade II"
+metadata/_custom_type_script = "uid://cgsci1dkremcg"

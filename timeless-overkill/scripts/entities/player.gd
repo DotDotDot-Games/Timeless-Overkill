@@ -2,7 +2,19 @@ extends CharacterBody2D
 
 class_name PlayerNode
 
-@export var gun : GunType
+signal health_changed(new_value: int)
+signal gun_changed
+
+@export var gun : GunType:
+	set(value):
+		
+		if gun == value:
+			return
+		
+		gun = value
+		
+		if not Engine.is_editor_hint():
+			gun_changed.emit()
 
 #facing
 var can_move := true
@@ -14,35 +26,41 @@ var saved_direction : Vector2
 #scenes
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
-@onready var camera : Camera2D = $Camera2D
+@onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var gun_spawn : Node2D = $GunSpawn
 @onready var bullets_node : Node = $"../Bullets"
-@onready var health_bar : ProgressBar = $"../CanvasLayer/UI/HealthBar"
+@onready var health_bar : ProgressBar = $"../CanvasLayer/UI/MarginContainer/VBoxContainer/HealthBar"
 @onready var bullet_timer : Timer = $BulletCooldown
 @onready var dash_timer : Timer = $DashTime
 @onready var clone_node : Node = $"../Clones"
-var clone_scene = preload("res://scenes/clone.tscn")
+var clone_scene := preload("res://scenes/clone.tscn")
 #stats
-var health := 100
-var max_health := health
-var speed := 300
-var dash_speed := 1000
+var max_health := 100
+var health := max_health:
+	set(value):
+		
+		if health != value:
+			health = value
+			health_changed.emit(health)
+
+var speed := 300.0
+var dash_speed := 1000.0
+var melee_damage := 0
 #gun
 var gun_scene
 var can_fire := true
 #dash
 var can_dash := true
 var dashing := false
-var dash_cooldown = 1
-var dash_time = 0.15
-
+var dash_cooldown := 1.0
+var dash_time := 0.15
+var invincible = false
 
 func _ready():
 	gun_scene = gun.scene.instantiate()
 	add_child(gun_scene)
 	gun_scene.global_position = gun_spawn.global_position
 	gun_scene.gun_data = gun
-	health_bar.max_value = max_health
 	bullet_timer.wait_time = gun.fire_rate
 	bullet_timer.start()
 	dash_timer.wait_time = dash_time
@@ -51,10 +69,9 @@ func _ready():
 
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	#setting up variables
-	camera.global_position = global_position
-	health_bar.value = health
+	#camera.global_position = global_position
 	
 	if health <= 0:
 		kill()
@@ -85,12 +102,24 @@ func _physics_process(_delta: float) -> void:
 		dash()
 		
 	if dashing:
+		invincible = true
 		velocity = saved_direction.normalized() * dash_speed
 		var clone = clone_scene.instantiate()
 		clone.global_position = global_position
 		clone.sprite = sprite
+		clone.rotation = to_mouse.angle()
 		clone_node.add_child(clone)
+		var collide := move_and_collide(self.velocity * delta)
 		
+		if collide:
+			
+			var collider := collide.get_collider()
+			
+			if collider is EnemyNode or collider is PersonNode:
+				deal_damage(collide.get_collider())
+		
+		return
+	
 	move_and_slide()
 	
 
@@ -102,26 +131,48 @@ func shoot(angle):
 
 func dash():
 	if can_dash:
+		invincible = true
 		can_dash = false
 		dashing = true
 		saved_direction = facing
 		velocity = facing.normalized() * dash_speed
 		dash_timer.start()
-		
-	
-func damage(value):
+
+## It is a [Variant], but it actually only receives [PersonNode] and [EnemyNode];
+## even though they are similar, they are distinct classes (in code),
+## so there is no way to type the variable.
+func deal_damage(collider: Variant) -> void:
+	if collider.damage(melee_damage):
+		collider.hit()
+			
+func damage(value) -> bool:
+	if invincible:
+		return false
 	health -= value
-	#print(stats.health)
+	return true
+	
 	
 func kill():
-	queue_free()
-
+	get_tree().quit()
+	
+func hit():
+	animation_player.play("hit_flash")
+	
 func _on_bullet_cooldown_timeout() -> void:
 	bullet_timer.start()
 	can_fire = true
 
-
 func _on_dash_cooldown_timeout() -> void:
 	dashing = false
-	await get_tree().create_timer(dash_cooldown).timeout
+	var invincible_time = 0.2
+	await get_tree().create_timer(invincible_time).timeout
+	
+	invincible = false
+	await get_tree().create_timer(dash_cooldown-invincible_time).timeout
+	#await get_tree().create_timer(dash_cooldown).timeout
 	can_dash = true
+
+func _input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed("DEBUG_INVICIBILITY"):
+		self.invincible = true

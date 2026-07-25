@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ilhr2xj7dq0m"]
 
-[ext_resource type="Script" uid="uid://d4ghdxybgmoj3" path="res://scripts/guns/gun.gd" id="1_4ihrc"]
+[ext_resource type="Script" uid="uid://d4ghdxybgmoj3" path="res://scripts/guns/gun_script.gd" id="1_4ihrc"]
 [ext_resource type="Texture2D" uid="uid://bix5efrat3vh2" path="res://assets/guns/Weapons.png" id="2_q35ia"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yfg77"]

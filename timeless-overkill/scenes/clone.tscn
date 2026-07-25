@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://dkwkhybwk01ng" path="res://scripts/clone.gd" id="1_ypstt"]
 
 [node name="Clone" type="Sprite2D" unique_id=1060769091]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_ypstt")
