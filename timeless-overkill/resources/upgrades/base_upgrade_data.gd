@@ -5,7 +5,7 @@ extends ItemData
 class_name BaseUpgradeData
 
 @export var level := 1
-var next_level_id: StringName
+@export var next_level_id: StringName
 
 func _init() -> void:
 	self.type = ItemType.Enum.UPGRADE

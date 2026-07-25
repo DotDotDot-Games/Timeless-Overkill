@@ -17,6 +17,7 @@ animations = [{
 [resource]
 script = ExtResource("1_nnfbk")
 extra_value = 30.0
+next_level_id = &"damage_level_2"
 texture = SubResource("SpriteFrames_wgoiq")
 type = 1
 set_custom_id = true
