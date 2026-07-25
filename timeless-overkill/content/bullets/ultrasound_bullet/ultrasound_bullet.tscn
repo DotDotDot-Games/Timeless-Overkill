@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://rannptckuggo"]
+
+[ext_resource type="PackedScene" uid="uid://b6qam0hoxbarb" path="res://content/bullets/bullet.tscn" id="1_aijxb"]
+[ext_resource type="Resource" uid="uid://d2pro4nhhqwmq" path="res://content/bullets/ultrasound_bullet/ultrasound_bullet.tres" id="2_407fc"]
+[ext_resource type="Texture2D" uid="uid://coqdw87qdbx7c" path="res://content/bullets/ultrasound_bullet/ultrasound_bullet.png" id="4_nswdg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g5iyu"]
+size = Vector2(26, 8)
+
+[node name="Bullet" unique_id=1132919546 instance=ExtResource("1_aijxb")]
+stats = ExtResource("2_407fc")
+
+[node name="Sprite2D" parent="." index="0" unique_id=99382734]
+texture = ExtResource("4_nswdg")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=913342262]
+shape = SubResource("RectangleShape2D_g5iyu")

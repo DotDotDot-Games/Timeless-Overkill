@@ -1,4 +1,5 @@
-extends Resource
+@tool
+extends ItemData
 class_name GunType
 
 @export var spread_angle : float

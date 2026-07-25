@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c0gsgwlgqp7x3"]
+
+[ext_resource type="PackedScene" uid="uid://b6qam0hoxbarb" path="res://content/bullets/bullet.tscn" id="1_g0da1"]
+[ext_resource type="Script" uid="uid://y3e7hh15sndt" path="res://content/bullets/ricocheting_bullet/ricochet_bullet.gd" id="2_brkpf"]
+[ext_resource type="Resource" uid="uid://b0fyw47chn7rn" path="res://content/bullets/ricocheting_bullet/ricocheting_bullet.tres" id="3_t7sxl"]
+[ext_resource type="Texture2D" uid="uid://cmd5xsy572pbk" path="res://content/bullets/ricocheting_bullet/ricochet_bullet.png" id="4_i2dit"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0usyi"]
+radius = 16.0
+
+[node name="RicochetBullet" unique_id=1132919546 instance=ExtResource("1_g0da1")]
+script = ExtResource("2_brkpf")
+multiplicator = 1.2
+stats = ExtResource("3_t7sxl")
+
+[node name="Sprite2D" parent="." index="0" unique_id=99382734]
+texture = ExtResource("4_i2dit")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=913342262]
+shape = SubResource("CircleShape2D_0usyi")
+
+[connection signal="on_bounce" from="." to="." method="_on_bounce"]

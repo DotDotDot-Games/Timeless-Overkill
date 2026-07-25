@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemPickableData" format=3 uid="uid://dqj4avkg06dgx"]
+
+[ext_resource type="Script" uid="uid://bmgqv466nua6a" path="res://resources/items/item_pickable_data.gd" id="1_u62yt"]
+[ext_resource type="Texture2D" uid="uid://dfvaf4dhwrgha" path="res://content/weapons/eightgun/eightgun.png" id="2_b5ykq"]
+
+[resource]
+script = ExtResource("1_u62yt")
+texture = ExtResource("2_b5ykq")
+scene = "uid://bgl5hbflsbq6v"
+metadata/_custom_type_script = "uid://bmgqv466nua6a"
