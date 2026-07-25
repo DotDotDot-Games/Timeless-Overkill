@@ -30,6 +30,3 @@ func _add_new_id(id: StringName) -> void:
 		_IDS.insert(_IDS.size()-1, id)
 	
 	print(_IDS)
-
-func had_node_to_spawn() -> bool:
-	return not _IDS.is_empty()
