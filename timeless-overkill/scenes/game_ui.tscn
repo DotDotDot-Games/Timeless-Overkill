@@ -44,6 +44,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_ws2uu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6pv2d")
 value = 100.0
 show_percentage = false
+script = ExtResource("1_u2dgd")
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1699528588]
 custom_minimum_size = Vector2(0, 20)

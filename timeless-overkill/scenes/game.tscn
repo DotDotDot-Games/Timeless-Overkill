@@ -5,8 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bc161ne8nak3l" path="res://scenes/entities/player.tscn" id="1_uwrxv"]
 [ext_resource type="Resource" uid="uid://bchofr06auu0f" path="res://content/guns/rifle.tres" id="3_gee14"]
 [ext_resource type="Script" uid="uid://bny3fqgbou4fi" path="res://scripts/camera_2d.gd" id="4_gee14"]
-[ext_resource type="PackedScene" uid="uid://b5kwk5nuwwweq" path="res://scenes/entities/zombie.tscn" id="4_lbhrr"]
-[ext_resource type="Resource" uid="uid://ctyd0m7sb33uv" path="res://content/entities/zombie.tres" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://iif0yia85ikp" path="res://scenes/map.scn" id="5_u5sy4"]
 
 [node name="game" type="Node2D" unique_id=905228880]
