@@ -7,7 +7,7 @@
 script = ExtResource("1_kkpuh")
 bullet_speed = 50.0
 damage = 40.0
-lifetime = 10.0
+lifetime = 8.0
 pierce = 1
 scene = ExtResource("1_rn6o0")
 color = Color(1, 0.082352936, 0.8673713, 1)

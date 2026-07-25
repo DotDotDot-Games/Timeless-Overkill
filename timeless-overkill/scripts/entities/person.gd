@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name PersonNode
+
 @export var player : Node2D
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
@@ -30,6 +32,7 @@ var color : Color
 var can_damage = true
 func _ready():
 	stats = [person1_stats,person2_stats,person3_stats,person4_stats].pick_random()
+	animated_sprite.frame = stats.sprite
 	gun = stats.weapon
 	add_to_group("Enemies")
 	set_up_variables()

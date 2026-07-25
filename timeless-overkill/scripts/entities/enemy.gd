@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name EnemyNode
+
 @export var player : Node2D
 @onready var nav_agent : NavigationAgent2D = $NavigationAgent2D
 @onready var animated_sprite : AnimatedSprite2D = $AnimatedSprite2D
@@ -55,8 +57,8 @@ func damage(value):
 	health -= value
 	
 func hit():
-	
 	animation_player.play("hit_flash")
+	
 func kill():
 	var particles = death_particles.instantiate()
 	particles.global_position = global_position
@@ -64,6 +66,7 @@ func kill():
 	particles.modulate = color
 	particles.emitting = true
 	queue_free()
+	
 func make_path():
 	nav_agent.target_position = player.global_position
 	

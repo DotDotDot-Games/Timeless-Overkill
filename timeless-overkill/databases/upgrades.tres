@@ -1,0 +1,89 @@
+[gd_resource type="Resource" script_class="Registry" format=3 uid="uid://bjyqgwi3pa5rb"]
+
+[ext_resource type="Script" uid="uid://dqtv77mng5dyh" path="res://addons/yard/registry.gd" id="1_wgoiq"]
+
+[resource]
+script = ExtResource("1_wgoiq")
+_version = 2
+_scan_rulesets = Array[Dictionary]([{
+&"allowed_file_extensions": Array[String]([]),
+&"class_restrictions": Array[StringName]([&"BaseUpgradeData"]),
+&"recursive_scan": true,
+&"scan_directories": Array[String](["res://content/upgrades"]),
+&"scan_regex_exclude": "",
+&"scan_regex_include": ""
+}])
+_uids_to_string_ids = Dictionary[StringName, StringName]({
+&"uid://77wns232qsp2": &"bounce_level_1",
+&"uid://bhs4eni2w3aap": &"damage_level_1",
+&"uid://c1nmgrqvtuwlb": &"fire_rate_level_1",
+&"uid://cd3mo1ql2bhdy": &"bullet_level_1",
+&"uid://crj5gurcp7r3q": &"dash_cooldown_level_1",
+&"uid://dnqtuakv8c4nv": &"damage_level_2",
+&"uid://dxd462afet7rx": &"dash_damage_level_1",
+&"uid://dxiigkhinasau": &"more_bullets_level_1",
+&"uid://lcdvt83gca6a": &"speed_level_1"
+})
+_string_ids_to_uids = Dictionary[StringName, StringName]({
+&"bounce_level_1": &"uid://77wns232qsp2",
+&"bullet_level_1": &"uid://cd3mo1ql2bhdy",
+&"damage_level_1": &"uid://bhs4eni2w3aap",
+&"damage_level_2": &"uid://dnqtuakv8c4nv",
+&"dash_cooldown_level_1": &"uid://crj5gurcp7r3q",
+&"dash_damage_level_1": &"uid://dxd462afet7rx",
+&"fire_rate_level_1": &"uid://c1nmgrqvtuwlb",
+&"more_bullets_level_1": &"uid://dxiigkhinasau",
+&"speed_level_1": &"uid://lcdvt83gca6a"
+})
+_property_index = Dictionary[StringName, Dictionary]({
+&"_id": {
+"bounce_upgrade_i": {
+&"bounce_level_1": true
+},
+"bullet_upgrade_i": {
+&"bullet_level_1": true
+},
+"damage_upgrade_i": {
+&"damage_level_1": true
+},
+"dash_cooldown_upgrade_i": {
+&"dash_cooldown_level_1": true
+},
+"dash_damage_upgrade_i": {
+&"dash_damage_level_1": true
+},
+"fire_rate_upgrade_i": {
+&"fire_rate_level_1": true
+},
+"more_bullets_upgrade_i": {
+&"more_bullets_level_1": true
+},
+"speed_upgrade_i": {
+&"speed_level_1": true
+}
+},
+&"level": {
+1: {
+&"bounce_level_1": true,
+&"bullet_level_1": true,
+&"damage_level_1": true,
+&"dash_cooldown_level_1": true,
+&"dash_damage_level_1": true,
+&"fire_rate_level_1": true,
+&"more_bullets_level_1": true,
+&"speed_level_1": true
+}
+},
+&"spawneable": {
+true: {
+&"bounce_level_1": true,
+&"bullet_level_1": true,
+&"damage_level_1": true,
+&"dash_cooldown_level_1": true,
+&"dash_damage_level_1": true,
+&"fire_rate_level_1": true,
+&"more_bullets_level_1": true,
+&"speed_level_1": true
+}
+}
+})
