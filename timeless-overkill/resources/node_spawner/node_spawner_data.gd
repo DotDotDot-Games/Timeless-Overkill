@@ -34,3 +34,5 @@ class_name NodeSpawnerData
 
 ## null if don't use node
 @export var default_node_to_spawn: PackedScene
+
+@export var spawn_method: BaseNodeSpawnMethod

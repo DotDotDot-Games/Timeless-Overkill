@@ -1,9 +1,9 @@
 extends Node
 
 @onready var player : CharacterBody2D = $"../player"
-@onready var enemy_node = $"../Enemies"
-var zombie_scene = preload("res://scenes/entities/zombie.tscn")
-var person_scene = preload("res://scenes/person.tscn")
+@onready var enemy_node: Node = $"../Enemies"
+const zombie_scene := "res://scenes/entities/zombie.tscn"
+const person_scene := "res://scenes/person.tscn"
 
 func _on_timer_timeout() -> void:
 	var random_number := randi_range(1,3)
@@ -18,8 +18,8 @@ func _on_timer_timeout() -> void:
 		spawn_scene(person_scene)
 		spawn_scene(person_scene)
 		
-func spawn_scene(scene):
-	var instance = scene.instantiate()
+func spawn_scene(scene: String) -> void:
+	var instance: Node2D = load(scene).instantiate()
 	instance.player = player
 	enemy_node.add_child(instance)
 	instance.global_position = generate_random_pos() 

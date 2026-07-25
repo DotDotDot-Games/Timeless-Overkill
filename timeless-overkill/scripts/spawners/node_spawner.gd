@@ -15,7 +15,6 @@ class_name NodeSpawner
 		container = value
 
 @export var data: NodeSpawnerData
-@export var spawn_method: BaseNodeSpawnMethod
 
 var is_spawning: bool:
 	get: return not timer.is_stopped() and not timer.paused
@@ -49,7 +48,11 @@ func spawn() -> void:
 	if Engine.is_editor_hint():
 		return
 	
-	var new_node := spawn_method.create()
+	var new_node := data.spawn_method.create()
+	
+	if not data.spawn_method.had_node_to_spawn():
+		return
+	
 	new_node.global_position = self.global_position
 	
 	if new_node.has_method("_on_spawned"):

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="NodeSpawnerData" format=3 uid="uid://cncensvf2j68v"]
+
+[ext_resource type="Script" uid="uid://ciomkjog11cis" path="res://resources/node_spawner/node_spawner_data.gd" id="1_qxp4a"]
+[ext_resource type="Resource" uid="uid://bjyqgwi3pa5rb" path="res://databases/upgrades.tres" id="2_0f36j"]
+[ext_resource type="Script" uid="uid://ciftu3kvkvah7" path="res://resources/node_spawner/methods/upgrade_spawn_method.gd" id="2_16745"]
+
+[sub_resource type="Resource" id="Resource_l2gqo"]
+script = ExtResource("2_16745")
+DATABASE = ExtResource("2_0f36j")
+metadata/_custom_type_script = "uid://ciftu3kvkvah7"
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_qxp4a")
+spawn_method = SubResource("Resource_l2gqo")
+metadata/_custom_type_script = "uid://ciomkjog11cis"
