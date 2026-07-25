@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://de4umoo4h4lnm"]
+[gd_scene format=3 uid="uid://d1birapgk47uw"]
 
 [ext_resource type="Script" uid="uid://dejn7mh30lvs2" path="res://scripts/spawners/spawner.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b377qai12v2e7" path="res://scenes/game_ui.tscn" id="1_u5sy4"]
@@ -12,12 +12,6 @@
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1240984807]
 
 [node name="UI" parent="CanvasLayer" unique_id=335880088 instance=ExtResource("1_u5sy4")]
-
-[node name="UI2" type="Control" parent="CanvasLayer" unique_id=1719635270]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 66.0
-offset_bottom = 40.0
 
 [node name="Spawner" type="Node" parent="." unique_id=1357809302]
 script = ExtResource("1_p57ef")
@@ -42,17 +36,7 @@ script = ExtResource("4_gee14")
 
 [node name="Enemies" type="Node" parent="." unique_id=1240360565]
 
-[node name="zombie" parent="Enemies" unique_id=773458434 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
-position = Vector2(500, 300)
-player = NodePath("../../player")
-stats = ExtResource("5_iywne")
-
 [node name="EnemyBullets" type="Node" parent="Enemies" unique_id=65274206]
-
-[node name="zombie2" parent="Enemies" unique_id=21629336 node_paths=PackedStringArray("player") instance=ExtResource("4_lbhrr")]
-position = Vector2(-300, -500)
-player = NodePath("../../player")
-stats = ExtResource("5_iywne")
 
 [node name="Particles" type="Node" parent="." unique_id=446993355]
 
