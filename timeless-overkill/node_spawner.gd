@@ -71,7 +71,7 @@ func _update_data() -> void:
 
 func _start_spawning() -> void:
 	
-	if data.can_spawn:
+	if data.can_spawn and not is_spawning:
 		timer.start()
 
 func _on_end_timer() -> void:
@@ -102,6 +102,4 @@ func _toggle_spawn(value: bool) -> void:
 func _on_node_exited() -> void:
 
 	_can_spawn()
-	
-	if timer.is_stopped():
-		_start_spawning()
+	_start_spawning()

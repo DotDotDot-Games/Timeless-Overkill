@@ -13,7 +13,11 @@ class_name BaseRegistrySpawnMethod
 			return
 		
 		DATABASE = value
-		_on_set_database()
+		_on_database_setted()
 
-func _on_set_database() -> void:
-	pass
+var _IDS: Array[StringName] = []
+var IDS: Array[StringName]:
+	get: return _IDS
+
+func _on_database_setted() -> void:
+	_IDS = DATABASE.get_all_string_ids()
