@@ -28,11 +28,11 @@ gun = ExtResource("3_gee14")
 zoom = Vector2(0.8, 0.8)
 script = ExtResource("4_gee14")
 
-[node name="Background" type="Node" parent="." unique_id=1344257485]
-
-[node name="map" parent="Background" unique_id=885680849 instance=ExtResource("5_u5sy4")]
+[node name="map" parent="." unique_id=885680849 instance=ExtResource("5_u5sy4")]
 
 [node name="Bullets" type="Node" parent="." unique_id=360192291]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=2040617934]
 
 [node name="Enemies" type="Node" parent="." unique_id=1240360565]
 

@@ -9,6 +9,8 @@ var speed
 var lifetime
 var color : Color
 var bullet_damage
+var point_mult : float
+var hit_mult := 1.0
 @onready var timer: Timer = $Timer
 var hit_particles = preload("res://scenes/gun_particles.tscn")
 
@@ -26,10 +28,14 @@ func _physics_process(delta: float) -> void:
 		pierce -= 1
 		var collider = collision.get_collider()
 		if collider.is_in_group("Enemies") or collider.is_in_group("Players"):
-			damage(collider)
+			if damage(collider) and collider.is_in_group("Enemies"):
+				point_mult = bullet_data.points * hit_mult
+				ScoreCounter.score += collider.stats.points * point_mult
+				hit_mult *= 1.25
 			collider.hit()
 			if pierce <=0 :
 				spawn_particle()
+		
 		if bounces >= 1:
 			velocity = velocity.bounce(collision.get_normal())
 			bounces -= 1
@@ -46,13 +52,13 @@ func spawn_particle():
 	particles.modulate = color
 	
 func damage(collider):
-	collider.damage(bullet_damage)
+	return collider.damage(bullet_damage)
 	
 func set_up_variables():
 	
 	bounces = bullet_data.bounces
 	pierce = bullet_data.pierce
-	
+	point_mult = bullet_data.points * hit_mult
 	if speed == null:
 		speed = bullet_data.bullet_speed
 	if bullet_damage == null:

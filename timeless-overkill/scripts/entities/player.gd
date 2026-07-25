@@ -35,7 +35,7 @@ var saved_direction : Vector2
 @onready var clone_node : Node = $"../Clones"
 var clone_scene := preload("res://scenes/clone.tscn")
 #stats
-var max_health := 100
+var max_health := 1000
 var health := max_health:
 	set(value):
 		
@@ -60,7 +60,7 @@ func _ready():
 	gun_scene = gun.scene.instantiate()
 	add_child(gun_scene)
 	gun_scene.global_position = gun_spawn.global_position
-	gun_scene.gun_data = gun
+	gun_scene.gun_data = gun.duplicate()
 	bullet_timer.wait_time = gun.fire_rate
 	bullet_timer.start()
 	dash_timer.wait_time = dash_time

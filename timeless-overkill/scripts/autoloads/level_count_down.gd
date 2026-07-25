@@ -3,7 +3,7 @@ extends Node
 signal time_ended
 
 ## In seconds
-const INITIAL_TIME := 60
+const INITIAL_TIME := 120
 
 @onready var _timer: Timer = Timer.new()
 @export var phases: Array[Resource] = []

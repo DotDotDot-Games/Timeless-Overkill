@@ -55,6 +55,10 @@ func deal_damage(collider):
 			
 func damage(value):
 	health -= value
+	if health <= 0:
+		return true
+	else:
+		return false
 	
 func hit():
 	animation_player.play("hit_flash")
