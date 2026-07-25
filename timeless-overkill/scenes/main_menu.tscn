@@ -1,14 +1,50 @@
 [gd_scene format=3 uid="uid://c3yfdp56nuefy"]
 
-[ext_resource type="Script" uid="uid://bucfasndj2gux" path="res://scripts/main_menu.gd" id="1_jnqid"]
+[ext_resource type="Script" uid="uid://bucfasndj2gux" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="FontFile" uid="uid://c62xevxqfagvd" path="res://assets/fonts_william/SuperPixel-m2L8j.ttf" id="2_ekxnf"]
+[ext_resource type="FontFile" uid="uid://d2w8t74sl8snq" path="res://assets/fonts_william/PixelifySans-VariableFont_wght.ttf" id="2_wu84c"]
+[ext_resource type="Texture2D" uid="uid://etpqwg4x4dbx" path="res://assets/logo_to.png" id="3_bqqt6"]
+[ext_resource type="Texture2D" uid="uid://c1y207c8rkp4s" path="res://assets/images/blood_anim.png" id="5_8ln24"]
 
 [sub_resource type="Gradient" id="Gradient_e4iba"]
+colors = PackedColorArray(0, 0.12941177, 0.09019608, 1, 0.9999997, 0.82617456, 0.7938333, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_m31fn"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8ln24"]
 gradient = SubResource("Gradient_e4iba")
+fill_from = Vector2(0.7037037, 1)
+fill_to = Vector2(0.7008547, 0.048433047)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_adqv7"]
-texture = SubResource("GradientTexture2D_m31fn")
+texture = SubResource("GradientTexture2D_8ln24")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0.4681731, 0, 0.061224945, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+bg_color = Color(0.41246706, 3.549643e-07, 0.05051198, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+bg_color = Color(0.6157283, 0, 0.09900641, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_offset = Vector2(5, 5)
 
 [node name="main_menu" type="Control" unique_id=1584687651]
 layout_mode = 3
@@ -17,59 +53,90 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_jnqid")
+script = ExtResource("1_l6cm7")
 
 [node name="main_bg" type="Panel" parent="." unique_id=1778932931]
-layout_mode = 0
-offset_left = -26.774963
-offset_top = 689.0
-offset_right = 1129.2251
-offset_bottom = 1942.7749
-rotation = 4.712389
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_adqv7")
 
-[node name="main_title" type="Label" parent="." unique_id=1223164261]
-layout_mode = 1
+[node name="buttons" type="Node" parent="." unique_id=1444022536]
+
+[node name="Button" type="Button" parent="buttons" unique_id=90444395]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -350.08698
-offset_top = -240.0
-offset_right = 350.08698
-offset_bottom = -118.0
+offset_left = -83.0
+offset_top = 73.0
+offset_right = 83.0
+offset_bottom = 148.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(1, 0, 0, 0)
-theme_override_colors/font_outline_color = Color(0.4117647, 0, 0, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/outline_size = 20
-theme_override_constants/shadow_outline_size = 5
-theme_override_font_sizes/font_size = 64
-text = "Timeless Overkill"
-horizontal_alignment = 1
-
-[node name="buttons" type="Node" parent="." unique_id=1444022536]
-
-[node name="VBoxContainer" type="VBoxContainer" parent="buttons" unique_id=1271974978]
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.469
-anchor_right = 0.5
-anchor_bottom = 0.469
-offset_left = -75.0
-offset_top = 0.08798218
-offset_right = 91.0
-offset_bottom = 136.08798
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="Button" type="Button" parent="buttons/VBoxContainer" unique_id=90444395]
-layout_mode = 2
+scale = Vector2(1.4, 1)
+pivot_offset = Vector2(83, 37.5)
+theme_override_fonts/font = ExtResource("2_wu84c")
 theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rtw2f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oa1go")
 text = "PLAY"
+metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="buttons/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=430971201]
+visible = false
+layout_mode = 0
+offset_left = 337.0
+offset_top = 136.0
+offset_right = 1048.0
+offset_bottom = 355.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_ekxnf")
+theme_override_font_sizes/normal_font_size = 84
+text = "TIMELESS"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=388706019]
+visible = false
+layout_mode = 0
+offset_left = 436.0
+offset_top = 240.0
+offset_right = 1019.0
+offset_bottom = 374.0
+theme_override_colors/default_color = Color(0.32941177, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 30
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_fonts/normal_font = ExtResource("2_ekxnf")
+theme_override_font_sizes/normal_font_size = 84
+text = "VERKILL"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2006813456]
+position = Vector2(571.5775, 210.5)
+scale = Vector2(1.0503875, 1.0503875)
+texture = ExtResource("3_bqqt6")
+
+[node name="blood_effect_ctrl" type="Control" parent="." unique_id=157988598]
+layout_mode = 1
+anchor_left = 0.89500004
+anchor_top = 8.641974e-05
+anchor_right = 0.89500004
+anchor_bottom = -0.0030000005
+offset_left = -20.04004
+offset_top = -0.055999994
+offset_right = 19.95996
+offset_bottom = 39.944
+metadata/_edit_use_anchors_ = true
+
+[node name="blood_effect" type="Sprite2D" parent="blood_effect_ctrl" unique_id=1426326232]
+position = Vector2(41.99997, 158)
+scale = Vector2(1.1148949, 1.1148947)
+texture = ExtResource("5_8ln24")
+
+[connection signal="pressed" from="buttons/Button" to="." method="_on_button_pressed"]
