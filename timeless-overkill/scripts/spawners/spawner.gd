@@ -23,8 +23,7 @@ func spawn():
 	elif random_number == 3:
 		spawn_scene(person_scene)
 		spawn_scene(person_scene)
-func _process(delta):
-	$FPS.text = "frames" + str(Engine.get_frames_per_second())
+		
 func spawn_scene(scene):
 	var instance = scene.instantiate()
 	instance.player = player
