@@ -59,22 +59,22 @@ func _physics_process(_delta: float) -> void:
 		kill()
 
 	
-		
-	var dir = global_position.direction_to(nav_agent.get_next_path_position()).normalized()
-	velocity = dir * stats.speed
-	self.rotation = dir.angle()
-	health_bar_a.rotation = -rotation
-	health_bar_a.global_position = global_position + Vector2(-health_bar_a.size.x/2,-40)
 	if global_position.distance_to(player.global_position) <= stats.range:
+		var dir = global_position.direction_to(nav_agent.get_next_path_position()).normalized()
+		velocity = dir * stats.speed
+		self.rotation = dir.angle()
+		health_bar_a.rotation = -rotation
+		health_bar_a.global_position = global_position + Vector2(-health_bar_a.size.x/2,-40)
+		
 		move_and_slide()
 		if gun != null:
 			shoot(dir)
-		
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
-		if collider.is_in_group("Players"):
-			deal_damage(collider)
+			
+		for i in get_slide_collision_count():
+			var collision = get_slide_collision(i)
+			var collider = collision.get_collider()
+			if collider.is_in_group("Players"):
+				deal_damage(collider)
 	
 func shoot(angle):
 	if can_fire:
