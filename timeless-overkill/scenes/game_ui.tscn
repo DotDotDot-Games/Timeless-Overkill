@@ -9,6 +9,9 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pv2d"]
 bg_color = Color(0, 0.72791904, 0.07708999, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0rmb"]
+bg_color = Color(1, 0, 0, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_u001w"]
 resource_local_to_scene = true
 atlas = ExtResource("1_rns2u")
