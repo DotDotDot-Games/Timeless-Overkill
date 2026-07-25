@@ -29,11 +29,11 @@ var saved_direction : Vector2
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var gun_spawn : Node2D = $GunSpawn
 @onready var bullets_node : Node = $"../Bullets"
+@onready var health_bar : ProgressBar = $"../CanvasLayer/UI/MarginContainer/VBoxContainer/HealthBar"
 @onready var bullet_timer : Timer = $BulletCooldown
 @onready var dash_timer : Timer = $DashTime
 @onready var clone_node : Node = $"../Clones"
-var clone_scene = preload("res://scenes/clone.tscn")
-
+var clone_scene := preload("res://scenes/clone.tscn")
 #stats
 var max_health := 100
 var health := max_health:
@@ -151,13 +151,13 @@ func damage(value) -> bool:
 	health -= value
 	return true
 	
+	
 func kill():
 	get_tree().quit()
-	queue_free()
-
+	
 func hit():
 	animation_player.play("hit_flash")
-
+	
 func _on_bullet_cooldown_timeout() -> void:
 	bullet_timer.start()
 	can_fire = true
