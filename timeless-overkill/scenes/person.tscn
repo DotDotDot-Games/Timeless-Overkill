@@ -109,7 +109,7 @@ shape = SubResource("CapsuleShape2D_3381y")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1953893618]
 
 [node name="NavTimer" type="Timer" parent="." unique_id=651219726]
-wait_time = 0.3
+wait_time = 0.5
 autostart = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1579565280]

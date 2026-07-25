@@ -4,8 +4,13 @@ extends Node
 @onready var enemy_node = $"../Enemies"
 var zombie_scene = preload("res://scenes/entities/zombie.tscn")
 var person_scene = preload("res://scenes/person.tscn")
-
+func _ready():
+	spawn()
+	spawn()
 func _on_timer_timeout() -> void:
+	spawn()
+		
+func spawn():
 	var random_number := randi_range(1,3)
 	if random_number == 1:
 		spawn_scene(zombie_scene)
@@ -16,8 +21,7 @@ func _on_timer_timeout() -> void:
 		spawn_scene(zombie_scene)
 	elif random_number == 3:
 		spawn_scene(person_scene)
-		spawn_scene(person_scene)
-		
+		spawn_scene(person_scene)	
 func spawn_scene(scene):
 	var instance = scene.instantiate()
 	instance.player = player

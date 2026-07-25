@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://bi4srk1kst1nf" path="res://assets/clock_animated0010.png" id="1_rns2u"]
 [ext_resource type="Script" uid="uid://416j4dx50uig" path="res://scripts/score_label.gd" id="1_u001w"]
-[ext_resource type="FontFile" uid="uid://oi7lluf50l0a" path="res://assets/fonts/PixelifySans-VariableFont_wght copy.ttf" id="1_u2dgd"]
 [ext_resource type="Script" uid="uid://cikjnk4os05vr" path="res://scripts/time_limit_clock.gd" id="1_yubou"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws2uu"]
@@ -44,22 +43,26 @@ theme_override_styles/background = SubResource("StyleBoxFlat_ws2uu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6pv2d")
 value = 100.0
 show_percentage = false
-script = ExtResource("1_u2dgd")
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1699528588]
-custom_minimum_size = Vector2(0, 20)
+custom_minimum_size = Vector2(80, 20)
 custom_maximum_size = Vector2(70, -1)
 layout_mode = 2
-color = Color(0.8808594, 0, 0, 1)
+color = Color(0.34412384, 0.49361414, 0.5683594, 1)
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ColorRect" unique_id=667930091]
+[node name="Label" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ColorRect" unique_id=744829978]
 layout_mode = 0
-offset_left = 2.5
-offset_right = 239.5
-offset_bottom = 20.0
-theme_override_fonts/font = ExtResource("1_u2dgd")
-theme_override_font_sizes/font_size = 16
+offset_left = 5.5
+offset_top = -1.5
+offset_right = 67.5
+offset_bottom = 21.5
+bbcode_enabled = true
 text = "Score: 0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+autowrap_trim_flags = 0
+vertical_alignment = 1
 script = ExtResource("1_u001w")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=455164113]
