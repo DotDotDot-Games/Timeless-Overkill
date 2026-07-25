@@ -171,3 +171,8 @@ func _on_dash_cooldown_timeout() -> void:
 	await get_tree().create_timer(dash_cooldown-invincible_time).timeout
 	#await get_tree().create_timer(dash_cooldown).timeout
 	can_dash = true
+
+func _input(event: InputEvent) -> void:
+	
+	if event.is_action_pressed("DEBUG_INVICIBILITY"):
+		self.invincible = true

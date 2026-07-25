@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BulletUpgradeData" format=3 uid="uid://cd3mo1ql2bhdy"]
 
 [ext_resource type="Resource" uid="uid://c6rqkwg8j4jei" path="res://content/bullet/strong.tres" id="1_5524x"]
-[ext_resource type="Script" uid="uid://m61hsupdprnk" path="res://resources/upgrades/bullet_upgrade_data.gd" id="1_p5px4"]
+[ext_resource type="Script" uid="uid://m61hsupdprnk" path="res://resources/upgrades/types/bullet_upgrade_data.gd" id="2_h20jo"]
 [ext_resource type="Texture2D" uid="uid://buxiyoksyx856" path="res://assets/ball.png" id="3_h20jo"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_txhom"]
@@ -16,10 +16,10 @@ animations = [{
 }]
 
 [resource]
-script = ExtResource("1_p5px4")
+script = ExtResource("2_h20jo")
 new_bullet = ExtResource("1_5524x")
 texture = SubResource("SpriteFrames_txhom")
 type = 1
-_id = "bullet_upgrade_i"
-name = "Bullet Upgrade I"
+_id = "bullet_level_1"
+name = "Bullet Level 1"
 metadata/_custom_type_script = "uid://m61hsupdprnk"

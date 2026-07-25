@@ -3,7 +3,7 @@ extends BaseStatsUpgradeData
 
 class_name MoreBulletsUpgradeData
 
-func _waited_type(obj: Object) -> bool:
+func can_apply_to(obj: Object) -> bool:
 	return obj is PlayerNode
 
 func set_upgrade(obj: Object) -> void:

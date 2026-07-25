@@ -1,11 +1,26 @@
 [gd_resource type="Resource" script_class="DamageUpgradeData" format=3 uid="uid://bhs4eni2w3aap"]
 
-[ext_resource type="Script" uid="uid://cgsci1dkremcg" path="res://resources/upgrades/damage_upgrade_data.gd" id="1_nnfbk"]
+[ext_resource type="Script" uid="uid://cgsci1dkremcg" path="res://resources/upgrades/types/damage_upgrade_data.gd" id="1_nnfbk"]
+[ext_resource type="Texture2D" uid="uid://buxiyoksyx856" path="res://assets/ball.png" id="2_8ltvj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wgoiq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8ltvj")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [resource]
 script = ExtResource("1_nnfbk")
 extra_value = 30.0
+next_level_id = &"damage_level_2"
+texture = SubResource("SpriteFrames_wgoiq")
 type = 1
-_id = "damage_upgrade_i"
+set_custom_id = true
+_id = "damage_level_1"
 name = "Damage Upgrade I"
 metadata/_custom_type_script = "uid://cgsci1dkremcg"

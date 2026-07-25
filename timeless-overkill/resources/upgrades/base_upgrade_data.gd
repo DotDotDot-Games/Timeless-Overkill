@@ -5,6 +5,7 @@ extends ItemData
 class_name BaseUpgradeData
 
 @export var level := 1
+@export var next_level_id: StringName
 
 func _init() -> void:
 	self.type = ItemType.Enum.UPGRADE
@@ -16,7 +17,7 @@ func _validate_property(property: Dictionary) -> void:
 
 ## By default return true, that's is for custom types on childs
 @warning_ignore("unused_parameter")
-func _waited_type(obj: Object) -> bool:
+func can_apply_to(obj: Object) -> bool:
 	return true
 
 func apply(obj: Object) -> bool:
@@ -25,7 +26,7 @@ func apply(obj: Object) -> bool:
 		return false
 	
 	print("Upgrade: Verifying type")
-	if _waited_type(obj):
+	if can_apply_to(obj):
 		set_upgrade(obj)
 		print("Upgrade: Setted upgrade")
 		return true
