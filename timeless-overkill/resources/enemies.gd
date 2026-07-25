@@ -8,4 +8,5 @@ class_name EnemyStats
 @export var weapon : GunType
 @export var color: Color
 @export var sprite : int
+@export var points : float
 # color for death aprticle

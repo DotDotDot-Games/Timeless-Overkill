@@ -1,7 +1,7 @@
-extends Label
+extends RichTextLabel
 
 const TEXT_UNFORMATTED := "Score: %d"
-
+@onready var color_rect : ColorRect = $".."
 func _ready() -> void:
 	
 	if not ScoreCounter.score_changed.is_connected(_on_change_score):
@@ -10,7 +10,14 @@ func _ready() -> void:
 	_on_change_score(ScoreCounter.score)
 	
 func _on_change_score(new_score: int) -> void:
-	self.text = TEXT_UNFORMATTED % [new_score]
+	self.text =  "[wave][rainbow]"+"Score: "+str(new_score)+"[/rainbow][/wave]"
+	
+	await get_tree().process_frame
+	var s := size + Vector2(10,0)
+	color_rect.custom_minimum_size = s
+	color_rect.custom_maximum_size = s
+	color_rect.size = s
+	
 
 func _input(event: InputEvent) -> void:
 	
