@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://d1birapgk47uw"]
+[gd_scene format=3 uid="uid://de4umoo4h4lnm"]
 
 [ext_resource type="Script" uid="uid://dejn7mh30lvs2" path="res://scripts/spawners/spawner.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b377qai12v2e7" path="res://scenes/game_ui.tscn" id="1_u5sy4"]
@@ -18,7 +18,7 @@
 script = ExtResource("1_p57ef")
 
 [node name="Timer" type="Timer" parent="Spawner" unique_id=1454062899]
-wait_time = 9.0
+wait_time = 7.0
 autostart = true
 
 [node name="FPS" type="Label" parent="Spawner" unique_id=2008449657]
@@ -36,7 +36,7 @@ z_index = 1
 gun = ExtResource("3_gee14")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1319337568]
-zoom = Vector2(0.4, 0.4)
+zoom = Vector2(0.9, 0.9)
 script = ExtResource("4_gee14")
 
 [node name="map" parent="." unique_id=885680849 instance=ExtResource("5_u5sy4")]

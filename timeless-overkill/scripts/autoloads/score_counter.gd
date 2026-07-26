@@ -2,6 +2,7 @@ extends Node
 
 signal score_changed(new_score: int)
 
+var score_rainbow_mult = 1
 ## Actual Score
 var score := 0:
 	set(value):

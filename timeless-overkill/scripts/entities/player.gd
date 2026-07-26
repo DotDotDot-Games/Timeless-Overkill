@@ -33,6 +33,8 @@ var saved_direction : Vector2
 @onready var bullet_timer : Timer = $BulletCooldown
 @onready var dash_timer : Timer = $DashTime
 @onready var clone_node : Node = $"../Clones"
+@onready var damage_player : AudioStreamPlayer2D = $DamagePlayer
+@onready var death_player : AudioStreamPlayer2D = $DeathPlayer
 var clone_scene := preload("res://scenes/clone.tscn")
 #stats
 var max_health := 1000
@@ -149,10 +151,12 @@ func damage(value) -> bool:
 	if invincible:
 		return false
 	health -= value
+	damage_player.play()
 	return true
 	
 	
 func kill():
+	death_player.play()
 	get_tree().quit()
 	
 func hit():
