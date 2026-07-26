@@ -69,7 +69,7 @@ vertical_alignment = 1
 script = ExtResource("1_u001w")
 
 [node name="Timer" type="Timer" parent="MarginContainer/VBoxContainer/ColorRect" unique_id=621580959]
-wait_time = 3.0
+wait_time = 6.0
 one_shot = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=455164113]

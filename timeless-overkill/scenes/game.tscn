@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dejn7mh30lvs2" path="res://scripts/spawners/spawner.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b377qai12v2e7" path="res://scenes/game_ui.tscn" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bc161ne8nak3l" path="res://scenes/entities/player.tscn" id="1_uwrxv"]
-[ext_resource type="Resource" uid="uid://bchofr06auu0f" path="res://content/guns/rifle.tres" id="3_gee14"]
 [ext_resource type="Script" uid="uid://bny3fqgbou4fi" path="res://scripts/camera_2d.gd" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://iif0yia85ikp" path="res://scenes/map.scn" id="5_u5sy4"]
 
@@ -22,7 +21,6 @@ autostart = true
 
 [node name="player" parent="." unique_id=610688041 instance=ExtResource("1_uwrxv")]
 z_index = 1
-gun = ExtResource("3_gee14")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1319337568]
 zoom = Vector2(0.9, 0.9)

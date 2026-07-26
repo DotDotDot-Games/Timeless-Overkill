@@ -11,5 +11,5 @@ lifetime = 8.0
 pierce = 1
 scene = ExtResource("1_rn6o0")
 color = Color(1, 0.082352936, 0.8673713, 1)
-points = 10.0
+points = 3.0
 metadata/_custom_type_script = "uid://jretxvfat8ih"
