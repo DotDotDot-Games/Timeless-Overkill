@@ -54,21 +54,21 @@ func _on_go_back_pressed() -> void:
 
 
 func _on_play_map_pressed() -> void:
-	MapTracker.map_selected = maps_selection[map_selected]["path"]
+	MapTracker.map_selected = "res://scenes/game.tscn"
 	loading_game()
 
 
-var GAME_SCENE = maps_selection[map_selected]["path"]
+var GAME_SCENE = "res://scenes/game.tscn"
 
 func loading_game():
-	GAME_SCENE = MapTracker.map_selected
+	GAME_SCENE = "res://scenes/game.tscn"
 	is_loading_game = true
 	$button.hide()
 	$selection_wheel.hide()
 	my_progress_bar.show()
 	$clock_aguja.show()
 	$loading_lbl.show()
-	ResourceLoader.load_threaded_request(GAME_SCENE)
+	ResourceLoader.load_threaded_request("res://scenes/game.tscn")
 
 func _process(_delta):
 	if is_loading_game:
