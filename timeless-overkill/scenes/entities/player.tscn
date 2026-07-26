@@ -3,7 +3,6 @@
 [ext_resource type="Shader" uid="uid://d2so8p2u4r548" path="res://shaders/hitflash.gdshader" id="1_1ie0h"]
 [ext_resource type="Script" uid="uid://dcbqil4pk2qal" path="res://scripts/entities/player.gd" id="1_08t41"]
 [ext_resource type="Texture2D" uid="uid://c7ysnjmu40oxs" path="res://assets/entities/shooter up.png" id="1_ucweq"]
-[ext_resource type="Resource" uid="uid://cfk2qnitdvskd" path="res://content/guns/pistol.tres" id="2_d4qa6"]
 [ext_resource type="AudioStream" uid="uid://bpqr0u7a078yo" path="res://assets/audio/sfx/erhh.MP3" id="4_5u6hq"]
 [ext_resource type="AudioStream" uid="uid://bxbp3vm6voc7p" path="res://assets/audio/sfx/ouchiwawa.MP3" id="5_d4qa6"]
 
@@ -94,7 +93,6 @@ _data = {
 collision_mask = 12
 motion_mode = 1
 script = ExtResource("1_08t41")
-gun = ExtResource("2_d4qa6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2016361329]
 position = Vector2(-1, 0)

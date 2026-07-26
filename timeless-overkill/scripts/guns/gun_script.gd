@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var fire_hole = $fire_hole
 var gun_data: GunType
-
+@onready var audio_player : AudioStreamPlayer2D = $AudioStreamPlayer2D
 var enemy_bullet_speed = 0.25
 var enemy_bullet_damage = 1
 var enemy_bullet_scale = 1.3
@@ -10,11 +10,15 @@ var enemy_bullet_lifetime = 0.5
 
 func shoot(direction,bullet_node):
 	var angle = deg_to_rad(gun_data.spread_angle)
+	
 	for i in gun_data.bullet_count:
 		var bullet_dir = direction.rotated(randf_range(-angle,angle))
 		fire(bullet_dir,bullet_node)
 
 func fire(direction : Vector2, bullet_node : Node) -> void:
+	if audio_player != null:
+		audio_player.pitch_scale = randf_range(0.9, 1.1)
+		audio_player.play()
 	var bullet = gun_data.bullet.scene.instantiate()
 	bullet.direction = direction
 	bullet.bullet_data = gun_data.bullet
