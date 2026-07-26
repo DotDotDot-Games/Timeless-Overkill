@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cqx4cmue32fo" path="res://scenes/kill_screen.tscn" id="3_0tnpc"]
 [ext_resource type="Script" uid="uid://wh28ldlkllkr" path="res://scripts/fps_label.gd" id="3_u5sy4"]
 [ext_resource type="Script" uid="uid://bny3fqgbou4fi" path="res://scripts/camera_2d.gd" id="4_gee14"]
+[ext_resource type="Resource" uid="uid://cfk2qnitdvskd" path="res://content/guns/pistol.tres" id="5_gee14"]
 [ext_resource type="PackedScene" uid="uid://iif0yia85ikp" path="res://scenes/map.scn" id="5_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://cf5vadix5nv43" path="res://scenes/end_screen.tscn" id="5_vtaks"]
 
@@ -21,6 +22,7 @@ script = ExtResource("1_0tnpc")
 [node name="pause_menu" parent="CanvasLayer" unique_id=1287454053 instance=ExtResource("2_u5sy4")]
 
 [node name="kill_screen" parent="CanvasLayer" unique_id=619764261 instance=ExtResource("3_0tnpc")]
+visible = false
 
 [node name="end_screen" parent="CanvasLayer" unique_id=825936406 instance=ExtResource("5_vtaks")]
 visible = false
@@ -44,6 +46,7 @@ script = ExtResource("3_u5sy4")
 
 [node name="player" parent="." unique_id=610688041 instance=ExtResource("1_uwrxv")]
 z_index = 1
+gun = ExtResource("5_gee14")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1319337568]
 zoom = Vector2(0.9, 0.9)

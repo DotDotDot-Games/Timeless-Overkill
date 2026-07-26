@@ -4,6 +4,9 @@
 [ext_resource type="Script" uid="uid://dldj000fus022" path="res://scripts/kill_screen.gd" id="1_uifx6"]
 [ext_resource type="Texture2D" uid="uid://c1y207c8rkp4s" path="res://assets/images/blood_anim.png" id="3_o6lcg"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obaep"]
+bg_color = Color(0.3882353, 0, 0, 0.5686275)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_srp36"]
 bg_color = Color(0.26005957, 0.4971249, 0.41468677, 1)
 border_width_left = 15
@@ -15,6 +18,10 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_obaep"]
+atlas = ExtResource("3_o6lcg")
+region = Rect2(0, 127.5, 77, 120)
 
 [sub_resource type="Image" id="Image_myx47"]
 data = {
@@ -515,7 +522,6 @@ shadow_offset = Vector2(5, 5)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pbpjt"]
 
 [node name="kill_screen" type="Control" unique_id=619764261]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -524,7 +530,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_uifx6")
 
-[node name="shader" type="ColorRect" parent="." unique_id=1598990057]
+[node name="shader" type="Panel" parent="." unique_id=193738860]
 z_index = 2
 layout_mode = 1
 anchors_preset = 15
@@ -532,52 +538,45 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.38892633, 0, 0, 0.5686275)
+theme_override_styles/panel = SubResource("StyleBoxFlat_obaep")
+metadata/_edit_lock_ = true
 
-[node name="pause_box" type="Panel" parent="." unique_id=1859630311]
-z_index = 2
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1818857723]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.303
-anchor_top = 0.31800002
-anchor_right = 0.697
-anchor_bottom = 0.68200004
-offset_left = -0.55599976
-offset_top = -0.06401062
-offset_right = 0.55596924
-offset_bottom = 55.063965
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="pause_box" type="PanelContainer" parent="CenterContainer" unique_id=56006058]
+z_index = 2
+custom_minimum_size = Vector2(600, 400)
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_srp36")
 
-[node name="Control" type="Control" parent="pause_box" unique_id=1632035003]
-anchors_preset = 0
-offset_left = 367.5
-offset_top = 14.0
-offset_right = 407.5
-offset_bottom = 54.0
-metadata/_edit_use_anchors_ = true
+[node name="Margin" type="MarginContainer" parent="CenterContainer/pause_box" unique_id=810760447]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 12
 
-[node name="blood_stain" type="Sprite2D" parent="pause_box/Control" unique_id=754237463]
-z_index = 2
-position = Vector2(23, 72)
-scale = Vector2(1, 0.49999997)
-texture = ExtResource("3_o6lcg")
+[node name="BloodAnim" type="TextureRect" parent="CenterContainer/pause_box/Margin" unique_id=2075786111]
+z_index = 3
+layout_mode = 2
+texture = SubResource("AtlasTexture_obaep")
 
-[node name="paused_lbl" type="Label" parent="." unique_id=1166823295]
+[node name="CenterContainer" type="CenterContainer" parent="CenterContainer/pause_box" unique_id=469842345]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/pause_box/CenterContainer" unique_id=1070862729]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="paused_lbl" type="Label" parent="CenterContainer/pause_box/CenterContainer/VBoxContainer" unique_id=1166823295]
 z_index = 2
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -76.0
-offset_top = -76.0
-offset_right = 91.0
-offset_bottom = -17.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.2627451, 0, 0.019607844, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("1_fgnvv")
@@ -586,21 +585,10 @@ text = "YOU DIED!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="main_menu_btn" type="Button" parent="." unique_id=1930718810]
+[node name="main_menu_btn" type="Button" parent="CenterContainer/pause_box/CenterContainer/VBoxContainer" unique_id=1930718810]
 process_mode = 3
 z_index = 2
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -91.0
-offset_top = 16.0
-offset_right = 91.0
-offset_bottom = 59.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_uifx6")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_o6lcg")
@@ -610,21 +598,10 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_t1fou")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_pbpjt")
 text = "MAIN MENU"
 
-[node name="back_btn" type="Button" parent="." unique_id=199253680]
+[node name="back_btn" type="Button" parent="CenterContainer/pause_box/CenterContainer/VBoxContainer" unique_id=199253680]
 process_mode = 3
 z_index = 2
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -91.0
-offset_top = 77.0
-offset_right = 91.0
-offset_bottom = 120.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_uifx6")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_o6lcg")
@@ -634,5 +611,5 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_t1fou")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_pbpjt")
 text = "RESTART"
 
-[connection signal="pressed" from="main_menu_btn" to="." method="_on_main_menu_btn_pressed"]
-[connection signal="pressed" from="back_btn" to="." method="_on_back_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/pause_box/CenterContainer/VBoxContainer/main_menu_btn" to="." method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/pause_box/CenterContainer/VBoxContainer/back_btn" to="." method="_on_back_btn_pressed"]

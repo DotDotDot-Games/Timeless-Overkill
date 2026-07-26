@@ -32,7 +32,8 @@ func _physics_process(delta: float) -> void:
 				point_mult = bullet_data.points * hit_mult * ScoreCounter.score_rainbow_mult
 				ScoreCounter.score += collider.stats.points * point_mult
 				hit_mult *= 1.25
-			collider.hit()
+			if damage(collider): 
+				collider.hit()
 			if pierce <=0 :
 				spawn_particle()
 		
