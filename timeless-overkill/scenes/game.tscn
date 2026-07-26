@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b377qai12v2e7" path="res://scenes/game_ui.tscn" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bc161ne8nak3l" path="res://scenes/entities/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bnwnv3agk31o7" path="res://scenes/pause_menu.tscn" id="2_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://cqx4cmue32fo" path="res://scenes/kill_screen.tscn" id="3_0tnpc"]
 [ext_resource type="Resource" uid="uid://bchofr06auu0f" path="res://content/guns/rifle.tres" id="3_gee14"]
 [ext_resource type="Script" uid="uid://bny3fqgbou4fi" path="res://scripts/camera_2d.gd" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://iif0yia85ikp" path="res://scenes/map.scn" id="5_u5sy4"]
@@ -15,6 +16,8 @@
 [node name="UI" parent="CanvasLayer" unique_id=335880088 instance=ExtResource("1_u5sy4")]
 
 [node name="pause_menu" parent="CanvasLayer" unique_id=1287454053 instance=ExtResource("2_u5sy4")]
+
+[node name="kill_screen" parent="CanvasLayer" unique_id=619764261 instance=ExtResource("3_0tnpc")]
 
 [node name="Spawner" type="Node" parent="." unique_id=1357809302]
 script = ExtResource("1_p57ef")

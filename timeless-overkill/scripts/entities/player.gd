@@ -179,4 +179,5 @@ func _on_dash_cooldown_timeout() -> void:
 func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("DEBUG_INVICIBILITY"):
-		self.invincible = true
+		print(invincible)
+		invincible = false

@@ -53,6 +53,7 @@ func _on_go_back_pressed() -> void:
 func _on_play_map_pressed() -> void:
 	loading_game()
 	is_loading_game = true
+	MapTracker.map_selected = maps_selection[map_selected]["path"]
 
 
 var GAME_SCENE = maps_selection[map_selected]["path"]
