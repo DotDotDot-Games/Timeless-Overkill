@@ -24,6 +24,7 @@ var direction : Vector2
 var saved_direction : Vector2
 
 #scenes
+signal kill_screen_show
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision: CollisionShape2D = $CollisionShape2D
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
@@ -163,8 +164,8 @@ func damage(value) -> bool:
 	
 	
 func kill():
-	death_player.play()
-	get_tree().quit()
+	get_tree().paused = true
+	kill_screen_show.emit()
 	
 func hit():
 	animation_player.play("hit_flash")
@@ -186,5 +187,4 @@ func _on_dash_cooldown_timeout() -> void:
 func _input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("DEBUG_INVICIBILITY"):
-		print(invincible)
-		invincible = false
+			invincible = false

@@ -125,7 +125,7 @@ texture = ExtResource("3_bqqt6")
 [node name="blood_effect_ctrl" type="Control" parent="." unique_id=157988598]
 layout_mode = 1
 anchor_left = 0.89500004
-anchor_top = 8.641974e-05
+anchor_top = -0.0030000005
 anchor_right = 0.89500004
 anchor_bottom = -0.0030000005
 offset_left = -20.04004
