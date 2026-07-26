@@ -72,7 +72,6 @@ func _process(_delta):
 
 		if progress.size() > 0:
 			var value = progress[0] * 100
-			print(value)
 			my_progress_bar.value = value
 			$clock_aguja.rotation_degrees = value * 3.6
 

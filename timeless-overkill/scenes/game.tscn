@@ -20,7 +20,7 @@
 script = ExtResource("1_p57ef")
 
 [node name="Timer" type="Timer" parent="Spawner" unique_id=1454062899]
-wait_time = 5.670000000000001
+wait_time = 7.0
 autostart = true
 
 [node name="player" parent="." unique_id=610688041 instance=ExtResource("1_uwrxv")]
@@ -28,14 +28,14 @@ z_index = 1
 gun = ExtResource("3_gee14")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1319337568]
-zoom = Vector2(0.8, 0.8)
+zoom = Vector2(0.9, 0.9)
 script = ExtResource("4_gee14")
 
-[node name="Background" type="Node" parent="." unique_id=1344257485]
-
-[node name="map" parent="Background" unique_id=885680849 instance=ExtResource("5_u5sy4")]
+[node name="map" parent="." unique_id=885680849 instance=ExtResource("5_u5sy4")]
 
 [node name="Bullets" type="Node" parent="." unique_id=360192291]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="." unique_id=2040617934]
 
 [node name="Enemies" type="Node" parent="." unique_id=1240360565]
 

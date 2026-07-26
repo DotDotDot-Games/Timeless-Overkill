@@ -11,4 +11,5 @@ range = 800.0
 weapon = ExtResource("2_pwu8a")
 color = Color(0.04705882, 0.89949447, 1, 1)
 sprite = 1
+points = 1000.0
 metadata/_custom_type_script = "uid://66ykmawbiu6v"

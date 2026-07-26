@@ -4,8 +4,13 @@ extends Node
 @onready var enemy_node = $"../Enemies"
 var zombie_scene = preload("res://scenes/entities/zombie.tscn")
 var person_scene = preload("res://scenes/person.tscn")
-
+func _ready():
+	spawn()
+	spawn()
 func _on_timer_timeout() -> void:
+	spawn()
+		
+func spawn():
 	var random_number := randi_range(1,3)
 	if random_number == 1:
 		spawn_scene(zombie_scene)
@@ -26,11 +31,11 @@ func spawn_scene(scene):
 	
 func generate_random_pos()->Vector2:
 	#temporal fix
-	var xmin := -912
-	var xmax := 1968
-	var ymin := -865
-	var ymax := 1392
+	var xmin := -3120
+	var xmax := 3120
+	var ymin := -4544
+	var ymax := 4544
 	var random_pos = Vector2(randi_range(xmin,xmax),randi_range(ymin,ymax))
-	while 300 > random_pos.distance_to(player.global_position) or random_pos.distance_to(player.global_position) < 600:
+	while 400 > random_pos.distance_to(player.global_position) or 800 < random_pos.distance_to(player.global_position) :
 		random_pos = Vector2(randi_range(xmin,xmax),randi_range(ymin,ymax))
 	return random_pos

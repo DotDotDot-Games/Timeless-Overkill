@@ -9,11 +9,12 @@ class_name EnemyNode
 @onready var damage_timer : Timer = $DamageTimer
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var particle_node : Node = $"../../Particles"
-
+@onready var audio_player : AudioStreamPlayer2D = $AudioStreamPlayer2D
 var death_particles = preload("res://scenes/death_particles.tscn")
 var health_bar = preload("res://scenes/healthbar.tscn")
 var zombie_stats = preload("res://content/entities/zombie.tres")
 
+var last_target_pos  := Vector2(0,0)
 var health : float
 var max_health : float
 var color : Color
@@ -34,16 +35,18 @@ func set_up_variables():
 func _physics_process(delta: float) -> void:
 	if health <= 0:
 		kill()
-	var dir = global_position.direction_to(nav_agent.get_next_path_position()).normalized()
-	velocity = dir * stats.speed
-	animated_sprite.rotation = dir.angle()
 	if global_position.distance_to(player.global_position) <= stats.range:
+		
+		var dir = global_position.direction_to(nav_agent.get_next_path_position()).normalized()
+		velocity = dir * stats.speed
+		animated_sprite.rotation = dir.angle()
+		
 		move_and_slide()
-	for i in get_slide_collision_count():
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
-		if collider.is_in_group("Players"):
-			deal_damage(collider)
+		for i in range(get_slide_collision_count()):
+			var collision = get_slide_collision(i)
+			var collider = collision.get_collider()
+			if collider.is_in_group("Players"):
+				deal_damage(collider)
 			
 		
 func deal_damage(collider):
@@ -55,6 +58,11 @@ func deal_damage(collider):
 			
 func damage(value):
 	health -= value
+	audio_player.play()
+	if health <= 0:
+		return true
+	else:
+		return false
 	
 func hit():
 	animation_player.play("hit_flash")
@@ -68,7 +76,9 @@ func kill():
 	queue_free()
 	
 func make_path():
-	nav_agent.target_position = player.global_position
+	if player.global_position.distance_squared_to(last_target_pos) > 100 * 100:
+		nav_agent.target_position = player.global_position
+		last_target_pos = player.global_position
 	
 
 	

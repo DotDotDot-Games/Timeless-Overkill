@@ -2,6 +2,7 @@ extends Node
 
 signal score_changed(new_score: int)
 
+var score_rainbow_mult = 1
 ## Actual Score
 var score := 0:
 	set(value):
@@ -12,6 +13,6 @@ var score := 0:
 		if score != value:
 			score = value
 			score_changed.emit(score)
-
+			
 func reset_score() -> void:
 	score = 0
