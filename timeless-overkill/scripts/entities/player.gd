@@ -50,14 +50,14 @@ var speed := 300.0
 var dash_speed := 1000.0
 var melee_damage := 0
 #gun
-var gun_scene
+var gun_scene: GunNode
 var can_fire := true
 #dash
 var can_dash := true
 var dashing := false
 var dash_cooldown := 1.0
 var dash_time := 0.15
-var invincible = false
+var invincible := false
 
 func _ready() -> void:
 	
@@ -68,14 +68,18 @@ func _ready() -> void:
 	add_to_group("Players")
 
 func set_weapon(data: GunType) -> void:
+	
+	if gun_scene:
+		gun_scene.queue_free()
+	
 	var new_gun: GunNode = data.scene.instantiate()
-	new_gun.global_position = gun_spawn.global_position
 	new_gun.gun_data = data.duplicate()
 	gun_scene = new_gun
 	
 	bullet_timer.wait_time = data.fire_rate
 	
 	add_child(new_gun)
+	new_gun.global_position = gun_spawn.global_position
 	
 	bullet_timer.start()
 
