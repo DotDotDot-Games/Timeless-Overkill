@@ -12,4 +12,5 @@ reload_time = 1.0
 fire_rate = 0.2
 bullet = ExtResource("1_xip8o")
 scene = ExtResource("2_tlj2l")
+set_custom_id = null
 metadata/_custom_type_script = "uid://b75l5j03eddtv"
