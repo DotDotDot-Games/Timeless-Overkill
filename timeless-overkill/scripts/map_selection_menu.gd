@@ -26,6 +26,9 @@ func display_map(map : int):
 	
 	
 func _ready():
+	if MapTracker.plr_died:
+		MapTracker.plr_died = false
+		loading_game()
 	display_map(1)
 	
 func map_index(map_num : int) -> int:
@@ -51,13 +54,15 @@ func _on_go_back_pressed() -> void:
 
 
 func _on_play_map_pressed() -> void:
+	MapTracker.map_selected = maps_selection[map_selected]["path"]
 	loading_game()
-	is_loading_game = true
 
 
 var GAME_SCENE = maps_selection[map_selected]["path"]
 
 func loading_game():
+	GAME_SCENE = MapTracker.map_selected
+	is_loading_game = true
 	$button.hide()
 	$selection_wheel.hide()
 	my_progress_bar.show()

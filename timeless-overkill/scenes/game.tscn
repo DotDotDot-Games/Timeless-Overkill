@@ -1,21 +1,25 @@
-[gd_scene format=3 uid="uid://d1birapgk47uw"]
+[gd_scene format=3 uid="uid://de4umoo4h4lnm"]
 
+[ext_resource type="Script" uid="uid://c4c2u3oh2mhuy" path="res://scripts/game.gd" id="1_0tnpc"]
 [ext_resource type="Script" uid="uid://dejn7mh30lvs2" path="res://scripts/spawners/spawner.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://b377qai12v2e7" path="res://scenes/game_ui.tscn" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bc161ne8nak3l" path="res://scenes/entities/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://bnwnv3agk31o7" path="res://scenes/pause_menu.tscn" id="2_u5sy4"]
-[ext_resource type="Resource" uid="uid://bchofr06auu0f" path="res://content/guns/rifle.tres" id="3_gee14"]
+[ext_resource type="PackedScene" uid="uid://cqx4cmue32fo" path="res://scenes/kill_screen.tscn" id="3_0tnpc"]
 [ext_resource type="Script" uid="uid://wh28ldlkllkr" path="res://scripts/fps_label.gd" id="3_u5sy4"]
 [ext_resource type="Script" uid="uid://bny3fqgbou4fi" path="res://scripts/camera_2d.gd" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://iif0yia85ikp" path="res://scenes/map.scn" id="5_u5sy4"]
 
 [node name="game2" type="Node2D" unique_id=905228880]
+script = ExtResource("1_0tnpc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1240984807]
 
 [node name="UI" parent="CanvasLayer" unique_id=335880088 instance=ExtResource("1_u5sy4")]
 
 [node name="pause_menu" parent="CanvasLayer" unique_id=1287454053 instance=ExtResource("2_u5sy4")]
+
+[node name="kill_screen" parent="CanvasLayer" unique_id=619764261 instance=ExtResource("3_0tnpc")]
 
 [node name="Spawner" type="Node" parent="." unique_id=1357809302]
 script = ExtResource("1_p57ef")
@@ -56,3 +60,4 @@ script = ExtResource("4_gee14")
 [node name="Clones" type="Node" parent="." unique_id=1439863846]
 
 [connection signal="timeout" from="Spawner/Timer" to="Spawner" method="_on_timer_timeout"]
+[connection signal="kill_screen_show" from="player" to="." method="_on_player_kill_screen_show"]
