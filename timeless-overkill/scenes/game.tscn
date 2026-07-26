@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://wh28ldlkllkr" path="res://scripts/fps_label.gd" id="3_u5sy4"]
 [ext_resource type="Script" uid="uid://bny3fqgbou4fi" path="res://scripts/camera_2d.gd" id="4_gee14"]
 [ext_resource type="PackedScene" uid="uid://iif0yia85ikp" path="res://scenes/map.scn" id="5_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://cf5vadix5nv43" path="res://scenes/end_screen.tscn" id="5_vtaks"]
 
 [node name="game2" type="Node2D" unique_id=905228880]
 script = ExtResource("1_0tnpc")
@@ -20,6 +21,8 @@ script = ExtResource("1_0tnpc")
 [node name="pause_menu" parent="CanvasLayer" unique_id=1287454053 instance=ExtResource("2_u5sy4")]
 
 [node name="kill_screen" parent="CanvasLayer" unique_id=619764261 instance=ExtResource("3_0tnpc")]
+
+[node name="end_screen" parent="CanvasLayer" unique_id=825936406 instance=ExtResource("5_vtaks")]
 
 [node name="Spawner" type="Node" parent="." unique_id=1357809302]
 script = ExtResource("1_p57ef")

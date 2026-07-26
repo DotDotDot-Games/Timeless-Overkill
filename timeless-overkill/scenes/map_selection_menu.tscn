@@ -573,10 +573,14 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_jague")
 
 [node name="map_bg_lbl" type="Label" parent="selection_wheel" unique_id=531883937]
-offset_left = 502.0
+anchors_preset = -1
+offset_left = -1.0
 offset_top = 418.0
-offset_right = 663.0
+offset_right = 1151.0
 offset_bottom = 477.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0.3764706, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_tfd66")

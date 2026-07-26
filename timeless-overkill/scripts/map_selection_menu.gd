@@ -7,7 +7,7 @@ var is_loading_game : bool = false
 
 var maps_selection : Dictionary = {
 	1:
-		{"name": "MAP 1",
+		{"name": "Timeless Town",
 		"image": "res://assets/map_backgrounds/map_1_bg.png",
 		"path": "res://scenes/game.tscn"},
 	2:
