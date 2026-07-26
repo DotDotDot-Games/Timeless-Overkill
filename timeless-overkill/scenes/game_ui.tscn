@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b377qai12v2e7"]
 
+[ext_resource type="Script" uid="uid://csh665jygxuv5" path="res://scripts/player_health_bar.gd" id="1_bt76a"]
 [ext_resource type="Texture2D" uid="uid://bi4srk1kst1nf" path="res://assets/clock_animated0010.png" id="1_rns2u"]
 [ext_resource type="Script" uid="uid://416j4dx50uig" path="res://scripts/score_label.gd" id="1_u001w"]
 [ext_resource type="Script" uid="uid://cikjnk4os05vr" path="res://scripts/time_limit_clock.gd" id="1_yubou"]
@@ -43,6 +44,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_ws2uu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6pv2d")
 value = 100.0
 show_percentage = false
+script = ExtResource("1_bt76a")
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1699528588]
 z_index = -1
