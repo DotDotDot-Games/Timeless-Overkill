@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://di6vgvfew0gmt" path="res://scripts/entities/enemy.gd" id="1_frpv3"]
 [ext_resource type="Texture2D" uid="uid://brxh3uu70t63a" path="res://assets/entities/zombie.png" id="1_ihn6k"]
 [ext_resource type="Shader" uid="uid://d2so8p2u4r548" path="res://shaders/hitflash.gdshader" id="2_asks5"]
+[ext_resource type="AudioStream" uid="uid://de8oebo3uvwb1" path="res://assets/audio/sfx/zombie.MP3" id="4_47c00"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8wl12"]
 resource_local_to_scene = true
@@ -84,13 +85,18 @@ shape = SubResource("CircleShape2D_frpv3")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2089546364]
 
 [node name="NavTimer" type="Timer" parent="." unique_id=85727604]
-wait_time = 0.3
+wait_time = 0.7
 autostart = true
 
 [node name="DamageTimer" type="Timer" parent="." unique_id=1576550261]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1744481674]
 libraries/ = SubResource("AnimationLibrary_8iiss")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=552274682]
+stream = ExtResource("4_47c00")
+volume_db = 8.0
+pitch_scale = 1.1
 
 [connection signal="timeout" from="NavTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

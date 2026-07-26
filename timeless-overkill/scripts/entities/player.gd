@@ -33,9 +33,11 @@ var saved_direction : Vector2
 @onready var bullet_timer : Timer = $BulletCooldown
 @onready var dash_timer : Timer = $DashTime
 @onready var clone_node : Node = $"../Clones"
+@onready var damage_player : AudioStreamPlayer2D = $DamagePlayer
+@onready var death_player : AudioStreamPlayer2D = $DeathPlayer
 var clone_scene := preload("res://scenes/clone.tscn")
 #stats
-var max_health := 100
+var max_health := 1000
 var health := max_health:
 	set(value):
 		
@@ -60,7 +62,7 @@ func _ready():
 	gun_scene = gun.scene.instantiate()
 	add_child(gun_scene)
 	gun_scene.global_position = gun_spawn.global_position
-	gun_scene.gun_data = gun
+	gun_scene.gun_data = gun.duplicate()
 	bullet_timer.wait_time = gun.fire_rate
 	bullet_timer.start()
 	dash_timer.wait_time = dash_time
@@ -149,10 +151,12 @@ func damage(value) -> bool:
 	if invincible:
 		return false
 	health -= value
+	damage_player.play()
 	return true
 	
 	
 func kill():
+	death_player.play()
 	get_tree().quit()
 	
 func hit():

@@ -9,4 +9,5 @@ speed = 100.0
 damage = 50.0
 range = 1500.0
 color = Color(0.07234955, 0.42578125, 0.12757325, 1)
+points = 200.0
 metadata/_custom_type_script = "uid://66ykmawbiu6v"

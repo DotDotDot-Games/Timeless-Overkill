@@ -8,3 +8,4 @@ class_name BulletType
 @export var pierce : int
 @export var scene : PackedScene
 @export var color : Color
+@export var points : float

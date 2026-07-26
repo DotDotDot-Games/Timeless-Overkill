@@ -2,16 +2,12 @@
 
 [ext_resource type="Texture2D" uid="uid://bi4srk1kst1nf" path="res://assets/clock_animated0010.png" id="1_rns2u"]
 [ext_resource type="Script" uid="uid://416j4dx50uig" path="res://scripts/score_label.gd" id="1_u001w"]
-[ext_resource type="FontFile" uid="uid://oi7lluf50l0a" path="res://assets/fonts/PixelifySans-VariableFont_wght copy.ttf" id="1_u2dgd"]
 [ext_resource type="Script" uid="uid://cikjnk4os05vr" path="res://scripts/time_limit_clock.gd" id="1_yubou"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws2uu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pv2d"]
 bg_color = Color(0, 0.72791904, 0.07708999, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0rmb"]
-bg_color = Color(1, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u001w"]
 resource_local_to_scene = true
@@ -48,16 +44,33 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_6pv2d")
 value = 100.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=667930091]
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1699528588]
+z_index = -1
+custom_minimum_size = Vector2(80, 20)
+custom_maximum_size = Vector2(70, -1)
 layout_mode = 2
-size_flags_horizontal = 0
-offset_transform_enabled = true
-offset_transform_position = Vector2(2.5, 0)
-theme_override_fonts/font = ExtResource("1_u2dgd")
-theme_override_font_sizes/font_size = 16
-theme_override_styles/normal = SubResource("StyleBoxFlat_w0rmb")
+color = Color(0.34412384, 0.49361414, 0.5683594, 1)
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ColorRect" unique_id=744829978]
+z_index = 5
+z_as_relative = false
+layout_mode = 0
+offset_left = 5.5
+offset_top = -1.5
+offset_right = 67.5
+offset_bottom = 21.5
+bbcode_enabled = true
 text = "Score: 0"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+autowrap_trim_flags = 0
+vertical_alignment = 1
 script = ExtResource("1_u001w")
+
+[node name="Timer" type="Timer" parent="MarginContainer/VBoxContainer/ColorRect" unique_id=621580959]
+wait_time = 3.0
+one_shot = true
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=455164113]
 layout_mode = 1
@@ -75,3 +88,14 @@ script = ExtResource("1_yubou")
 [node name="ClockAudio" type="AudioStreamPlayer" parent="TextureRect" unique_id=1651153669]
 unique_name_in_owner = true
 volume_db = -11.909
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1748915934]
+z_index = -1
+custom_maximum_size = Vector2(10000, 10000)
+layout_mode = 0
+offset_top = 32.0
+offset_right = 115.0
+offset_bottom = 161.0
+color = Color(0.94921875, 0, 0, 1)
+
+[connection signal="timeout" from="MarginContainer/VBoxContainer/ColorRect/Timer" to="MarginContainer/VBoxContainer/ColorRect/Label" method="_on_timer_timeout"]
