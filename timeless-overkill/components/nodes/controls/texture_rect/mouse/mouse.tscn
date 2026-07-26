@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b7bt0d0ngoslo"]
+
+[ext_resource type="Script" uid="uid://ukcj7i7houvj" path="res://components/nodes/controls/texture_rect/mouse/mouse.gd" id="1_n6svo"]
+
+[node name="Mouse" type="TextureRect" unique_id=792216532]
+custom_minimum_size = Vector2(128, 128)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n6svo")

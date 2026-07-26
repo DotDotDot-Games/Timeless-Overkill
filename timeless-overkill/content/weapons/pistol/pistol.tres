@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://u3lwduj77lh8"]
+
+[ext_resource type="Resource" uid="uid://b4f4kfnqnmmwk" path="res://content/bullets/normal_bullet/normal_bullet.tres" id="1_8vcsp"]
+[ext_resource type="Script" uid="uid://lvdkcrh7sdjy" path="res://resources/weapons/weapon_data.gd" id="1_muie0"]
+[ext_resource type="Texture2D" uid="uid://c4gktqa0ut2y" path="res://content/weapons/pistol/pistol.png" id="3_8vcsp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wibt7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8vcsp")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_muie0")
+fire_rate = 0.5
+bullet = ExtResource("1_8vcsp")
+scene = "uid://cqk0istnilb7a"
+texture = SubResource("SpriteFrames_wibt7")
+_id = "pistol"
+name = "Pistol"
+description = "A normal bounce pistol"
+metadata/_custom_type_script = "uid://lvdkcrh7sdjy"

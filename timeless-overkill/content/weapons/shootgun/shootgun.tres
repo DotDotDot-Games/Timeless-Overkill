@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://cogbpa6jp48dw"]
+
+[ext_resource type="Resource" uid="uid://d1wc54h58kk5r" path="res://content/bullets/expansive_bullet/expansive_bullet.tres" id="1_2ry2h"]
+[ext_resource type="Script" uid="uid://lvdkcrh7sdjy" path="res://resources/weapons/weapon_data.gd" id="1_t0oe1"]
+[ext_resource type="Texture2D" uid="uid://dw1av78dx7pn5" path="res://content/weapons/shootgun/shootgun.png" id="3_75831"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ry2h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_75831")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_t0oe1")
+fire_rate = 2.0
+is_automatic = false
+bullet = ExtResource("1_2ry2h")
+bullets_per_shot = 3
+scene = "uid://b1pcrot6vtb1h"
+texture = SubResource("SpriteFrames_2ry2h")
+_id = "shootgun"
+name = "Shootgun"
+metadata/_custom_type_script = "uid://lvdkcrh7sdjy"

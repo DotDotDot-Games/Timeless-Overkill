@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WorldItemData" format=3 uid="uid://dnuuvo7t58t4d"]
+
+[ext_resource type="Resource" uid="uid://nv4sp4tlu25c" path="res://content/weapons/eightgun/eightgun.tres" id="1_6wr3s"]
+[ext_resource type="Script" uid="uid://ded7xfpydmriw" path="res://resources/items/world_item_data.gd" id="1_a1f22"]
+
+[resource]
+script = ExtResource("1_a1f22")
+_id = "world_eightgun"
+item_data = ExtResource("1_6wr3s")
+pickable_scene = "uid://bgl5hbflsbq6v"
+metadata/_custom_type_script = "uid://ded7xfpydmriw"

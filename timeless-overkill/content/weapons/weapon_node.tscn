@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d0weflsmg8nkw"]
+
+[ext_resource type="Script" uid="uid://cqluyy34e4m3v" path="res://scripts/weapons/weapon_node.gd" id="1_30t1o"]
+[ext_resource type="Script" uid="uid://dryo5iviny12b" path="res://scripts/weapons/weapon_sprite.gd" id="2_aee0r"]
+
+[node name="WeaponNode" type="Node2D" unique_id=687440366]
+script = ExtResource("1_30t1o")
+
+[node name="Muzzle" type="Node2D" parent="." unique_id=762362007]
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1322059666]
+script = ExtResource("2_aee0r")
+metadata/_edit_lock_ = true
+
+[node name="Timer" type="Timer" parent="." unique_id=742862137]
+one_shot = true
+
+[connection signal="animation_finished" from="Sprite" to="Sprite" method="_on_animation_finished"]

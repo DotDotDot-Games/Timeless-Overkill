@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://b3mtqkvbkkagg"]
+
+[ext_resource type="Resource" uid="uid://d2pro4nhhqwmq" path="res://content/bullets/ultrasound_bullet/ultrasound_bullet.tres" id="1_3nrca"]
+[ext_resource type="Script" uid="uid://lvdkcrh7sdjy" path="res://resources/weapons/weapon_data.gd" id="1_8nhnc"]
+[ext_resource type="Texture2D" uid="uid://dlu1buasqeolj" path="res://content/weapons/sniper/sniper.png" id="3_rrwn2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rrwn2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_rrwn2")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_8nhnc")
+fire_rate = 5.0
+is_automatic = false
+bullet = ExtResource("1_3nrca")
+scene = "uid://b81g1rpqg268a"
+texture = SubResource("SpriteFrames_rrwn2")
+_id = "sniper"
+name = "Sniper"
+metadata/_custom_type_script = "uid://lvdkcrh7sdjy"

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://b81g1rpqg268a"]
+
+[ext_resource type="PackedScene" uid="uid://d0weflsmg8nkw" path="res://content/weapons/weapon_node.tscn" id="1_avlwi"]
+[ext_resource type="Resource" uid="uid://b3mtqkvbkkagg" path="res://content/weapons/sniper/sniper.tres" id="2_wn2pd"]
+[ext_resource type="Texture2D" uid="uid://dlu1buasqeolj" path="res://content/weapons/sniper/sniper.png" id="3_xmrou"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rrwn2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_xmrou")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Sniper" unique_id=687440366 instance=ExtResource("1_avlwi")]
+stats = ExtResource("2_wn2pd")
+
+[node name="Muzzle" parent="." index="0" unique_id=762362007]
+position = Vector2(29, 0)
+
+[node name="Sprite" parent="." index="1" unique_id=1322059666]
+sprite_frames = SubResource("SpriteFrames_rrwn2")
+
+[node name="Timer" parent="." index="2" unique_id=742862137]
+wait_time = 5.0

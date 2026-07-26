@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="BulletStats" format=3 uid="uid://djmkibiocy85a"]
+
+[ext_resource type="Script" uid="uid://6q5kx66wrigb" path="res://components/resources/limited_value.gd" id="1_to6ps"]
+[ext_resource type="Script" uid="uid://dv34np0gi74dy" path="res://resources/bullets/bullet_stats.gd" id="1_wsfmn"]
+[ext_resource type="Texture2D" uid="uid://dttg47cpt6ulq" path="res://content/bullets/explosive_bullet/explosive_bullet.png" id="3_aye2o"]
+
+[sub_resource type="Resource" id="Resource_to6ps"]
+script = ExtResource("1_to6ps")
+_current_value = 2.0
+_max_value = 2.0
+metadata/_custom_type_script = "uid://6q5kx66wrigb"
+
+[resource]
+script = ExtResource("1_wsfmn")
+_id = "explosive_bullet"
+name = "Explosive Bullet"
+speed = 200.0
+damage = 20.0
+texture = ExtResource("3_aye2o")
+bounces = SubResource("Resource_to6ps")
+scene = "uid://6ohrrdhxscnq"
+metadata/_custom_type_script = "uid://dv34np0gi74dy"

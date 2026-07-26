@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bgl5hbflsbq6v"]
+
+[ext_resource type="PackedScene" uid="uid://1ks8qojlsf20" path="res://scenes/items/item_pickable_node.tscn" id="1_6xcpk"]
+[ext_resource type="Resource" uid="uid://dqj4avkg06dgx" path="res://content/weapons/eightgun/pickable_eightgun.tres" id="2_48rm8"]
+[ext_resource type="Texture2D" uid="uid://dfvaf4dhwrgha" path="res://content/weapons/eightgun/eightgun.png" id="2_v2xap"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3v2in"]
+radius = 32.06244
+
+[node name="ItemPickableNode" unique_id=1815118643 instance=ExtResource("1_6xcpk")]
+texture = ExtResource("2_v2xap")
+info = ExtResource("2_48rm8")
+
+[node name="Pickbox" parent="Area" parent_id_path=PackedInt32Array(8501530) index="0" unique_id=75641511]
+shape = SubResource("CircleShape2D_3v2in")

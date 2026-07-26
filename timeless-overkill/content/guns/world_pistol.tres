@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="WorldItemData" format=3 uid="uid://pcn4fajal1g0"]
+
+[ext_resource type="Resource" uid="uid://cfk2qnitdvskd" path="res://content/guns/pistol.tres" id="1_11p3x"]
+[ext_resource type="Script" uid="uid://ded7xfpydmriw" path="res://resources/items/world_item_data.gd" id="1_m3eba"]
+
+[resource]
+script = ExtResource("1_m3eba")
+_id = "world_pistol_gun"
+item_data = ExtResource("1_11p3x")
+pickable_scene = "uid://qgdj464hdb1m"
+metadata/_custom_type_script = "uid://ded7xfpydmriw"

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bo53ad1pnbjo2"]
+
+[ext_resource type="Script" uid="uid://c6spy1kh5g0tw" path="res://scripts/spawners/node_spawner.gd" id="1_b02x8"]
+
+[node name="NodeSpawner" type="Node2D" unique_id=2062202398]
+script = ExtResource("1_b02x8")
+
+[node name="Timer" type="Timer" parent="." unique_id=2092953927]
+one_shot = true
+
+[node name="NodeContainer" type="Node" parent="." unique_id=1429635779]
