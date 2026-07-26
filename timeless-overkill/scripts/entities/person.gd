@@ -98,8 +98,8 @@ func damage(value):
 		return false
 	
 func hit():
-	
-	animation_player.play("hit_flash")
+	pass
+	#animation_player.play("hit_flash")
 	
 func kill():
 	var particles = death_particles.instantiate()
