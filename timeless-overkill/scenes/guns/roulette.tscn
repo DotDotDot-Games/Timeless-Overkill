@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bix5efrat3vh2" path="res://assets/guns/Weapons.png" id="1_87ra0"]
 [ext_resource type="Script" uid="uid://d4ghdxybgmoj3" path="res://scripts/guns/gun_script.gd" id="1_m6opp"]
+[ext_resource type="AudioStream" uid="uid://cccnop7yjweu3" path="res://assets/audio/sfx/roulette2.wav" id="3_lls5l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_87ra0"]
 atlas = ExtResource("1_87ra0")
@@ -28,3 +29,7 @@ sprite_frames = SubResource("SpriteFrames_3381y")
 
 [node name="fire_hole" type="Node2D" parent="." unique_id=1203239073]
 position = Vector2(20, 0)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=104409864]
+stream = ExtResource("3_lls5l")
+volume_db = 5.0
