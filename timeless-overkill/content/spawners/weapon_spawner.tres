@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="NodeSpawnerData" format=3 uid="uid://o3pcd1y6k0wj"]
+
+[ext_resource type="Script" uid="uid://ciomkjog11cis" path="res://resources/node_spawner/node_spawner_data.gd" id="1_8ojiq"]
+[ext_resource type="Resource" uid="uid://cgefp8bkkgdh0" path="res://databases/guns.tres" id="2_axn0d"]
+[ext_resource type="Script" uid="uid://yqbxch71h12m" path="res://resources/node_spawner/methods/weapon_spawn_method.gd" id="3_5o1xv"]
+
+[sub_resource type="Resource" id="Resource_lstql"]
+resource_local_to_scene = true
+script = ExtResource("3_5o1xv")
+DATABASE = ExtResource("2_axn0d")
+metadata/_custom_type_script = "uid://yqbxch71h12m"
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_8ojiq")
+cooldown = 15.0
+spawn_method = SubResource("Resource_lstql")
+metadata/_custom_type_script = "uid://ciomkjog11cis"

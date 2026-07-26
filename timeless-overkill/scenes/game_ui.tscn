@@ -90,6 +90,8 @@ script = ExtResource("1_yubou")
 [node name="ClockAudio" type="AudioStreamPlayer" parent="TextureRect" unique_id=1651153669]
 unique_name_in_owner = true
 volume_db = -11.909
+max_polyphony = 10
+bus = &"SFX"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1748915934]
 z_index = -1

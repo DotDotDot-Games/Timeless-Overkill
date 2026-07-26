@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DamageUpgradeData" format=3 uid="uid://bhs4eni2w3aap"]
 
 [ext_resource type="Script" uid="uid://cgsci1dkremcg" path="res://resources/upgrades/types/damage_upgrade_data.gd" id="1_nnfbk"]
-[ext_resource type="Texture2D" uid="uid://buxiyoksyx856" path="res://assets/ball.png" id="2_8ltvj"]
+[ext_resource type="Texture2D" uid="uid://crj723j3vg8d1" path="res://assets/raven/fb609.png" id="2_8ltvj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_wgoiq"]
 animations = [{

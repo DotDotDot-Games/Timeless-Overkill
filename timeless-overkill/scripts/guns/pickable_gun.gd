@@ -19,5 +19,20 @@ func _on_set_gun() -> void:
 		sprite.sprite_frames = null
 		return
 	
-	sprite.sprite_frames = data.texture
+	if not sprite:
+		return
 	
+	sprite.sprite_frames = data.texture
+
+func _ready() -> void:
+	_on_set_gun()
+
+func _on_player_body_entered(body: Node2D) -> void:
+	
+	var player := body as PlayerNode
+	
+	if not player:
+		return
+	
+	player.set_weapon(data)
+	queue_free()
