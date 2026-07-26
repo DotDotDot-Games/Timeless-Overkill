@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="FireRateUpgradeData" format=3 uid="uid://c1nmgrqvtuwlb"]
 
 [ext_resource type="Script" uid="uid://dvumpxs062npx" path="res://resources/upgrades/types/fire_rate_upgrade_data.gd" id="1_rvc0e"]
-[ext_resource type="Texture2D" uid="uid://buxiyoksyx856" path="res://assets/ball.png" id="2_3xfbr"]
+[ext_resource type="Texture2D" uid="uid://ch8b0ffgm8346" path="res://assets/raven/fb982.png" id="2_3xfbr"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_txhom"]
 animations = [{
