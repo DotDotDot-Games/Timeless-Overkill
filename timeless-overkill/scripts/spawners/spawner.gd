@@ -9,7 +9,6 @@ func _ready():
 	spawn()
 func _on_timer_timeout() -> void:
 	spawn()
-	spawn()
 		
 func spawn():
 	var random_number := randi_range(1,3)
@@ -23,8 +22,7 @@ func spawn():
 	elif random_number == 3:
 		spawn_scene(person_scene)
 		spawn_scene(person_scene)
-func _process(delta):
-	$FPS.text = "frames" + str(Engine.get_frames_per_second())
+		
 func spawn_scene(scene):
 	var instance = scene.instantiate()
 	instance.player = player
@@ -38,6 +36,6 @@ func generate_random_pos()->Vector2:
 	var ymin := -4544
 	var ymax := 4544
 	var random_pos = Vector2(randi_range(xmin,xmax),randi_range(ymin,ymax))
-	while 300 > random_pos.distance_to(player.global_position) or random_pos.distance_to(player.global_position) < 700:
+	while 400 > random_pos.distance_to(player.global_position) or 800 < random_pos.distance_to(player.global_position) :
 		random_pos = Vector2(randi_range(xmin,xmax),randi_range(ymin,ymax))
 	return random_pos

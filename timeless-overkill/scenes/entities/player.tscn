@@ -3,6 +3,8 @@
 [ext_resource type="Shader" uid="uid://d2so8p2u4r548" path="res://shaders/hitflash.gdshader" id="1_1ie0h"]
 [ext_resource type="Script" uid="uid://dcbqil4pk2qal" path="res://scripts/entities/player.gd" id="1_08t41"]
 [ext_resource type="Texture2D" uid="uid://c7ysnjmu40oxs" path="res://assets/entities/shooter up.png" id="1_ucweq"]
+[ext_resource type="AudioStream" uid="uid://bpqr0u7a078yo" path="res://assets/audio/sfx/erhh.MP3" id="4_5u6hq"]
+[ext_resource type="AudioStream" uid="uid://bxbp3vm6voc7p" path="res://assets/audio/sfx/ouchiwawa.MP3" id="5_d4qa6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d4qa6"]
 radius = 9.0
@@ -112,6 +114,14 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1352391863]
 libraries/ = SubResource("AnimationLibrary_08t41")
+
+[node name="DamagePlayer" type="AudioStreamPlayer2D" parent="." unique_id=1439921147]
+stream = ExtResource("4_5u6hq")
+volume_db = 10.0
+
+[node name="DeathPlayer" type="AudioStreamPlayer2D" parent="." unique_id=354760575]
+stream = ExtResource("5_d4qa6")
+volume_db = -1.0
 
 [connection signal="timeout" from="BulletCooldown" to="." method="_on_bullet_cooldown_timeout"]
 [connection signal="timeout" from="DashTime" to="." method="_on_dash_cooldown_timeout"]

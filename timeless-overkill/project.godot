@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 LevelCountDown="*uid://g0eqk3oxnv34"
 ScoreCounter="*uid://bngkilbl3qbqx"
+AudioPlayer="*uid://cwy8xgnwktc0h"
 
 [debug]
 

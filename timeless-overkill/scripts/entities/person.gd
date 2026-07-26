@@ -13,6 +13,7 @@ class_name PersonNode
 @onready var gun_spawn : Node2D = $GunSpawn
 @onready var bullets_node : Node = get_parent().get_node("EnemyBullets")
 @onready var shoot_timer : Timer = $ShootTimer
+@onready var audio_player : AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var health_bar_a
 var gun_scene 
@@ -90,6 +91,7 @@ func deal_damage(collider):
 			
 func damage(value):
 	health -= value
+	audio_player.play()
 	if health <= 0:
 		return true
 	else:
