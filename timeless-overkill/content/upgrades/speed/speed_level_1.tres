@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SpeedUpgradeData" format=3 uid="uid://lcdvt83gca6a"]
 
 [ext_resource type="Script" uid="uid://dptp3r64wr4aq" path="res://resources/upgrades/types/speed_upgrade_data.gd" id="1_yj7qi"]
-[ext_resource type="Texture2D" uid="uid://buxiyoksyx856" path="res://assets/ball.png" id="2_yj7qi"]
+[ext_resource type="Texture2D" uid="uid://iwgxe42s071v" path="res://assets/raven/fb667.png" id="2_yj7qi"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jepko"]
 animations = [{

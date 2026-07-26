@@ -117,11 +117,13 @@ libraries/ = SubResource("AnimationLibrary_08t41")
 
 [node name="DamagePlayer" type="AudioStreamPlayer2D" parent="." unique_id=1439921147]
 stream = ExtResource("4_5u6hq")
-volume_db = 10.0
+max_polyphony = 10
+bus = &"SFX"
 
 [node name="DeathPlayer" type="AudioStreamPlayer2D" parent="." unique_id=354760575]
 stream = ExtResource("5_d4qa6")
 volume_db = -1.0
+bus = &"SFX"
 
 [connection signal="timeout" from="BulletCooldown" to="." method="_on_bullet_cooldown_timeout"]
 [connection signal="timeout" from="DashTime" to="." method="_on_dash_cooldown_timeout"]

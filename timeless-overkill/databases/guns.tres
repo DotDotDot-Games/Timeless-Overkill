@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="Registry" format=3 uid="uid://cgefp8bkkgdh0"]
+
+[ext_resource type="Script" uid="uid://dqtv77mng5dyh" path="res://addons/yard/registry.gd" id="1_niapt"]
+
+[resource]
+script = ExtResource("1_niapt")
+_version = 2
+_scan_rulesets = Array[Dictionary]([{
+&"allowed_file_extensions": Array[String]([]),
+&"class_restrictions": Array[StringName]([&"GunType"]),
+&"recursive_scan": true,
+&"scan_directories": Array[String](["res://content/guns"]),
+&"scan_regex_exclude": "",
+&"scan_regex_include": ""
+}])
+_uids_to_string_ids = Dictionary[StringName, StringName]({
+&"uid://bchofr06auu0f": &"rifle",
+&"uid://cfk2qnitdvskd": &"pistol",
+&"uid://cowed8kon8exs": &"machine_gun",
+&"uid://csk7n0yo65ua5": &"roulette",
+&"uid://woygxs8iuedg": &"shotgun"
+})
+_string_ids_to_uids = Dictionary[StringName, StringName]({
+&"machine_gun": &"uid://cowed8kon8exs",
+&"pistol": &"uid://cfk2qnitdvskd",
+&"rifle": &"uid://bchofr06auu0f",
+&"roulette": &"uid://csk7n0yo65ua5",
+&"shotgun": &"uid://woygxs8iuedg"
+})
+_property_index = Dictionary[StringName, Dictionary]({
+&"_id": {
+"": {
+&"machine_gun": true,
+&"rifle": true,
+&"roulette": true,
+&"shotgun": true
+},
+"pistol_2": {
+&"pistol": true
+}
+},
+&"categories": {
+Array[int]([]): {
+&"machine_gun": true,
+&"pistol": true,
+&"rifle": true,
+&"roulette": true,
+&"shotgun": true
+}
+},
+&"spawneable": {
+true: {
+&"machine_gun": true,
+&"pistol": true,
+&"rifle": true,
+&"roulette": true,
+&"shotgun": true
+}
+},
+&"type": {
+0: {
+&"machine_gun": true,
+&"pistol": true,
+&"rifle": true,
+&"roulette": true,
+&"shotgun": true
+}
+}
+})

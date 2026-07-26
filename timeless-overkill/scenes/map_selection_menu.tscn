@@ -448,13 +448,15 @@ fill_to = Vector2(0.97084546, 0.005830904)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jague"]
 texture = SubResource("GradientTexture2D_adqv7")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wtvfn"]
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wi4o4"]
 load_path = "res://.godot/imported/empty_circel.png-73a7b0abba4a1b9a3ca7f43f7d242802.ctex"
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wtvfn"]
 load_path = "res://.godot/imported/full_circel.png-a30afd89ed11f8a114e53d95727c86d8.ctex"
 
-[node name="map_selection_menu" type="Control" unique_id=143260195]
+[node name="map_selection_menu" type="Control" unique_id=143260195 node_paths=PackedStringArray("loading_menu", "my_progress_bar", "aiguille")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -462,6 +464,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jhmp7")
+loading_menu = NodePath("CenterContainer")
+my_progress_bar = NodePath("CenterContainer/VBoxContainer/Container/TextureProgressBar")
+aiguille = NodePath("CenterContainer/VBoxContainer/Container/Aiguille")
 
 [node name="main_bg" type="Panel" parent="." unique_id=851189559]
 layout_mode = 1
@@ -473,6 +478,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_wi4o4")
 
 [node name="button" type="Node2D" parent="." unique_id=1019652105]
+visible = false
 
 [node name="play_map" type="Button" parent="button" unique_id=2089908060]
 offset_left = 501.0
@@ -537,6 +543,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ugrot")
 text = "BACK"
 
 [node name="selection_wheel" type="Node2D" parent="." unique_id=1584809628]
+visible = false
 
 [node name="map_bg_margin" type="Panel" parent="selection_wheel" unique_id=1436167089]
 anchors_preset = 8
@@ -573,10 +580,14 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_jague")
 
 [node name="map_bg_lbl" type="Label" parent="selection_wheel" unique_id=531883937]
-offset_left = 502.0
+anchors_preset = -1
+offset_left = -1.0
 offset_top = 418.0
-offset_right = 663.0
+offset_right = 1151.0
 offset_bottom = 477.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0.3764706, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_tfd66")
@@ -619,44 +630,31 @@ offset_right = 19.95996
 offset_bottom = 39.944
 metadata/_edit_use_anchors_ = true
 
-[node name="blood_effect" type="Sprite2D" parent="blood_effect_ctrl" unique_id=647560196]
-position = Vector2(41.99997, 158)
-scale = Vector2(1.1148949, 1.1148947)
+[node name="BloodAnim" type="TextureRect" parent="." unique_id=690299630]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -77.0
+offset_bottom = 286.0
+grow_horizontal = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(-65, 0)
 texture = ExtResource("4_wi4o4")
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1677609519]
-visible = false
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1293353859]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -172.0
-offset_top = -121.999985
-offset_right = 340.0
-offset_bottom = 390.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.65, 0.65)
-fill_mode = 4
-texture_under = SubResource("CompressedTexture2D_wi4o4")
-texture_progress = SubResource("CompressedTexture2D_wtvfn")
 
-[node name="loading_lbl" type="Label" parent="." unique_id=908921020]
-visible = false
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -269.0
-offset_top = -563.0
-offset_right = 284.0
-offset_bottom = -461.0
-grow_horizontal = 2
-grow_vertical = 0
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer" unique_id=1923219722]
+layout_mode = 2
+
+[node name="loading_lbl" type="Label" parent="CenterContainer/VBoxContainer" unique_id=908921020]
+layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.3764706, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("2_tfd66")
@@ -664,12 +662,24 @@ theme_override_font_sizes/font_size = 74
 text = "Loading..."
 horizontal_alignment = 1
 
-[node name="clock_aguja" type="Sprite2D" parent="." unique_id=826308464]
-visible = false
-position = Vector2(569.00006, 367)
-scale = Vector2(0.6199999, 0.62)
+[node name="Container" type="PanelContainer" parent="CenterContainer/VBoxContainer" unique_id=711682322]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxEmpty_wtvfn")
+
+[node name="Aiguille" type="TextureRect" parent="CenterContainer/VBoxContainer/Container" unique_id=1710026236]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.62, 0.62)
 texture = ExtResource("5_wtvfn")
-offset = Vector2(0, -90)
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CenterContainer/VBoxContainer/Container" unique_id=1677609519]
+layout_mode = 2
+fill_mode = 4
+texture_under = SubResource("CompressedTexture2D_wi4o4")
+texture_progress = SubResource("CompressedTexture2D_wtvfn")
 
 [connection signal="pressed" from="button/play_map" to="." method="_on_play_map_pressed"]
 [connection signal="pressed" from="button/previous_map" to="." method="_on_previous_map_pressed"]

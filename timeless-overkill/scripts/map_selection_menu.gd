@@ -2,12 +2,14 @@ extends Control
 
 @onready var map_lbl = $selection_wheel/map_bg_lbl
 @onready var map_img = $selection_wheel/map_bg_margin/map_bg
-@onready var my_progress_bar = $TextureProgressBar
+@export var loading_menu: CenterContainer
+@export var my_progress_bar: TextureProgressBar
+@export var aiguille: TextureRect
 var is_loading_game : bool = false
 
 var maps_selection : Dictionary = {
 	1:
-		{"name": "MAP 1",
+		{"name": "Timeless Town",
 		"image": "res://assets/map_backgrounds/map_1_bg.png",
 		"path": "res://scenes/game.tscn"},
 	2:
@@ -26,6 +28,9 @@ func display_map(map : int):
 	
 	
 func _ready():
+	if MapTracker.plr_died:
+		MapTracker.plr_died = false
+		loading_game()
 	display_map(1)
 	
 func map_index(map_num : int) -> int:
@@ -51,19 +56,19 @@ func _on_go_back_pressed() -> void:
 
 
 func _on_play_map_pressed() -> void:
+	MapTracker.map_selected = "res://scenes/game.tscn"
 	loading_game()
-	is_loading_game = true
 
 
-var GAME_SCENE = maps_selection[map_selected]["path"]
+var GAME_SCENE = "res://scenes/game.tscn"
 
 func loading_game():
+	GAME_SCENE = "res://scenes/game.tscn"
+	is_loading_game = true
 	$button.hide()
 	$selection_wheel.hide()
-	my_progress_bar.show()
-	$clock_aguja.show()
-	$loading_lbl.show()
-	ResourceLoader.load_threaded_request(GAME_SCENE)
+	loading_menu.show()
+	ResourceLoader.load_threaded_request("res://scenes/game.tscn")
 
 func _process(_delta):
 	if is_loading_game:
@@ -73,7 +78,7 @@ func _process(_delta):
 		if progress.size() > 0:
 			var value = progress[0] * 100
 			my_progress_bar.value = value
-			$clock_aguja.rotation_degrees = value * 3.6
+			aiguille.rotation_degrees = value * 3.6
 
 		if status == ResourceLoader.THREAD_LOAD_LOADED:
 			var packed_scene = ResourceLoader.load_threaded_get(GAME_SCENE)

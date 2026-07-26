@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name GunNode
+
 @onready var fire_hole = $fire_hole
 var gun_data: GunType
 @onready var audio_player : AudioStreamPlayer2D = $AudioStreamPlayer2D

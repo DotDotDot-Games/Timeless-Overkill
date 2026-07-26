@@ -3,6 +3,22 @@
 [ext_resource type="Script" uid="uid://b75l5j03eddtv" path="res://resources/gun.gd" id="1_rj7w2"]
 [ext_resource type="Resource" uid="uid://cnr8r2wiq5c6w" path="res://content/bullet/normal.tres" id="1_xip8o"]
 [ext_resource type="PackedScene" uid="uid://dpcgopul0oq7f" path="res://scenes/guns/rifle.tscn" id="2_tlj2l"]
+[ext_resource type="Texture2D" uid="uid://bix5efrat3vh2" path="res://assets/guns/Weapons.png" id="4_tlj2l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfifh"]
+atlas = ExtResource("4_tlj2l")
+region = Rect2(729, 478, 243, 239)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f82ul"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfifh")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [resource]
 script = ExtResource("1_rj7w2")
@@ -12,4 +28,5 @@ reload_time = 1.0
 fire_rate = 0.2
 bullet = ExtResource("1_xip8o")
 scene = ExtResource("2_tlj2l")
+texture = SubResource("SpriteFrames_f82ul")
 metadata/_custom_type_script = "uid://b75l5j03eddtv"

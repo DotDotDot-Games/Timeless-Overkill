@@ -97,6 +97,8 @@ libraries/ = SubResource("AnimationLibrary_8iiss")
 stream = ExtResource("4_47c00")
 volume_db = 8.0
 pitch_scale = 1.1
+max_polyphony = 10
+bus = &"SFX"
 
 [connection signal="timeout" from="NavTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

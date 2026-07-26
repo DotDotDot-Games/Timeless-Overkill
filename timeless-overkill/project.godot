@@ -13,16 +13,21 @@ config_version=5
 config/name="Timeless Overkill"
 run/main_scene="uid://c3yfdp56nuefy"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://b3sxuoawllif8"
 
 [autoload]
 
 LevelCountDown="*uid://g0eqk3oxnv34"
 ScoreCounter="*uid://bngkilbl3qbqx"
 AudioPlayer="*uid://cwy8xgnwktc0h"
+MapTracker="*uid://bx3t1tsdnsqqt"
 
 [debug]
 
+settings/stdout/print_fps=true
 gdscript/warnings/untyped_declaration=1
 
 [display]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bi4srk1kst1nf" path="res://assets/clock_animated0010.png" id="1_rns2u"]
 [ext_resource type="Script" uid="uid://416j4dx50uig" path="res://scripts/score_label.gd" id="1_u001w"]
+[ext_resource type="Script" uid="uid://csh665jygxuv5" path="res://scripts/player_health_bar.gd" id="1_u2dgd"]
 [ext_resource type="Script" uid="uid://cikjnk4os05vr" path="res://scripts/time_limit_clock.gd" id="1_yubou"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ws2uu"]
@@ -43,6 +44,7 @@ theme_override_styles/background = SubResource("StyleBoxFlat_ws2uu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_6pv2d")
 value = 100.0
 show_percentage = false
+script = ExtResource("1_u2dgd")
 
 [node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=1699528588]
 z_index = -1
@@ -55,10 +57,10 @@ color = Color(0.34412384, 0.49361414, 0.5683594, 1)
 z_index = 5
 z_as_relative = false
 layout_mode = 0
-offset_left = 5.5
-offset_top = -1.5
-offset_right = 67.5
-offset_bottom = 21.5
+offset_right = 61.0
+offset_bottom = 23.0
+offset_transform_enabled = true
+offset_transform_position = Vector2(5.5, 0)
 bbcode_enabled = true
 text = "Score: 0"
 fit_content = true
@@ -88,6 +90,8 @@ script = ExtResource("1_yubou")
 [node name="ClockAudio" type="AudioStreamPlayer" parent="TextureRect" unique_id=1651153669]
 unique_name_in_owner = true
 volume_db = -11.909
+max_polyphony = 10
+bus = &"SFX"
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1748915934]
 z_index = -1
