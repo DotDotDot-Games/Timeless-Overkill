@@ -1,6 +1,4 @@
 extends Control
-
-@onready var my_btn = $buttons/Button
 	
 func _on_button_pressed() -> void:
 	MapTracker.plr_died = true
