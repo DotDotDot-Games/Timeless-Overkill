@@ -21,6 +21,7 @@ script = ExtResource("1_0tnpc")
 [node name="pause_menu" parent="CanvasLayer" unique_id=1287454053 instance=ExtResource("2_u5sy4")]
 
 [node name="kill_screen" parent="CanvasLayer" unique_id=619764261 instance=ExtResource("3_0tnpc")]
+visible = false
 
 [node name="end_screen" parent="CanvasLayer" unique_id=825936406 instance=ExtResource("5_vtaks")]
 visible = false
