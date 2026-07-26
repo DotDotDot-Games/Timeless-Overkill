@@ -23,6 +23,7 @@ AudioPlayer="*uid://cwy8xgnwktc0h"
 
 [debug]
 
+settings/stdout/print_fps=true
 gdscript/warnings/untyped_declaration=1
 
 [display]
