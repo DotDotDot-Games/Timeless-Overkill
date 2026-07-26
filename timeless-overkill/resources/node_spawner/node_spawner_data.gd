@@ -33,6 +33,6 @@ class_name NodeSpawnerData
 		changed.emit()
 
 ## null if don't use node
-@export var default_node_to_spawn: PackedScene
+@export var start_with_node_spawned := false
 
 @export var spawn_method: BaseNodeSpawnMethod

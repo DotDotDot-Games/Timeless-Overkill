@@ -37,8 +37,8 @@ func _ready() -> void:
 	
 	_update_data()
 	
-	if data.default_node_to_spawn:
-		container.add_child(data.default_node_to_spawn.instantiate())
+	if data.start_with_node_spawned:
+		spawn()
 	
 	_can_spawn()
 	_start_spawning()
