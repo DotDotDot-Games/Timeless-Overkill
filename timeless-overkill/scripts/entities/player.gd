@@ -58,18 +58,25 @@ var dash_cooldown := 1.0
 var dash_time := 0.15
 var invincible = false
 
-func _ready():
-	gun_scene = gun.scene.instantiate()
-	add_child(gun_scene)
-	gun_scene.global_position = gun_spawn.global_position
-	gun_scene.gun_data = gun.duplicate()
-	bullet_timer.wait_time = gun.fire_rate
-	bullet_timer.start()
+func _ready() -> void:
+	
+	if gun:
+		set_weapon(gun)
+	
 	dash_timer.wait_time = dash_time
 	add_to_group("Players")
 
-
-
+func set_weapon(data: GunType) -> void:
+	var new_gun: GunNode = data.scene.instantiate()
+	new_gun.global_position = gun_spawn.global_position
+	new_gun.gun_data = data.duplicate()
+	gun_scene = new_gun
+	
+	bullet_timer.wait_time = data.fire_rate
+	
+	add_child(new_gun)
+	
+	bullet_timer.start()
 
 func _physics_process(delta: float) -> void:
 	#setting up variables
