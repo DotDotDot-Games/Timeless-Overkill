@@ -17,7 +17,7 @@
 script = ExtResource("1_p57ef")
 
 [node name="Timer" type="Timer" parent="Spawner" unique_id=1454062899]
-wait_time = 9.0
+wait_time = 7.0
 autostart = true
 
 [node name="player" parent="." unique_id=610688041 instance=ExtResource("1_uwrxv")]

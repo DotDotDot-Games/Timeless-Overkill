@@ -9,7 +9,7 @@ class_name EnemyNode
 @onready var damage_timer : Timer = $DamageTimer
 @onready var animation_player : AnimationPlayer = $AnimationPlayer
 @onready var particle_node : Node = $"../../Particles"
-
+@onready var audio_player : AudioStreamPlayer2D = $AudioStreamPlayer2D
 var death_particles = preload("res://scenes/death_particles.tscn")
 var health_bar = preload("res://scenes/healthbar.tscn")
 var zombie_stats = preload("res://content/entities/zombie.tres")
@@ -58,6 +58,7 @@ func deal_damage(collider):
 			
 func damage(value):
 	health -= value
+	audio_player.play()
 	if health <= 0:
 		return true
 	else:
