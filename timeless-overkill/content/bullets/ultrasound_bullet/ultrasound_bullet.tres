@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="BulletStats" format=3 uid="uid://d2pro4nhhqwmq"]
+
+[ext_resource type="Script" uid="uid://6q5kx66wrigb" path="res://components/resources/limited_value.gd" id="1_g5iyu"]
+[ext_resource type="Script" uid="uid://dv34np0gi74dy" path="res://resources/bullets/bullet_stats.gd" id="1_kkprt"]
+[ext_resource type="Texture2D" uid="uid://coqdw87qdbx7c" path="res://content/bullets/ultrasound_bullet/ultrasound_bullet.png" id="3_wf4is"]
+
+[sub_resource type="Resource" id="Resource_sb3ge"]
+script = ExtResource("1_g5iyu")
+_current_value = 1.0
+_max_value = 1.0
+metadata/_custom_type_script = "uid://6q5kx66wrigb"
+
+[resource]
+script = ExtResource("1_kkprt")
+speed = 1000.0
+damage = 100.0
+texture = ExtResource("3_wf4is")
+bounces = SubResource("Resource_sb3ge")
+scene = "uid://rannptckuggo"
+_id = "ultrasound_bullet"
+name = "Ultrasound Bullet"
+metadata/_custom_type_script = "uid://dv34np0gi74dy"

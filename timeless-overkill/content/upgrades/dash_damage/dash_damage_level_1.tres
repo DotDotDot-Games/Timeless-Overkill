@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="DashDamageUpgradeData" format=3 uid="uid://dxd462afet7rx"]
+
+[ext_resource type="Script" uid="uid://dupjrmnr7j0mo" path="res://resources/upgrades/types/dash_damage_upgrade_data.gd" id="1_ix1vo"]
+[ext_resource type="Texture2D" uid="uid://c2vpufrblrj0v" path="res://assets/raven/fb636.png" id="2_nico0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tx0w8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_nico0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[resource]
+script = ExtResource("1_ix1vo")
+extra_value = 400.0
+texture = SubResource("SpriteFrames_tx0w8")
+type = 1
+_id = "dash_damage_level_1"
+name = "Dash Damage Level 1"
+metadata/_custom_type_script = "uid://dupjrmnr7j0mo"

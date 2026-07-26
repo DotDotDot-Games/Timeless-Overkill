@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://boayxbo8qeomp"]
+
+[ext_resource type="Script" uid="uid://c18i7fadmrj4v" path="res://scripts/upgrades/upgrade_node.gd" id="1_4krlj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_obaep"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obaep"]
+size = Vector2(32, 32)
+
+[node name="UpgradeNode" type="Node2D" unique_id=1056821281]
+script = ExtResource("1_4krlj")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1921945626]
+sprite_frames = SubResource("SpriteFrames_obaep")
+
+[node name="UpgradePickbox" type="Area2D" parent="." unique_id=104440094]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpgradePickbox" unique_id=1897786702]
+shape = SubResource("RectangleShape2D_obaep")
+
+[connection signal="body_shape_entered" from="UpgradePickbox" to="." method="_on_player_entered"]

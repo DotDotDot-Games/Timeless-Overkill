@@ -1,11 +1,131 @@
 [gd_scene format=3 uid="uid://bc161ne8nak3l"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0qees"]
-load_path = "res://.godot/imported/shooter up Teams.png-d2a7afa69397c637a49fdf616cb9603d.ctex"
+[ext_resource type="Shader" uid="uid://d2so8p2u4r548" path="res://shaders/hitflash.gdshader" id="1_1ie0h"]
+[ext_resource type="Script" uid="uid://dcbqil4pk2qal" path="res://scripts/entities/player.gd" id="1_08t41"]
+[ext_resource type="Texture2D" uid="uid://c7ysnjmu40oxs" path="res://assets/entities/shooter up.png" id="1_ucweq"]
+[ext_resource type="Resource" uid="uid://cfk2qnitdvskd" path="res://content/guns/pistol.tres" id="2_d4qa6"]
+[ext_resource type="AudioStream" uid="uid://bpqr0u7a078yo" path="res://assets/audio/sfx/erhh.MP3" id="4_5u6hq"]
+[ext_resource type="AudioStream" uid="uid://bxbp3vm6voc7p" path="res://assets/audio/sfx/ouchiwawa.MP3" id="5_d4qa6"]
 
-[node name="player" type="CharacterBody2D" unique_id=610688041]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d4qa6"]
+radius = 9.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=843150470]
-texture = SubResource("CompressedTexture2D_0qees")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1ie0h"]
+resource_local_to_scene = true
+shader = ExtResource("1_1ie0h")
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/hit_flash_on = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42nxq"]
+atlas = ExtResource("1_ucweq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08t41"]
+atlas = ExtResource("1_ucweq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ie0h"]
+atlas = ExtResource("1_ucweq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u6hq"]
+atlas = ExtResource("1_ucweq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3381y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42nxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08t41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ie0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5u6hq")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_asks5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/hit_flash_on")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_47c00"]
+resource_name = "hit_flash"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:material:shader_parameter/hit_flash_on")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_08t41"]
+_data = {
+&"RESET": SubResource("Animation_asks5"),
+&"hit_flash": SubResource("Animation_47c00")
+}
+
+[node name="player" type="CharacterBody2D" unique_id=610688041 groups=["Players"]]
+collision_mask = 12
+motion_mode = 1
+script = ExtResource("1_08t41")
+gun = ExtResource("2_d4qa6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2016361329]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_d4qa6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1486394656]
+material = SubResource("ShaderMaterial_1ie0h")
+scale = Vector2(1.3, 1.3)
+sprite_frames = SubResource("SpriteFrames_3381y")
+
+[node name="GunSpawn" type="Node2D" parent="." unique_id=1179607334]
+position = Vector2(14.8, 11)
+
+[node name="BulletCooldown" type="Timer" parent="." unique_id=1966882034]
+one_shot = true
+
+[node name="DashTime" type="Timer" parent="." unique_id=890019868]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1352391863]
+libraries/ = SubResource("AnimationLibrary_08t41")
+
+[node name="DamagePlayer" type="AudioStreamPlayer2D" parent="." unique_id=1439921147]
+stream = ExtResource("4_5u6hq")
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="DeathPlayer" type="AudioStreamPlayer2D" parent="." unique_id=354760575]
+stream = ExtResource("5_d4qa6")
+volume_db = -1.0
+bus = &"SFX"
+
+[connection signal="timeout" from="BulletCooldown" to="." method="_on_bullet_cooldown_timeout"]
+[connection signal="timeout" from="DashTime" to="." method="_on_dash_cooldown_timeout"]

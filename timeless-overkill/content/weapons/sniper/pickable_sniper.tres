@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ItemPickableData" format=3 uid="uid://c5683oi652d60"]
+
+[ext_resource type="Script" uid="uid://bmgqv466nua6a" path="res://resources/items/item_pickable_data.gd" id="1_n3j3r"]
+[ext_resource type="Texture2D" uid="uid://dlu1buasqeolj" path="res://content/weapons/sniper/sniper.png" id="2_7wnpt"]
+
+[resource]
+script = ExtResource("1_n3j3r")
+texture = ExtResource("2_7wnpt")
+scene = "uid://ygu8txlq1oud"
+metadata/_custom_type_script = "uid://bmgqv466nua6a"
