@@ -31,8 +31,10 @@ Visual:
 
 Sounds:
 - **Clock Sound**: Pixabay
-- **Background Music**: Pixabay
-- **SFX**: Pixabay
+- **Game Overdrive (Background Music)**: Pixabay
+- **Shotgun SFX**: Pixabay
+- **Heavy Machine Gun SFX**: Pixabay
+- **Rifle SFX**: Pixabay
 
 ## How did we make it?
 
