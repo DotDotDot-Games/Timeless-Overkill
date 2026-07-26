@@ -13,7 +13,6 @@ config_version=5
 config/name="Timeless Overkill"
 run/main_scene="uid://c3yfdp56nuefy"
 config/features=PackedStringArray("4.7", "Forward Plus")
-config/icon="res://icon.svg"
 
 [audio]
 

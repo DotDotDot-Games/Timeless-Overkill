@@ -1,8 +1,11 @@
 [gd_scene format=4 uid="uid://cf5vadix5nv43"]
 
-[ext_resource type="Texture2D" uid="uid://dhx18mqutt2eq" path="res://assets/images/game_icon_trans.png" id="1_6e1uj"]
 [ext_resource type="Script" uid="uid://0c5k7uweov3u" path="res://scripts/end_screen.gd" id="1_jc7ji"]
 [ext_resource type="FontFile" uid="uid://d2w8t74sl8snq" path="res://assets/fonts_william/PixelifySans-VariableFont_wght.ttf" id="1_kq7ac"]
+[ext_resource type="Texture2D" uid="uid://cp8sr4r22qp2q" path="res://assets/images/icon.png" id="3_jc7ji"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jc7ji"]
+bg_color = Color(0, 0, 0, 0.32941177)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6e1uj"]
 bg_color = Color(0.26005957, 0.4971249, 0.41468677, 1)
@@ -15,6 +18,10 @@ corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
 
 [sub_resource type="Image" id="Image_myx47"]
 data = {
@@ -515,7 +522,6 @@ shadow_offset = Vector2(5, 5)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4j4el"]
 
 [node name="end_screen" type="Control" unique_id=825936406]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -524,7 +530,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jc7ji")
 
-[node name="shader" type="ColorRect" parent="." unique_id=946593354]
+[node name="shader" type="Panel" parent="." unique_id=766411739]
 z_index = 2
 layout_mode = 1
 anchors_preset = 15
@@ -532,44 +538,32 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.32941177)
+theme_override_styles/panel = SubResource("StyleBoxFlat_jc7ji")
+metadata/_edit_lock_ = true
 
-[node name="pause_box" type="Panel" parent="." unique_id=412192078]
-z_index = 2
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1170370200]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.303
-anchor_top = 0.31800002
-anchor_right = 0.697
-anchor_bottom = 0.68200004
-offset_left = -0.55599976
-offset_top = -0.06401062
-offset_right = 0.55596924
-offset_bottom = 55.063965
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="pause_box" type="PanelContainer" parent="CenterContainer" unique_id=1324739799]
+z_index = 2
+layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_6e1uj")
+metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1002556026]
-z_index = 2
-position = Vector2(628, 280.00003)
-scale = Vector2(0.39285725, 0.39285728)
-texture = ExtResource("1_6e1uj")
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/pause_box" unique_id=359033316]
+layout_mode = 2
+theme_override_constants/separation = 32
 
-[node name="paused_lbl" type="Label" parent="." unique_id=169248248]
+[node name="paused_lbl" type="Label" parent="CenterContainer/pause_box/VBoxContainer" unique_id=169248248]
 z_index = 2
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -76.0
-offset_top = -76.0
-offset_right = 91.0
-offset_bottom = -17.0
-grow_horizontal = 2
-grow_vertical = 2
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
 theme_override_colors/font_outline_color = Color(0.2627451, 0, 0.019607844, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("1_kq7ac")
@@ -578,21 +572,10 @@ text = "TIME'S     VER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="main_menu_btn" type="Button" parent="." unique_id=1099583854]
+[node name="main_menu_btn" type="Button" parent="CenterContainer/pause_box/VBoxContainer" unique_id=1099583854]
 process_mode = 3
 z_index = 2
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -91.0
-offset_top = 16.0
-offset_right = 91.0
-offset_bottom = 59.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_jc7ji")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_87vmq")
@@ -602,21 +585,10 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_plosh")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4j4el")
 text = "MAIN MENU"
 
-[node name="restart_btn" type="Button" parent="." unique_id=2000038500]
+[node name="restart_btn" type="Button" parent="CenterContainer/pause_box/VBoxContainer" unique_id=2000038500]
 process_mode = 3
 z_index = 2
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -91.0
-offset_top = 77.0
-offset_right = 91.0
-offset_bottom = 120.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 theme_override_fonts/font = SubResource("FontFile_jc7ji")
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_87vmq")
@@ -626,5 +598,21 @@ theme_override_styles/disabled = SubResource("StyleBoxEmpty_plosh")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_4j4el")
 text = "RESTART"
 
-[connection signal="pressed" from="main_menu_btn" to="." method="_on_main_menu_btn_pressed"]
-[connection signal="pressed" from="restart_btn" to="." method="_on_restart_btn_pressed"]
+[node name="Icon" type="TextureRect" parent="." unique_id=817397083]
+z_index = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53900003
+anchor_top = 0.39800003
+anchor_right = 0.53900003
+anchor_bottom = 0.39800003
+offset_left = -68.92804
+offset_top = -72.90402
+offset_right = 71.07196
+offset_bottom = 73.09598
+offset_transform_enabled = true
+offset_transform_scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_jc7ji")
+
+[connection signal="pressed" from="CenterContainer/pause_box/VBoxContainer/main_menu_btn" to="." method="_on_main_menu_btn_pressed"]
+[connection signal="pressed" from="CenterContainer/pause_box/VBoxContainer/restart_btn" to="." method="_on_restart_btn_pressed"]

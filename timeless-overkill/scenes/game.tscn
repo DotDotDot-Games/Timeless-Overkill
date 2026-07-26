@@ -23,6 +23,7 @@ script = ExtResource("1_0tnpc")
 [node name="kill_screen" parent="CanvasLayer" unique_id=619764261 instance=ExtResource("3_0tnpc")]
 
 [node name="end_screen" parent="CanvasLayer" unique_id=825936406 instance=ExtResource("5_vtaks")]
+visible = false
 
 [node name="Spawner" type="Node" parent="." unique_id=1357809302]
 script = ExtResource("1_p57ef")
