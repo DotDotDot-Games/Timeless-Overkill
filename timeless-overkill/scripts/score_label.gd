@@ -11,7 +11,10 @@ func _ready() -> void:
 	if not ScoreCounter.score_changed.is_connected(_on_change_score):
 		ScoreCounter.score_changed.connect(_on_change_score)
 	
-	_on_change_score(ScoreCounter.score)
+	if not ScoreCounter.mult_changed.is_connected(_on_change_score):
+		ScoreCounter.mult_changed.connect(func(new_mult: float): _on_change_score(ScoreCounter.score, false))
+	
+	_on_change_score(ScoreCounter.score, false)
 	
 func _process(_delta):
 	color_rect_bar.size.x = color_rect.size.x * 2 * (timer.time_left / start_time)
@@ -28,7 +31,7 @@ func add_commas(number: int) -> String:
 			result = "," + result
 	
 	return result
-func _on_change_score(new_score: int) -> void:
+func _on_change_score(new_score: int, more_mult := true) -> void:
 	color_rect_bar.size.y = color_rect.size.y + 25
 	
 
@@ -37,7 +40,10 @@ func _on_change_score(new_score: int) -> void:
 	start_time = timer.wait_time
 	self.text = "[color=#F6BE00]"+str(ScoreCounter.score_rainbow_mult)+"x [/color]"+ "[wave][rainbow]"+"Score: "+add_commas(int(snappedf(new_score,100)))+"[/rainbow][/wave]"
 	await get_tree().process_frame
-	ScoreCounter.score_rainbow_mult += 0.2
+	
+	if more_mult:
+		ScoreCounter.score_rainbow_mult += 0.2
+	
 	var s := size + Vector2(10,0)
 	color_rect.custom_minimum_size = s
 	color_rect.custom_maximum_size = s
