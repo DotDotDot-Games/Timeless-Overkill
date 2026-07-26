@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider()
 		if collider.is_in_group("Enemies") or collider.is_in_group("Players"):
 			if damage(collider) and collider.is_in_group("Enemies"):
-				point_mult = bullet_data.points * hit_mult
+				point_mult = bullet_data.points * hit_mult * ScoreCounter.score_rainbow_mult
 				ScoreCounter.score += collider.stats.points * point_mult
 				hit_mult *= 1.25
 			collider.hit()
@@ -58,7 +58,7 @@ func set_up_variables():
 	
 	bounces = bullet_data.bounces
 	pierce = bullet_data.pierce
-	point_mult = bullet_data.points * hit_mult
+	point_mult = bullet_data.points * hit_mult * ScoreCounter.score_rainbow_mult
 	if speed == null:
 		speed = bullet_data.bullet_speed
 	if bullet_damage == null:

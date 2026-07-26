@@ -25,7 +25,6 @@ autostart = true
 
 [node name="player" parent="." unique_id=610688041 instance=ExtResource("1_uwrxv")]
 z_index = 1
-gun = ExtResource("3_gee14")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1319337568]
 zoom = Vector2(0.9, 0.9)
